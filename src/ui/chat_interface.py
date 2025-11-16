@@ -267,6 +267,14 @@ class ChatInterface:
         # Store current user session
         self.current_user_session = user_session
 
+        # Clean up sessions without any conversation history (ChatGPT-like behavior)
+        active_session_id = st.session_state.get("current_session_id")
+        user_id = user_session.user_id if user_session else None
+        self.chat_service.cleanup_empty_sessions(
+            user_id=user_id,
+            exclude_session_id=active_session_id
+        )
+
         # Initialize current session
         if "current_session_id" not in st.session_state:
             # Get current user ID for session creation

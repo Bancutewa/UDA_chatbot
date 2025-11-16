@@ -93,5 +93,34 @@ class ChatService:
             # For JSON fallback or when no user specified
             return fresh_repo.get_all_sessions()
 
+    def cleanup_empty_sessions(
+        self,
+        user_id: Optional[str] = None,
+        exclude_session_id: Optional[str] = None
+    ) -> int:
+        """
+        Remove chat sessions without any messages.
+
+        Args:
+            user_id: Only clean sessions belonging to this user when provided.
+            exclude_session_id: Keep this session even if empty (active chat).
+
+        Returns:
+            Number of sessions removed.
+        """
+        sessions = self.get_all_sessions(user_id)
+        empty_session_ids = [
+            session["id"]
+            for session in sessions
+            if not session.get("messages")
+            and session["id"] != exclude_session_id
+        ]
+
+        for session_id in empty_session_ids:
+            logger.info(f"Removing empty chat session: {session_id}")
+            self.delete_session(session_id)
+
+        return len(empty_session_ids)
+
 # Global instance
 chat_service = ChatService()
