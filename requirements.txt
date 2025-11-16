@@ -11,7 +11,7 @@ google-genai>=0.1.0
 pymongo>=4.6.0        # For MongoDB Atlas
 qdrant-client>=1.7.0  # For vector database
 
-# Optional dependencies (commented out if not needed)
+# Optional dependencies
 elevenlabs>=1.0.0     # For audio generation
 agno[all]            # Full agno installation
 

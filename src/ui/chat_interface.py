@@ -143,16 +143,25 @@ class ChatInterface:
                                 if display_response:
                                     st.session_state.audio_display_response = display_response
 
-                            # Display response
-                            st.markdown(bot_response, unsafe_allow_html=True)
+                            # Display response - skip if audio display response is set
+                            display_response = st.session_state.get('audio_display_response', bot_response)
+                            if 'audio_display_response' in st.session_state:
+                                del st.session_state.audio_display_response  # Clean up after use
+
+                            if display_response.strip():  # Only display if there's content
+                                st.markdown(display_response, unsafe_allow_html=True)
 
                         except Exception as e:
                             error_msg = f"❌ Lỗi xử lý: {str(e)}"
                             st.error(error_msg)
                             bot_response = error_msg
 
-                # Save assistant response
-                self.chat_service.add_message(session_id, "assistant", bot_response)
+                # Save assistant response (use history response for audio, regular response for others)
+                history_response = bot_response
+                if intent_name == "generate_audio" and hasattr(intent_handler, 'get_history_response'):
+                    history_response = intent_handler.get_history_response() or bot_response
+
+                self.chat_service.add_message(session_id, "assistant", history_response)
 
                 # Auto-update title from first message
                 if len(session["messages"]) == 2:  # user + assistant

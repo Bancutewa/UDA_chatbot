@@ -81,5 +81,25 @@ class AudioAgent:
         """Get available voice options"""
         return AUDIO_VOICE_OPTIONS
 
+    def generate_audio(self, description: str):
+        """
+        Generate audio from description using the agent
+
+        Args:
+            description: Text or URL to convert to audio
+
+        Returns:
+            Agent response with audio generation result
+        """
+        if not self.is_available():
+            raise AgentInitializationError("Audio agent is not available")
+
+        try:
+            response = self.agent.run(f"Convert this content to audio: {description}")
+            return response
+        except Exception as e:
+            logger.error(f"Audio generation failed: {e}")
+            raise e
+
 # Global instance
 audio_agent = AudioAgent()
