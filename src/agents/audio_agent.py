@@ -6,12 +6,17 @@ from typing import Optional
 
 try:
     from agno.tools.eleven_labs import ElevenLabsTools
-    from agno.tools.firecrawl import FirecrawlTools
     ELEVENLABS_AVAILABLE = True
 except ImportError:
     ElevenLabsTools = None
-    FirecrawlTools = None
     ELEVENLABS_AVAILABLE = False
+
+try:
+    from agno.tools.firecrawl import FirecrawlTools
+    FIRECRAWL_AVAILABLE = True
+except ImportError:
+    FirecrawlTools = None
+    FIRECRAWL_AVAILABLE = False
 
 from .llm_agent import llm_agent
 from ..core.config import config
@@ -46,7 +51,7 @@ class AudioAgent:
                 )
             ]
 
-            if firecrawl_api_key:
+            if firecrawl_api_key and FIRECRAWL_AVAILABLE:
                 tools.append(FirecrawlTools(api_key=firecrawl_api_key))
 
             self.agent = llm_agent.create_agent(
@@ -71,6 +76,9 @@ class AudioAgent:
 
         except Exception as e:
             logger.error(f"Failed to initialize Audio Agent: {e}")
+            logger.error(f"Exception type: {type(e)}")
+            import traceback
+            logger.error(f"Traceback: {traceback.format_exc()}")
             self.agent = None
 
     def is_available(self) -> bool:
