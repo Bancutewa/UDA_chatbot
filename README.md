@@ -82,9 +82,46 @@ echo "GEMINI_API_KEY=your_gemini_api_key_here" > .env
 
 ### 3. Chạy Chatbot
 
+**Tùy chọn A: Chạy trực tiếp**
+
 ```bash
 streamlit run app.py
 ```
+
+**Tùy chọn B: Chạy với Docker**
+
+_Yêu cầu: Docker và Docker Compose đã được cài đặt_
+
+```bash
+# 1. Sao chép file env
+cp env.example .env
+
+# 2. Chỉnh sửa .env với API keys của bạn
+nano .env
+
+# 3. Build và chạy
+docker-compose up --build
+
+# Hoặc chạy background
+docker-compose up -d --build
+```
+
+**Truy cập:** http://localhost:8501
+
+### Docker Configuration
+
+**Database:** Sử dụng MongoDB Atlas (cloud) - không cần MongoDB local
+
+**Ports:**
+
+- Chatbot: `8501`
+
+**Volumes:**
+
+- `./data`: Audio files và user data
+- `./logs`: Application logs
+
+**Lưu ý:** Dự án sử dụng MongoDB Atlas (cloud database), không cần MongoDB local.
 
 ## 🔐 Authentication System
 
