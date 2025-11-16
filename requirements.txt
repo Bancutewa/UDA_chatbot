@@ -1,0 +1,20 @@
+# Core dependencies
+streamlit>=1.28.0
+pydantic>=2.0.0
+python-dotenv>=1.0.0
+
+# AI/ML dependencies
+agno>=0.1.0
+google-genai>=0.1.0
+
+# Database dependencies
+pymongo>=4.6.0        # For MongoDB Atlas
+qdrant-client>=1.7.0  # For vector database
+
+# Optional dependencies (commented out if not needed)
+elevenlabs>=1.0.0     # For audio generation
+agno[all]            # Full agno installation
+
+# Development dependencies
+pytest>=7.0.0
+black>=23.0.0

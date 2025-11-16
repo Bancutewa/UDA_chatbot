@@ -1,0 +1,35 @@
+{
+  "289966c3-9987-4d50-ac4d-8e2abeac6cfd": {
+    "id": "289966c3-9987-4d50-ac4d-8e2abeac6cfd",
+    "title": "New Chat",
+    "messages": [
+      {
+        "role": "user",
+        "content": "xin chào",
+        "timestamp": "2025-11-16T11:17:08.648635"
+      },
+      {
+        "role": "user",
+        "content": "xin chào",
+        "timestamp": "2025-11-16T11:17:54.146237"
+      },
+      {
+        "role": "assistant",
+        "content": "Chào bạn! Rất vui được gặp lại. Có điều gì bạn muốn trò chuyện hôm nay không? 😊",
+        "timestamp": "2025-11-16T11:18:12.259491"
+      },
+      {
+        "role": "user",
+        "content": "xin chào",
+        "timestamp": "2025-11-16T11:29:55.424331"
+      },
+      {
+        "role": "assistant",
+        "content": "Chào bạn lần nữa! 😊 Có vẻ bạn đang muốn nói chuyện điều gì đó phải không? Tôi vẫn ở đây và rất sẵn lòng trò chuyện cùng bạn đây!",
+        "timestamp": "2025-11-16T11:30:08.859392"
+      }
+    ],
+    "created_at": "2025-11-16T11:17:01.306513",
+    "updated_at": "2025-11-16T11:30:08.859398"
+  }
+}
