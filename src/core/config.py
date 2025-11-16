@@ -38,19 +38,13 @@ class Config:
 
     # Database Configuration
     MONGODB_URL: str = os.getenv("MONGODB_URL") or os.getenv("MONGODB_URI", "")
-    QDRANT_URL: str = os.getenv("QDRANT_URL", "http://localhost:6333")
-    QDRANT_API_KEY: str = os.getenv("QDRANT_API_KEY", "")
     DATABASE_NAME: str = os.getenv("DATABASE_NAME", "chatbot_db")
 
     # Fallback to local JSON if MongoDB not configured
     USE_MONGODB: bool = bool(MONGODB_URL.strip())
 
-    # Vector Database
-    VECTOR_DIMENSION: int = 768  # For text-embedding-3-small
-
     # File Paths (fallback for local storage)
     CHAT_SESSIONS_FILE: str = "chat_sessions.json"
-    BDS_RAW_DATA_DIR: str = "data/bds_raw_data"
     AUDIO_GENERATIONS_DIR: str = "data/audio_generations"
 
     # MongoDB Client (lazy loaded)
@@ -83,7 +77,6 @@ class Config:
 
         # Create directories if they don't exist
         os.makedirs(cls.AUDIO_TARGET_DIR, exist_ok=True)
-        os.makedirs(cls.BDS_RAW_DATA_DIR, exist_ok=True)
 
         return True
 

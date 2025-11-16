@@ -1,6 +1,6 @@
 # 🤖 AI Chatbot Assistant
 
-Chatbot AI đa năng với kiến trúc 7-layer, hỗ trợ authentication, trò chuyện, tạo ảnh, tạo audio và tư vấn bất động sản.
+Chatbot AI đa năng với kiến trúc 7-layer, hỗ trợ authentication, trò chuyện, tạo ảnh và tạo audio.
 
 ## 🏗️ Kiến trúc 7 Layer
 
@@ -18,35 +18,26 @@ chatbot/
 │   │   ├── llm_agent.py      # Gemini API wrapper
 │   │   ├── intent_agent.py   # Intent analysis agent
 │   │   ├── image_agent.py    # Pollinations agent
-│   │   ├── audio_agent.py    # ElevenLabs agent
-│   │   └── bds_agent.py      # BDS agent
+│   │   └── audio_agent.py    # ElevenLabs agent
 │   │
 │   ├── intents/             # 🎯 Intent handlers
 │   │   ├── base_intent.py    # Abstract base class
 │   │   ├── intent_registry.py # Intent registry
 │   │   ├── general_chat_intent.py
 │   │   ├── generate_image_intent.py
-│   │   ├── generate_audio_intent.py
-│   │   └── bds_intent.py     # 🆕 BDS intent
+│   │   └── generate_audio_intent.py
 │   │
 │   ├── services/            # 🔧 Business logic
 │   │   ├── chat_service.py   # Chat operations
 │   │   ├── image_service.py  # Image generation
-│   │   ├── audio_service.py  # Audio generation
-│   │   ├── bds_service.py    # BDS queries
-│   │   └── rag_service.py    # RAG pipeline
+│   │   └── audio_service.py  # Audio generation
 │   │
 │   ├── repositories/        # 💾 Database layer
 │   │   ├── chat_history_repo.py  # JSON chat storage
-│   │   ├── qdrant_repository.py  # Vector database
-│   │   └── bds_repo.py       # BDS data storage
-│   │
-│   ├── pipelines/           # 🔄 Data processing
-│   │   └── bds_data_pipeline.py  # BDS data processing
+│   │   └── user_repository.py    # User data storage
 │   │
 │   ├── schemas/             # 📋 Pydantic schemas
 │   │   ├── chat.py          # Chat schemas
-│   │   ├── bds.py           # BDS schemas
 │   │   └── user.py          # User & auth schemas
 │   │
 │   ├── ui/                  # 🎨 User interface
@@ -57,8 +48,7 @@ chatbot/
 │   └── main_chatbot.py      # 🎼 Orchestrator
 │
 └── data/
-    ├── audio_generations/   # Audio files
-    └── bds_raw_data/        # BDS raw data
+    └── audio_generations/   # Audio files
 ```
 
 ## 🚀 Cài đặt và Chạy
@@ -95,20 +85,6 @@ echo "GEMINI_API_KEY=your_gemini_api_key_here" > .env
 ```bash
 streamlit run app.py
 ```
-
-### 4. Tạo Admin User (Tùy chọn)
-
-Để tạo tài khoản admin đầu tiên:
-
-```bash
-python create_admin.py
-```
-
-**Tài khoản admin mặc định:**
-
-- Username: `admin`
-- Password: `admin123`
-- Email: `admin@example.com`
 
 ## 🔐 Authentication System
 
@@ -163,24 +139,6 @@ JWT_SECRET_KEY=your_secret_key_here
 - Intent: `estate_query`
 - RAG pipeline với Qdrant vector DB
 - Tư vấn dựa trên dữ liệu thực tế
-
-## 🎨 Giao diện ChatGPT-style
-
-### Sidebar Features:
-
-- ✅ **➕ New Chat**: Tạo cuộc trò chuyện mới
-- ✅ **💬 Session List**: Danh sách tất cả sessions với số tin nhắn
-- ✅ **🟢 Active Session**: Highlight session hiện tại
-- ✅ **⋮ Options Menu**: Rename/Delete từng session
-- ✅ **Auto-titles**: Tự động đặt title từ tin nhắn đầu tiên
-
-### Main Chat Area:
-
-- ✅ **Wide Layout**: Layout rộng rãi hơn
-- ✅ **Session-based**: Mỗi session lưu riêng biệt
-- ✅ **Persistent**: Chat history được lưu vào file `chat_sessions.json`
-- ✅ **Audio Support**: HTML audio player cho audio generation
-- ✅ **API Status**: Hiển thị trạng thái API key
 
 ## 🧩 Intent System
 

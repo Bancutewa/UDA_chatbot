@@ -7,7 +7,6 @@ from .base_intent import BaseIntent
 from .general_chat_intent import GeneralChatIntent
 from .generate_image_intent import GenerateImageIntent
 from .generate_audio_intent import GenerateAudioIntent
-from .bds_intent import BDSIntent
 
 
 class IntentRegistry:
@@ -23,7 +22,6 @@ class IntentRegistry:
         self.register_intent("general_chat", GeneralChatIntent)
         self.register_intent("generate_image", GenerateImageIntent)
         self.register_intent("generate_audio", GenerateAudioIntent)
-        self.register_intent("estate_query", BDSIntent)
 
     def register_intent(self, intent_name: str, intent_class: Type[BaseIntent]):
         """Đăng ký một intent mới"""
