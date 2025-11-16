@@ -8,6 +8,7 @@ from typing import Optional
 from .core.config import config
 from .core.exceptions import APIKeyMissingError
 from .ui.chat_interface import chat_interface
+from .ui.auth_interface import auth_interface
 from .core.logger import logger
 
 
@@ -32,8 +33,14 @@ class MainChatbot:
     def run(self):
         """Run the chatbot application"""
         try:
-            # Render the UI
-            chat_interface.render()
+            # Check authentication first
+            user_session = auth_interface.render()
+
+            # If user is authenticated, show chat interface
+            if user_session:
+                chat_interface.render(user_session)
+            # auth_interface.render() already handles the auth UI when not logged in
+
         except Exception as e:
             logger.error(f"Error running chatbot: {e}")
             st.error(f"❌ Lỗi hệ thống: {str(e)}")

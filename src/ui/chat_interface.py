@@ -16,8 +16,9 @@ class ChatInterface:
     def __init__(self):
         self.chat_service = chat_service
         self.intent_agent = intent_agent
+        self.current_user_session = None
 
-    def render_sidebar(self):
+    def render_sidebar(self, user_session=None):
         """Render the sidebar with chat sessions"""
         with st.sidebar:
             st.header("💬 Chat Sessions")
@@ -28,14 +29,26 @@ class ChatInterface:
 
         # New Chat button
         if st.button("➕ New Chat", use_container_width=True):
-            new_session = self.chat_service.create_session()
+            # Get current user ID from session
+            current_user_id = None
+            if hasattr(self, 'current_user_session') and self.current_user_session:
+                current_user_id = self.current_user_session.user_id
+
+            new_session = self.chat_service.create_session(current_user_id)
             st.session_state.current_session_id = new_session["id"]
             st.rerun()
 
             st.divider()
 
-            # Sessions list
-            sessions = self.chat_service.get_all_sessions()
+            # Sessions list - filter by user_id if logged in
+            all_sessions = self.chat_service.get_all_sessions()
+
+            if user_session:
+                # Only show sessions belonging to current user
+                sessions = [s for s in all_sessions if s.get("user_id") == user_session.user_id]
+            else:
+                # Show all sessions if not logged in
+                sessions = all_sessions
 
             for session in sessions:
                 session_id = session["id"]
@@ -75,7 +88,16 @@ class ChatInterface:
                         del st.session_state[f"renaming_{session_id}"]
                         st.rerun()
 
-    def render_main_chat(self, session_id: Optional[str]):
+            # Admin panel - only for admin users
+            if user_session and user_session.role == "admin":
+                st.divider()
+                st.subheader("⚙️ Quản Trị Viên")
+
+                if st.button("👥 Quản Lý Người Dùng", use_container_width=True):
+                    st.session_state.show_user_management = True
+                    st.rerun()
+
+    def render_main_chat(self, session_id: Optional[str], user_session=None):
         """Render the main chat interface"""
         if not session_id:
             st.info("👋 Chọn hoặc tạo một cuộc trò chuyện mới!")
@@ -169,22 +191,42 @@ class ChatInterface:
         else:
             st.error("❌ Thiếu API key! Vui lòng thiết lập GEMINI_API_KEY.")
 
-    def render(self):
+    def render(self, user_session=None):
         """Main render method"""
+        # Store current user session
+        self.current_user_session = user_session
+
         # Initialize current session
         if "current_session_id" not in st.session_state:
+            # Get current user ID for session creation
+            current_user_id = user_session.user_id if user_session else None
             sessions = self.chat_service.get_all_sessions()
-            if sessions:
+
+            # Filter sessions by user_id if user is logged in
+            if user_session and sessions:
+                user_sessions = [s for s in sessions if s.get("user_id") == user_session.user_id]
+                if user_sessions:
+                    st.session_state.current_session_id = user_sessions[0]["id"]
+                else:
+                    new_session = self.chat_service.create_session(current_user_id)
+                    st.session_state.current_session_id = new_session["id"]
+            elif sessions:
                 st.session_state.current_session_id = sessions[0]["id"]
             else:
-                new_session = self.chat_service.create_session()
+                new_session = self.chat_service.create_session(current_user_id)
                 st.session_state.current_session_id = new_session["id"]
 
         current_session_id = st.session_state.current_session_id
 
         # Render components
-        self.render_sidebar()
-        self.render_main_chat(current_session_id)
+        if st.session_state.get("show_user_management"):
+            # Show admin user management panel
+            from ..ui.auth_interface import auth_interface
+            auth_interface.show_user_management(user_session)
+        else:
+            # Show normal chat interface
+            self.render_sidebar(user_session)
+            self.render_main_chat(current_session_id, user_session)
 
 
 # Global instance

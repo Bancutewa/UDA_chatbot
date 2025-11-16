@@ -1,6 +1,6 @@
 # 🤖 AI Chatbot Assistant
 
-Chatbot AI đa năng với kiến trúc 7-layer, hỗ trợ trò chuyện, tạo ảnh, tạo audio và tư vấn bất động sản.
+Chatbot AI đa năng với kiến trúc 7-layer, hỗ trợ authentication, trò chuyện, tạo ảnh, tạo audio và tư vấn bất động sản.
 
 ## 🏗️ Kiến trúc 7 Layer
 
@@ -46,12 +46,14 @@ chatbot/
 │   │
 │   ├── schemas/             # 📋 Pydantic schemas
 │   │   ├── chat.py          # Chat schemas
-│   │   └── bds.py           # BDS schemas
+│   │   ├── bds.py           # BDS schemas
+│   │   └── user.py          # User & auth schemas
 │   │
-│   ├── ui/                  # 🎨 UI layer
-│   │   └── chat_interface.py # Streamlit interface
+│   ├── ui/                  # 🎨 User interface
+│   │   ├── chat_interface.py # Chat UI
+│   │   └── auth_interface.py # 🔐 Authentication UI
 │   │
-│   ├── utils/               # 🛠️  Common helpers
+│   └── utils/               # 🛠️  Common helpers
 │   └── main_chatbot.py      # 🎼 Orchestrator
 │
 └── data/
@@ -93,6 +95,44 @@ echo "GEMINI_API_KEY=your_gemini_api_key_here" > .env
 ```bash
 streamlit run app.py
 ```
+
+### 4. Tạo Admin User (Tùy chọn)
+
+Để tạo tài khoản admin đầu tiên:
+
+```bash
+python create_admin.py
+```
+
+**Tài khoản admin mặc định:**
+
+- Username: `admin`
+- Password: `admin123`
+- Email: `admin@example.com`
+
+## 🔐 Authentication System
+
+### Đăng ký & Đăng nhập
+
+- **User Registration**: Tạo tài khoản mới với email, username, password (tự động có role `user`)
+- **User Login**: Đăng nhập với username/password
+- **JWT Authentication**: Token-based authentication
+- **Role-based Access**: Hỗ trợ 2 role `admin` và `user`
+
+### Quản lý người dùng (Admin only)
+
+- **User Management**: Xem, chỉnh sửa, xóa user
+- **Role Assignment**: Thay đổi role của user
+- **Account Status**: Kích hoạt/vô hiệu hóa tài khoản
+
+### Cấu hình Authentication
+
+```bash
+# Thêm vào .env
+JWT_SECRET_KEY=your_secret_key_here
+```
+
+**Lưu ý**: Tất cả user mới đăng ký sẽ tự động có role `user`. Admin accounts chỉ có thể được tạo bởi script `create_admin.py` hoặc được cấp bởi admin hiện tại.
 
 ## 🎯 Tính năng
 

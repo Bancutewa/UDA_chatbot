@@ -12,11 +12,11 @@ class ChatService:
     def __init__(self):
         self.repo = chat_history_repo
 
-    def create_session(self, title: str = "New Chat") -> Dict:
+    def create_session(self, user_id: str = None, title: str = "New Chat") -> Dict:
         """Create new chat session"""
         import uuid
         session_id = str(uuid.uuid4())
-        return self.repo.create_session(session_id, title)
+        return self.repo.create_session(session_id, title, user_id)
 
     def get_session(self, session_id: str) -> Optional[Dict]:
         """Get session by ID"""

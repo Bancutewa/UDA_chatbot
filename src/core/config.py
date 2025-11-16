@@ -5,6 +5,14 @@ import os
 from typing import Optional
 from dotenv import load_dotenv
 
+# MongoDB imports (optional)
+try:
+    from pymongo import MongoClient
+    MONGODB_AVAILABLE = True
+except ImportError:
+    MongoClient = None
+    MONGODB_AVAILABLE = False
+
 # Load environment variables
 load_dotenv()
 
@@ -15,6 +23,9 @@ class Config:
     GEMINI_API_KEY: str = os.getenv("GEMINI_API_KEY", "").strip()
     ELEVEN_LABS_API_KEY: str = os.getenv("ELEVEN_LABS_API_KEY", "").strip()
     FIRECRAWL_API_KEY: str = os.getenv("FIRECRAWL_API_KEY", "").strip()
+
+    # JWT Configuration
+    JWT_SECRET_KEY: str = os.getenv("JWT_SECRET_KEY", "your-secret-key-change-in-production")
 
     # Model Configuration
     GEMINI_MODEL: str = "gemini-2.5-flash"
@@ -41,6 +52,28 @@ class Config:
     CHAT_SESSIONS_FILE: str = "chat_sessions.json"
     BDS_RAW_DATA_DIR: str = "data/bds_raw_data"
     AUDIO_GENERATIONS_DIR: str = "data/audio_generations"
+
+    # MongoDB Client (lazy loaded)
+    _mongodb_client: Optional[MongoClient] = None
+
+    @property
+    def mongodb_client(self) -> MongoClient:
+        """Get MongoDB client (lazy loaded)"""
+        if not MONGODB_AVAILABLE:
+            raise ImportError("pymongo not installed. Run: pip install pymongo")
+
+        if not self.MONGODB_URL:
+            raise ValueError("MONGODB_URL not configured")
+
+        if self._mongodb_client is None:
+            try:
+                self._mongodb_client = MongoClient(self.MONGODB_URL, serverSelectionTimeoutMS=5000)
+                # Test connection
+                self._mongodb_client.admin.command('ping')
+            except Exception as e:
+                raise ValueError(f"Failed to connect to MongoDB: {e}")
+
+        return self._mongodb_client
 
     @classmethod
     def validate(cls) -> bool:

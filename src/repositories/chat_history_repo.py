@@ -50,23 +50,24 @@ class ChatHistoryRepository:
             logger.error(f"Failed to save chat sessions: {e}")
             raise DatabaseConnectionError(f"Save failed: {e}")
 
-    def create_session(self, session_id: str, title: str = "New Chat") -> Dict:
+    def create_session(self, session_id: str, title: str = "New Chat", user_id: str = None) -> Dict:
         """Create a new chat session"""
         if self.use_mongodb:
-            return self.mongo_repo.create_session(session_id, title)
+            return self.mongo_repo.create_session(session_id, title, user_id)
         else:
             # JSON fallback
             sessions = self._load_sessions()
             session = {
                 "id": session_id,
                 "title": title,
+                "user_id": user_id,
                 "messages": [],
                 "created_at": datetime.now().isoformat(),
                 "updated_at": datetime.now().isoformat()
             }
             sessions[session_id] = session
             self._save_sessions(sessions)
-            logger.info(f"Created new chat session (JSON): {session_id}")
+            logger.info(f"Created new chat session (JSON): {session_id} for user {user_id}")
             return session
 
     def get_session(self, session_id: str) -> Optional[Dict]:

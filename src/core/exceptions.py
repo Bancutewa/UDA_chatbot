@@ -33,3 +33,15 @@ class ImageGenerationError(ChatbotError):
 class RAGError(ChatbotError):
     """Raised when RAG pipeline fails"""
     pass
+
+class ValidationError(ChatbotError):
+    """Raised when data validation fails"""
+    pass
+
+class AuthenticationError(ChatbotError):
+    """Raised when authentication fails"""
+    pass
+
+class AuthorizationError(ChatbotError):
+    """Raised when authorization fails"""
+    pass
