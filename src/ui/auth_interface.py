@@ -61,7 +61,7 @@ class AuthInterface:
         st.divider()
         col1, col2, col3 = st.columns([1, 2, 1])
         with col2:
-            if st.button("Chưa có tài khoản? Đăng ký ngay", use_container_width=True):
+            if st.button("Chưa có tài khoản? Đăng ký ngay", key="switch_to_register_button", use_container_width=True):
                 st.session_state.show_register = True
                 st.rerun()
 
@@ -140,7 +140,7 @@ class AuthInterface:
         st.divider()
         col1, col2, col3 = st.columns([1, 2, 1])
         with col2:
-            if st.button("Đã có tài khoản? Đăng nhập", use_container_width=True):
+            if st.button("Đã có tài khoản? Đăng nhập", key="switch_to_login_button", use_container_width=True):
                 st.session_state.show_register = False
                 st.rerun()
 
@@ -160,13 +160,13 @@ class AuthInterface:
                 st.divider()
                 st.subheader("⚙️ Quản Trị Viên")
 
-                if st.button("👥 Quản Lý Người Dùng", use_container_width=True):
+                if st.button("👥 Quản Lý Người Dùng", key="sidebar_user_management_button", use_container_width=True):
                     st.session_state.show_user_management = True
                     st.rerun()
 
             # Logout
             st.divider()
-            if st.button("🚪 Đăng Xuất", use_container_width=True):
+            if st.button("🚪 Đăng Xuất", key="logout_button", use_container_width=True):
                 self.logout()
 
     def show_user_management(self, current_user: UserSession):
@@ -263,7 +263,7 @@ class AuthInterface:
 
         # Back button
         st.divider()
-        if st.button("⬅️ Quay Lại Chat", use_container_width=True):
+        if st.button("⬅️ Quay Lại Chat", key="back_to_chat_button", use_container_width=True):
             st.session_state.show_user_management = False
             st.rerun()
 

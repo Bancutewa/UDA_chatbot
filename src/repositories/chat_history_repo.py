@@ -6,6 +6,10 @@ import os
 from typing import Dict, List, Optional
 from datetime import datetime
 
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .mongodb_repository import MongoDBRepository
+
 from ..core.config import config
 from ..core.logger import logger
 from ..core.exceptions import DatabaseConnectionError
@@ -79,6 +83,19 @@ class ChatHistoryRepository:
             sessions = self._load_sessions()
             return sessions.get(session_id)
 
+    def get_all_sessions(self, user_id: str = None) -> List[Dict]:
+        """Get all sessions, optionally filtered by user_id, sorted by updated_at"""
+        if self.use_mongodb:
+            sessions = self.mongo_repo.get_all_sessions(user_id)
+        else:
+            # JSON fallback - return all sessions (can't filter by user_id in JSON)
+            sessions = self._load_sessions()
+            sessions = list(sessions.values())
+
+        # Sort by updated_at descending (newest first)
+        sessions.sort(key=lambda x: x.get("updated_at", ""), reverse=True)
+        return sessions
+
     def update_session_title(self, session_id: str, title: str):
         """Update session title"""
         if self.use_mongodb:
@@ -121,16 +138,6 @@ class ChatHistoryRepository:
                 self._save_sessions(sessions)
                 logger.info(f"Deleted session (JSON): {session_id}")
 
-    def get_all_sessions(self) -> List[Dict]:
-        """Get all sessions sorted by updated_at"""
-        if self.use_mongodb:
-            return self.mongo_repo.get_all_sessions()
-        else:
-            # JSON fallback
-            sessions = self._load_sessions()
-            session_list = list(sessions.values())
-            session_list.sort(key=lambda x: x.get("updated_at", ""), reverse=True)
-            return session_list
 
     def get_session_messages(self, session_id: str) -> List[Dict]:
         """Get messages for a specific session"""

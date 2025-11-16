@@ -80,9 +80,18 @@ class ChatService:
         """Delete session"""
         self.repo.delete_session(session_id)
 
-    def get_all_sessions(self) -> List[Dict]:
-        """Get all sessions"""
-        return self.repo.get_all_sessions()
+    def get_all_sessions(self, user_id: str = None) -> List[Dict]:
+        """Get all sessions for a user, or all sessions if no user specified"""
+        # Create fresh repository instance to avoid caching issues
+        from ..repositories.chat_history_repo import ChatHistoryRepository
+        fresh_repo = ChatHistoryRepository()
+
+        if user_id:
+            # For MongoDB, get sessions for specific user
+            return fresh_repo.get_all_sessions(user_id)
+        else:
+            # For JSON fallback or when no user specified
+            return fresh_repo.get_all_sessions()
 
 # Global instance
 chat_service = ChatService()

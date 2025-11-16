@@ -118,6 +118,8 @@ python create_admin.py
 - **User Login**: Đăng nhập với username/password
 - **JWT Authentication**: Token-based authentication
 - **Role-based Access**: Hỗ trợ 2 role `admin` và `user`
+- **User-specific Sessions**: Mỗi user chỉ thấy chat sessions của mình trong sidebar
+- **Session Management**: Hiển thị thời gian tạo, số tin nhắn, với UI thân thiện
 
 ### Quản lý người dùng (Admin only)
 
@@ -140,6 +142,7 @@ JWT_SECRET_KEY=your_secret_key_here
 
 - Intent: `general_chat`
 - Hỗ trợ context từ lịch sử chat
+- **Streaming Response**: Trả lời theo kiểu streaming (tương tự ChatGPT)
 - Trả lời bằng tiếng Việt
 
 ### 🖼️ Tạo ảnh
