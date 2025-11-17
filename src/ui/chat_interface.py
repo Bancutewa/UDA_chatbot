@@ -195,6 +195,11 @@ class ChatInterface:
                 # Process with intent analysis and get response
                 with st.chat_message("assistant"):
                     with st.spinner("🤖 Đang suy nghĩ..."):
+                        # Initialize variables with defaults
+                        intent_name = "general_chat"
+                        intent_handler = None
+                        bot_response = ""
+
                         try:
                             # Analyze intent
                             intent_result = self.intent_agent.analyze_intent(user_input, session_id)
@@ -248,6 +253,11 @@ class ChatInterface:
                             error_msg = f"❌ Lỗi xử lý: {str(e)}"
                             st.error(error_msg)
                             bot_response = error_msg
+                            # Fallback to general chat when intent analysis fails
+                            intent_name = "general_chat"
+                            from ..intents.intent_registry import intent_registry
+                            intent_handler = intent_registry.get_intent_instance(intent_name)
+                            intent_result = {"intent": "general_chat", "message": user_input}  # Fallback result
 
                 # Save assistant response (use history response for audio, regular response for others)
                 history_response = bot_response
