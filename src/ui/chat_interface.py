@@ -213,41 +213,24 @@ class ChatInterface:
 
                             intent_handler = intent_registry.get_intent_instance(intent_name)
                             if intent_handler:
-                                # Use streaming for general chat
-                                if intent_name == "general_chat" and hasattr(intent_handler, 'get_streaming_response'):
-                                    # Streaming response for general chat
-                                    full_response = ""
-                                    response_placeholder = st.empty()
-
-                                    try:
-                                        for chunk in intent_handler.get_streaming_response(intent_result, context):
-                                            full_response += chunk + " "
-                                            response_placeholder.markdown(full_response.strip())
-                                    except Exception as e:
-                                        st.error(f"Lỗi streaming: {str(e)}")
-                                        full_response = f"❌ Lỗi xử lý: {str(e)}"
-
-                                    bot_response = full_response.strip()
-                                else:
-                                    # Regular response for other intents
-                                    bot_response = intent_handler.get_response(intent_result, context)
+                                # Get response for all intents (no streaming)
+                                bot_response = intent_handler.get_response(intent_result, context)
                             else:
                                 bot_response = f"❌ Không tìm thấy handler cho intent: {intent_name}"
 
-                            # Handle special responses (like audio) - only for non-streaming responses
+                            # Handle special responses (like audio)
                             if intent_name == "generate_audio" and hasattr(intent_handler, 'get_display_response'):
                                 display_response = intent_handler.get_display_response()
                                 if display_response:
                                     st.session_state.audio_display_response = display_response
 
-                            # Display response for non-streaming cases
-                            if intent_name != "general_chat":  # General chat already displayed via streaming
-                                display_response = st.session_state.get('audio_display_response', bot_response)
-                                if 'audio_display_response' in st.session_state:
-                                    del st.session_state.audio_display_response  # Clean up after use
+                            # Display response for all intents
+                            display_response = st.session_state.get('audio_display_response', bot_response)
+                            if 'audio_display_response' in st.session_state:
+                                del st.session_state.audio_display_response  # Clean up after use
 
-                                if display_response.strip():  # Only display if there's content
-                                    st.markdown(display_response, unsafe_allow_html=True)
+                            if display_response.strip():  # Only display if there's content
+                                st.markdown(display_response, unsafe_allow_html=True)
 
                         except Exception as e:
                             error_msg = f"❌ Lỗi xử lý: {str(e)}"
