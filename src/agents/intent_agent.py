@@ -89,6 +89,15 @@ class IntentAgent:
         elif any(keyword in message_lower for keyword in ['đọc', 'phát', 'audio', 'âm thanh', 'podcast']):
             return {"intent": "generate_audio", "description": message}
 
+        # Check for scheduling keywords
+        elif any(keyword in message_lower for keyword in ['đặt lịch', 'lịch xem', 'xem nhà', 'schedule visit']):
+            return {
+                "intent": "schedule_visit",
+                "preferred_time": message,
+                "district": "Quận 7" if "quận 7" in message_lower else "",
+                "message": message
+            }
+
         # Check for estate keywords
         elif any(keyword in message_lower for keyword in ['nhà', 'đất', 'bất động sản', 'mua nhà', 'bán nhà', 'cho thuê']):
             return {"intent": "estate_query", "query": message}

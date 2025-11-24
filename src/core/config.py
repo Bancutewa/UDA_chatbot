@@ -46,6 +46,8 @@ class Config:
     # File Paths (fallback for local storage)
     CHAT_SESSIONS_FILE: str = "chat_sessions.json"
     AUDIO_GENERATIONS_DIR: str = "data/audio_generations"
+    VISIT_SCHEDULES_FILE: str = "data/visit_schedules.json"
+    ADMIN_CALENDAR_FILE: str = "data/admin_calendar.json"
 
     # MongoDB Client (lazy loaded)
     _mongodb_client: Optional[MongoClient] = None
@@ -77,6 +79,12 @@ class Config:
 
         # Create directories if they don't exist
         os.makedirs(cls.AUDIO_TARGET_DIR, exist_ok=True)
+        schedules_dir = os.path.dirname(cls.VISIT_SCHEDULES_FILE)
+        if schedules_dir:
+            os.makedirs(schedules_dir, exist_ok=True)
+        calendar_dir = os.path.dirname(cls.ADMIN_CALENDAR_FILE)
+        if calendar_dir:
+            os.makedirs(calendar_dir, exist_ok=True)
 
         return True
 
