@@ -189,6 +189,9 @@ class ScheduleService:
     def list_all(self) -> List[Dict]:
         return self.repo.list()
 
+    def get(self, schedule_id: str) -> Optional[Dict]:
+        return self.repo.get(schedule_id)
+
     def update_status(self, schedule_id: str, status: str, admin_note: Optional[str] = None) -> Optional[Dict]:
         updated = self.repo.update_status(schedule_id, status, admin_note)
         if updated:
