@@ -75,7 +75,6 @@ class ScheduleInterface:
             return
 
         st.title("📅 Lịch Xem Nhà")
-        st.caption("Giao diện calendar trực quan giống Google Calendar, click để xem chi tiết.")
 
         events = self.schedule_service.list_all()
         if not events:
@@ -132,7 +131,16 @@ class ScheduleInterface:
         else:
             st.markdown(f"**Khách hàng:** {selected_event.get('user_name', 'Không rõ')}")
             st.markdown(f"**Khu vực:** {selected_event.get('district', 'Quận 7')} • **Loại:** {selected_event.get('property_type', 'bất động sản')}")
-            st.markdown(f"**Thời gian:** {selected_event.get('requested_time')}")
+            raw_time = selected_event.get("requested_time")
+            if raw_time:
+                try:
+                    dt = datetime.fromisoformat(raw_time.replace("Z", "+00:00"))
+                    time_display = dt.strftime("%H:%M, %d/%m/%Y")
+                except Exception:
+                    time_display = raw_time
+            else:
+                time_display = "Không xác định"
+            st.markdown(f"**Thời gian:** {time_display}")
             if selected_event.get("notes"):
                 st.markdown(f"**Ghi chú của khách:** {selected_event['notes']}")
 

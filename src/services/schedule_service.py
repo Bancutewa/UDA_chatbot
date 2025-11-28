@@ -65,6 +65,12 @@ class ScheduleService:
                 return relative_dt, str(candidate)
 
         if fallback_text:
+            # Thử parse "ngày mốt", "ngày kia", "mai" trước
+            relative_date = self._parse_relative_date(fallback_text, base_dt)
+            if relative_date:
+                relative_date = self._apply_time_hint(relative_date, fallback_text)
+                return relative_date, fallback_text
+            
             parsed = self._parse_single_candidate(fallback_text, base_dt=base_dt)
             if parsed:
                 parsed = self._apply_time_hint(parsed, fallback_text)
@@ -131,6 +137,19 @@ class ScheduleService:
         if not text:
             return None
         lowered = text.lower()
+        
+        # Pattern cho "rưỡi" trước (ưu tiên cao hơn)
+        pattern_ruoi = re.compile(
+            r'(\d{1,2})\s*(?:giờ|g|h)?\s*(rưỡi|ruoi)',
+            flags=re.UNICODE
+        )
+        for match in pattern_ruoi.finditer(lowered):
+            hour = int(match.group(1))
+            if hour > 23:
+                continue
+            return hour, 30, None
+        
+        # Pattern cho giờ đầy đủ: "7 giờ sáng", "5 giờ 30 chiều", "17h30"
         pattern_full = re.compile(
             r'(\d{1,2})\s*(?:[:h]|giờ|g)\s*(\d{1,2})?\s*(?:phút)?\s*(sáng|chiều|tối|trưa|am|pm)?',
             flags=re.UNICODE
@@ -141,19 +160,15 @@ class ScheduleService:
             suffix = match.group(3)
             if hour > 23 or minute > 59:
                 continue
-            if not suffix and hour < 12:
-                continue
-            return hour, minute, suffix
-
-        pattern_ruoi = re.compile(
-            r'(\d{1,2})\s*(?:giờ|g|h)?\s*(rưỡi|ruoi)',
-            flags=re.UNICODE
-        )
-        for match in pattern_ruoi.finditer(lowered):
-            hour = int(match.group(1))
-            if hour > 23:
-                continue
-            return hour, 30, None
+            # Nếu có suffix (sáng/chiều/tối/trưa/am/pm) thì luôn trả về
+            if suffix:
+                return hour, minute, suffix
+            # Nếu không có suffix nhưng hour >= 12, có thể là 24h format
+            if hour >= 12:
+                return hour, minute, None
+            # Nếu hour < 12 và không có suffix, cần kiểm tra context
+            # Nhưng để đơn giản, nếu không có suffix và hour < 12 thì skip
+            # (sẽ được xử lý bởi logic khác)
         return None
 
     @staticmethod
@@ -180,6 +195,27 @@ class ScheduleService:
                 "bay": 5, "7": 5,
             }
             return mapping.get(remainder)
+        return None
+
+    @staticmethod
+    def _parse_relative_date(text: Optional[str], base_dt: datetime) -> Optional[datetime]:
+        """Parse relative dates like 'mai', 'ngày mốt', 'ngày kia'"""
+        if not text:
+            return None
+        normalized = ScheduleService._normalize_text(text)
+        days_offset = None
+        
+        # Sử dụng regex để match chính xác hơn, tránh match nhầm
+        if re.search(r'\b(ngay\s+)?mai\b', normalized):
+            days_offset = 1
+        elif re.search(r'\bngay\s+mot\b', normalized) or re.search(r'\bmot\b', normalized):
+            days_offset = 2
+        elif re.search(r'\b(ngay\s+)?kia\b', normalized):
+            days_offset = 2
+        
+        if days_offset is not None:
+            target_date = (base_dt + timedelta(days=days_offset)).date()
+            return datetime.combine(target_date, datetime.min.time())
         return None
 
     @classmethod
@@ -211,30 +247,37 @@ class ScheduleService:
         if not text:
             return dt
 
-        lowered = text.lower()
         normalized_full = cls._normalize_text(text)
 
         hint = cls._extract_time_from_text(text)
         if hint:
             hour, minute, suffix = hint
             suffix_norm = cls._normalize_text(suffix) if suffix else ""
+            
+            # Xử lý suffix trực tiếp từ regex match
             if suffix_norm:
                 if suffix_norm in ("chieu", "toi", "pm") and hour < 12:
                     hour += 12
-                if suffix_norm in ("sang", "am") and hour == 12:
-                    hour = 0
-                if suffix_norm == "trua" and hour < 12:
+                elif suffix_norm in ("sang", "am"):
+                    if hour == 12:
+                        hour = 0
+                    # Giữ nguyên hour nếu < 12 (đã đúng)
+                elif suffix_norm == "trua":
                     hour = 12 if hour == 0 else hour
-            elif "chieu" in normalized_full or "toi" in normalized_full or "pm" in normalized_full:
-                if hour < 12:
-                    hour += 12
-            elif "sang" in normalized_full or "am" in normalized_full:
-                if hour >= 12:
-                    hour -= 12
-            elif "trua" in normalized_full and hour < 12:
-                hour = 12 if hour == 0 else hour
+            else:
+                # Không có suffix trong match, kiểm tra toàn bộ text
+                if "chieu" in normalized_full or "toi" in normalized_full or "pm" in normalized_full:
+                    if hour < 12:
+                        hour += 12
+                elif "sang" in normalized_full or "am" in normalized_full:
+                    if hour >= 12:
+                        hour -= 12
+                elif "trua" in normalized_full:
+                    hour = 12 if hour == 0 else hour
+            
             return dt.replace(hour=hour, minute=minute, second=0, microsecond=0)
 
+        # Fallback: không tìm thấy giờ cụ thể, chỉ điều chỉnh dựa trên text
         if ("chieu" in normalized_full or "toi" in normalized_full or "pm" in normalized_full) and dt.hour < 12:
             return dt + timedelta(hours=12)
         if ("sang" in normalized_full or "am" in normalized_full) and dt.hour >= 12:
@@ -260,6 +303,77 @@ class ScheduleService:
         except Exception as exc:
             logger.warning(f"Không thể đồng bộ calendar admin: {exc}")
 
+    @staticmethod
+    def _extract_user_messages_from_context(context: str) -> str:
+        """Extract only user messages from formatted context (User: ... Assistant: ...)"""
+        if not context:
+            return ""
+        
+        user_messages = []
+        for line in context.split('\n'):
+            line = line.strip()
+            if line.startswith('User:') or line.startswith('user:'):
+                # Extract message after "User:"
+                msg = line.split(':', 1)[1].strip() if ':' in line else line
+                if msg:
+                    user_messages.append(msg)
+        
+        # Nếu không có format "User:", trả về toàn bộ context
+        return ' '.join(user_messages) if user_messages else context
+
+    @staticmethod
+    def _extract_district_from_text(text: str) -> Optional[str]:
+        """Extract district from text like 'quận 7', 'quận 1', etc."""
+        if not text:
+            return None
+        
+        normalized = ScheduleService._normalize_text(text)
+        # Pattern để tìm "quận X", "quan X", "q.X", etc.
+        pattern = re.compile(r'quan\s*(\d+)', flags=re.UNICODE)
+        match = pattern.search(normalized)
+        if match:
+            return f"Quận {match.group(1)}"
+        return None
+
+    def _validate_booking_info(self, payload: Dict, raw_message: str, context: Optional[str] = None) -> Tuple[Optional[datetime], Optional[str], Optional[str], List[str]]:
+        """
+        Validate booking information and return missing fields.
+        Combines information from current message and conversation context.
+        Returns: (visit_datetime, district, source_time, missing_fields)
+        """
+        missing_fields = []
+        
+        # Ưu tiên parse từ tin nhắn hiện tại trước
+        visit_datetime, source_time = self._parse_datetime(payload, fallback_text=raw_message)
+        
+        # Nếu không có trong tin nhắn hiện tại, thử từ context (chỉ user messages)
+        if not visit_datetime and context:
+            user_context = self._extract_user_messages_from_context(context)
+            if user_context:
+                context_dt, context_source = self._parse_datetime({}, fallback_text=user_context)
+                if context_dt:
+                    visit_datetime = context_dt
+                    source_time = context_source or source_time
+        
+        if not visit_datetime:
+            missing_fields.append("thời gian")
+        
+        # Ưu tiên extract district từ tin nhắn hiện tại trước
+        district = payload.get("district") or payload.get("location")
+        if not district:
+            district = self._extract_district_from_text(raw_message)
+        
+        # Nếu không có trong tin nhắn hiện tại, thử từ context (chỉ user messages)
+        if not district and context:
+            user_context = self._extract_user_messages_from_context(context)
+            if user_context:
+                district = self._extract_district_from_text(user_context)
+        
+        if not district:
+            missing_fields.append("khu vực")
+        
+        return visit_datetime, district, source_time, missing_fields
+
     # ------------------ Public API ------------------ #
     def create_booking(
         self,
@@ -268,19 +382,38 @@ class ScheduleService:
         payload: Dict,
         raw_message: str,
         session_id: Optional[str] = None,
+        context: Optional[str] = None,
     ) -> Dict:
-        visit_datetime, source_time = self._parse_datetime(payload, fallback_text=raw_message)
-        if not visit_datetime:
-            raise ValidationError(
-                "Xin vui lòng cho tôi biết rõ thời gian muốn xem nhà (ví dụ: '10h sáng thứ 7 tuần này')."
-            )
+        visit_datetime, district, source_time, missing_fields = self._validate_booking_info(payload, raw_message, context)
+        
+        # Nếu thiếu thông tin, raise ValidationError với message hỏi lại
+        if missing_fields:
+            if len(missing_fields) == 1:
+                field = missing_fields[0]
+                if field == "thời gian":
+                    raise ValidationError(
+                        "Xin vui lòng cho tôi biết rõ thời gian muốn xem nhà (ví dụ: '10h sáng thứ 7 tuần này', '7 giờ sáng ngày mai')."
+                    )
+                elif field == "khu vực":
+                    raise ValidationError(
+                        "Xin vui lòng cho tôi biết khu vực muốn xem nhà (ví dụ: 'quận 7', 'quận 1')."
+                    )
+            else:
+                # Thiếu nhiều thông tin
+                fields_str = " và ".join(missing_fields)
+                raise ValidationError(
+                    f"Để đặt lịch xem nhà, tôi cần biết {fields_str}. "
+                    f"Bạn có thể cung cấp đầy đủ thông tin không? "
+                    f"(Ví dụ: 'đặt lịch xem nhà quận 7 lúc 10h sáng thứ 7 tuần này')"
+                )
 
         user_info = self._default_user(user_session)
+        full_name = user_session.full_name if user_session and hasattr(user_session, "full_name") else user_info["user_name"]
         base_event = {
             "id": str(uuid.uuid4()),
             "user_id": user_info["user_id"],
-            "user_name": user_info["user_name"],
-            "district": payload.get("district") or payload.get("location") or "Quận 7",
+            "user_name": full_name,
+            "district": district,
             "property_type": payload.get("property_type") or "bất động sản",
             "notes": payload.get("notes") or payload.get("requirements") or "",
             "status": "pending",
@@ -314,7 +447,7 @@ class ScheduleService:
         except Exception:
             visit_display = visit_time
 
-        district = event.get("district", "Quận 7")
+        district = event.get("district", "Không xác định")
         property_type = event.get("property_type", "bất động sản")
 
         lines = [

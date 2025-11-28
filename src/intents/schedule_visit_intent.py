@@ -7,6 +7,7 @@ from .base_intent import BaseIntent
 from ..services.schedule_service import schedule_service
 from ..schemas.user import UserSession
 from ..core.exceptions import ValidationError, DatabaseConnectionError
+from ..core.logger import logger
 
 
 class ScheduleVisitIntent(BaseIntent):
@@ -69,12 +70,19 @@ class ScheduleVisitIntent(BaseIntent):
                 payload=payload,
                 raw_message=raw_message,
                 session_id=session_id,
+                context=context,
             )
             return self.schedule_service.format_confirmation(event)
         except ValidationError as exc:
-            return f"⚠️ {exc}"
+            # Message từ ValidationError đã được format sẵn để hỏi lại user
+            error_msg = str(exc)
+            # Thêm emoji và format để thân thiện hơn
+            if "thời gian" in error_msg.lower() or "khu vực" in error_msg.lower():
+                return f"💬 {error_msg}"
+            return f"⚠️ {error_msg}"
         except DatabaseConnectionError as exc:
             return f"❌ {exc}"
-        except Exception:
-            return "❌ Có lỗi khi đặt lịch. Bạn có thể nói lại thời gian và khu vực muốn xem nhà không?"
+        except Exception as e:
+            logger.error(f"Unexpected error in schedule_visit_intent: {e}")
+            return "❌ Có lỗi khi đặt lịch. Bạn có thể cung cấp lại đầy đủ thông tin: khu vực và thời gian muốn xem nhà không?"
 
