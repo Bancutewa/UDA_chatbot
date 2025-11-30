@@ -31,6 +31,14 @@ class Config:
     GEMINI_MODEL: str = "gemini-2.5-flash"
     GEMINI_MODEL_ID: str = "gemini-2.5-flash"
 
+    # Embedding Configuration
+    EMBEDDING_MODEL_NAME: str = os.getenv("EMBEDDING_MODEL_NAME","AITeamVN/Vietnamese_Embedding").strip()
+
+    # Qdrant Configuration
+    QDRANT_URL: str = os.getenv("QDRANT_URL", "http://localhost:6333")
+    QDRANT_API_KEY: Optional[str] = os.getenv("QDRANT_API_KEY")
+    QDRANT_COLLECTION: str = os.getenv("QDRANT_COLLECTION", "real_estate_listings")
+
     # Audio Configuration
     AUDIO_VOICE_ID: str = "Nguyễn Ngân (Female, Vietnamese)"
     AUDIO_MODEL: str = "eleven_turbo_v2_5"
@@ -38,7 +46,7 @@ class Config:
 
     # Database Configuration
     MONGODB_URL: str = os.getenv("MONGODB_URL") or os.getenv("MONGODB_URI", "")
-    DATABASE_NAME: str = os.getenv("DATABASE_NAME", "chatbot_db")
+    DATABASE_NAME: str = os.getenv("DATABASE_NAME", "real_estate_db")
 
     # Fallback to local JSON if MongoDB not configured
     USE_MONGODB: bool = bool(MONGODB_URL.strip())
@@ -46,6 +54,8 @@ class Config:
     # File Paths (fallback for local storage)
     CHAT_SESSIONS_FILE: str = "chat_sessions.json"
     AUDIO_GENERATIONS_DIR: str = "data/audio_generations"
+    VISIT_SCHEDULES_FILE: str = "data/visit_schedules.json"
+    ADMIN_CALENDAR_FILE: str = "data/admin_calendar.json"
 
     # MongoDB Client (lazy loaded)
     _mongodb_client: Optional[MongoClient] = None
@@ -77,6 +87,12 @@ class Config:
 
         # Create directories if they don't exist
         os.makedirs(cls.AUDIO_TARGET_DIR, exist_ok=True)
+        schedules_dir = os.path.dirname(cls.VISIT_SCHEDULES_FILE)
+        if schedules_dir:
+            os.makedirs(schedules_dir, exist_ok=True)
+        calendar_dir = os.path.dirname(cls.ADMIN_CALENDAR_FILE)
+        if calendar_dir:
+            os.makedirs(calendar_dir, exist_ok=True)
 
         return True
 

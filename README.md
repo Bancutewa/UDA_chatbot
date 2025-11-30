@@ -171,6 +171,13 @@ JWT_SECRET_KEY=your_secret_key_here
 - Hỗ trợ Firecrawl cho URL scraping
 - Voice: Nguyễn Ngân (Female, Vietnamese)
 
+### 📅 Đặt lịch xem nhà
+
+- Intent: `schedule_visit`
+- Hiểu các yêu cầu như "đặt lịch xem nhà quận 7 sáng thứ 7 này"
+- Tự động chuẩn hóa thời gian, lưu lịch vào calendar chung của admin
+- Admin có trang riêng để xem và cập nhật trạng thái lịch hẹn
+
 ### 🏠 Tư vấn bất động sản (BĐS)
 
 - Intent: `estate_query`

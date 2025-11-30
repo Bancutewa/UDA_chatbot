@@ -8,6 +8,8 @@ from ..services.chat_service import chat_service
 from ..agents.intent_agent import intent_agent
 from ..core.config import config
 from ..core.logger import logger
+from ..ui.schedule_interface import schedule_interface
+from ..ui.data_interface import data_interface
 
 
 class ChatInterface:
@@ -141,6 +143,10 @@ class ChatInterface:
                             del st.session_state[f"renaming_{session_id}"]
                             st.rerun()
 
+            if user_session:
+                schedule_container = st.container()
+                schedule_interface.render_user_summary(user_session, schedule_container)
+
             # Admin panel - only for admin users
             if user_session and user_session.role == "admin":
                 st.divider()
@@ -148,6 +154,14 @@ class ChatInterface:
 
                 if st.button("👥 Quản Lý Người Dùng", key="admin_user_management_button", use_container_width=True):
                     st.session_state.show_user_management = True
+                    st.rerun()
+
+                if st.button("📅 Lịch Xem Nhà", key="admin_schedule_button", use_container_width=True):
+                    st.session_state.show_schedule_management = True
+                    st.rerun()
+
+                if st.button("🗄️ Quản Lý Dữ Liệu", key="admin_data_button", use_container_width=True):
+                    st.session_state.show_data_management = True
                     st.rerun()
 
     def render_main_chat(self, session_id: Optional[str], user_session=None):
@@ -202,14 +216,20 @@ class ChatInterface:
 
                         try:
                             # Analyze intent
-                            intent_result = self.intent_agent.analyze_intent(user_input, session_id)
-
                             # Get context for conversation
                             context = self.chat_service.format_conversation_context(session_id)
+                            intent_result = self.intent_agent.analyze_intent(user_input, context)
 
                             # Route to appropriate intent handler
                             from ..intents.intent_registry import intent_registry
                             intent_name = intent_result.get("intent", "general_chat")
+
+                            intent_metadata = {
+                                "session_id": session_id,
+                                "user_session": user_session.model_dump() if user_session else None
+                            }
+                            intent_result.setdefault("message", user_input)
+                            intent_result["metadata"] = intent_metadata
 
                             intent_handler = intent_registry.get_intent_instance(intent_name)
                             if intent_handler:
@@ -295,6 +315,10 @@ class ChatInterface:
             # Show admin user management panel
             from ..ui.auth_interface import auth_interface
             auth_interface.show_user_management(user_session)
+        elif st.session_state.get("show_schedule_management"):
+            schedule_interface.render_admin_calendar(user_session)
+        elif st.session_state.get("show_data_management"):
+            data_interface.render()
         else:
             # Show normal chat interface
             self.render_sidebar(user_session)

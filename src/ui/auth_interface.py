@@ -164,6 +164,10 @@ class AuthInterface:
                     st.session_state.show_user_management = True
                     st.rerun()
 
+                if st.button("📅 Lịch Xem Nhà", key="sidebar_schedule_button", use_container_width=True):
+                    st.session_state.show_schedule_management = True
+                    st.rerun()
+
             # Logout
             st.divider()
             if st.button("🚪 Đăng Xuất", key="logout_button", use_container_width=True):
@@ -277,6 +281,8 @@ class AuthInterface:
             del st.session_state.show_register
         if "show_user_management" in st.session_state:
             del st.session_state.show_user_management
+        if "show_schedule_management" in st.session_state:
+            del st.session_state.show_schedule_management
         if "edit_user_id" in st.session_state:
             del st.session_state.edit_user_id
 

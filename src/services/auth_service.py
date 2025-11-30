@@ -22,7 +22,7 @@ class AuthService:
 
     def __init__(self):
         self.user_repo = UserRepository()
-        self.secret_key = config.JWT_SECRET_KEY or "your-secret-key-change-in-production"
+        self.secret_key = config.JWT_SECRET_KEY or "bancutewa10304"
         self.algorithm = "HS256"
         self.access_token_expire_minutes = 30
 
