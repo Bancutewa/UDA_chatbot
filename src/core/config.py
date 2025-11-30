@@ -31,6 +31,14 @@ class Config:
     GEMINI_MODEL: str = "gemini-2.5-flash"
     GEMINI_MODEL_ID: str = "gemini-2.5-flash"
 
+    # Embedding Configuration
+    EMBEDDING_MODEL_NAME: str = os.getenv("EMBEDDING_MODEL_NAME","AITeamVN/Vietnamese_Embedding").strip()
+
+    # Qdrant Configuration
+    QDRANT_URL: str = os.getenv("QDRANT_URL", "http://localhost:6333")
+    QDRANT_API_KEY: Optional[str] = os.getenv("QDRANT_API_KEY")
+    QDRANT_COLLECTION: str = os.getenv("QDRANT_COLLECTION", "real_estate_listings")
+
     # Audio Configuration
     AUDIO_VOICE_ID: str = "Nguyễn Ngân (Female, Vietnamese)"
     AUDIO_MODEL: str = "eleven_turbo_v2_5"
@@ -38,7 +46,7 @@ class Config:
 
     # Database Configuration
     MONGODB_URL: str = os.getenv("MONGODB_URL") or os.getenv("MONGODB_URI", "")
-    DATABASE_NAME: str = os.getenv("DATABASE_NAME", "chatbot_db")
+    DATABASE_NAME: str = os.getenv("DATABASE_NAME", "real_estate_db")
 
     # Fallback to local JSON if MongoDB not configured
     USE_MONGODB: bool = bool(MONGODB_URL.strip())

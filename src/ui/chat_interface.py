@@ -9,6 +9,7 @@ from ..agents.intent_agent import intent_agent
 from ..core.config import config
 from ..core.logger import logger
 from ..ui.schedule_interface import schedule_interface
+from ..ui.data_interface import data_interface
 
 
 class ChatInterface:
@@ -157,6 +158,10 @@ class ChatInterface:
 
                 if st.button("📅 Lịch Xem Nhà", key="admin_schedule_button", use_container_width=True):
                     st.session_state.show_schedule_management = True
+                    st.rerun()
+
+                if st.button("🗄️ Quản Lý Dữ Liệu", key="admin_data_button", use_container_width=True):
+                    st.session_state.show_data_management = True
                     st.rerun()
 
     def render_main_chat(self, session_id: Optional[str], user_session=None):
@@ -312,6 +317,8 @@ class ChatInterface:
             auth_interface.show_user_management(user_session)
         elif st.session_state.get("show_schedule_management"):
             schedule_interface.render_admin_calendar(user_session)
+        elif st.session_state.get("show_data_management"):
+            data_interface.render()
         else:
             # Show normal chat interface
             self.render_sidebar(user_session)

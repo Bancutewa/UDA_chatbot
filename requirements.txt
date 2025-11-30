@@ -14,4 +14,7 @@ dateparser>=1.2.0
 streamlit-calendar>=1.0.0
 black>=23.0.0
 pytest>=7.0.0
-agno[all] 
+agno[all]
+pandas>=2.0.0
+openpyxl>=3.1.0
+sentence-transformers>=2.2.0 
