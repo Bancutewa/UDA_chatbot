@@ -24,6 +24,14 @@ class GenerateAudioIntent(BaseIntent):
     def system_prompt(self) -> str:
         return "Bạn là AI hỗ trợ tạo audio. Nhận text/URL và chuyển thành nội dung audio."
 
+    @property
+    def description(self) -> str:
+        return "Người dùng muốn tạo audio, podcast, đọc văn bản, tạo âm thanh, phát âm. Từ khóa: đọc, phát, audio, âm thanh, podcast."
+
+    @property
+    def keywords(self) -> list[str]:
+        return ["đọc", "phát", "audio", "âm thanh", "podcast"]
+
     def get_response(self, data: Dict[str, Any], context: Optional[str] = None) -> str:
         """
         Xử lý response cho generate audio

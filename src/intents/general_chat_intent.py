@@ -33,6 +33,14 @@ class GeneralChatIntent(BaseIntent):
                 "Trả lời một cách tự nhiên, hấp dẫn và mang tính xây dựng.\n"
                 "Nếu có ngữ cảnh từ lịch sử trò chuyện, hãy sử dụng để trả lời phù hợp.")
 
+    @property
+    def description(self) -> str:
+        return "Người dùng muốn trò chuyện, hỏi đáp, chào hỏi, hỏi thông tin."
+
+    @property
+    def keywords(self) -> list[str]:
+        return ["chào", "hỏi", "trò chuyện", "thông tin", "là gì", "tại sao"]
+
     def get_response(self, data: Dict[str, Any], context: Optional[str] = None) -> str:
         """
         Xử lý response cho general chat

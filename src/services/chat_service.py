@@ -4,31 +4,32 @@ Chat Service - Handle chat logic and context formatting
 from typing import List, Dict, Optional
 
 from ..repositories.chat_history_repo import chat_history_repo
+from ..schemas.conversation_state import ConversationState, DialogState
 from ..core.logger import logger
 
 class ChatService:
     """Service for chat operations"""
 
     def __init__(self):
-        self.repo = chat_history_repo
+        self.repository = chat_history_repo
 
     def create_session(self, user_id: str = None, title: str = "New Chat") -> Dict:
         """Create new chat session"""
         import uuid
         session_id = str(uuid.uuid4())
-        return self.repo.create_session(session_id, title, user_id)
+        return self.repository.create_session(session_id, title, user_id)
 
     def get_session(self, session_id: str) -> Optional[Dict]:
         """Get session by ID"""
-        return self.repo.get_session(session_id)
+        return self.repository.get_session(session_id)
 
     def add_message(self, session_id: str, role: str, content: str):
         """Add message to session"""
-        self.repo.add_message(session_id, role, content)
+        self.repository.add_message(session_id, role, content)
 
     def get_session_messages(self, session_id: str) -> List[Dict]:
         """Get messages for session"""
-        return self.repo.get_session_messages(session_id)
+        return self.repository.get_session_messages(session_id)
 
     def format_conversation_context(self, session_id: str, max_messages: int = 5) -> str:
         """
@@ -72,13 +73,13 @@ class ChatService:
                     if len(msg["content"]) > 50:
                         first_message += "..."
 
-                    self.repo.update_session_title(session_id, first_message)
+                    self.repository.update_session_title(session_id, first_message)
                     logger.info(f"Auto-updated session title: {session_id} -> {first_message}")
                     break
 
     def delete_session(self, session_id: str):
         """Delete session"""
-        self.repo.delete_session(session_id)
+        self.repository.delete_session(session_id)
 
     def get_all_sessions(self, user_id: str = None) -> List[Dict]:
         """Get all sessions for a user, or all sessions if no user specified"""
@@ -121,6 +122,31 @@ class ChatService:
             self.delete_session(session_id)
 
         return len(empty_session_ids)
+
+    def get_state(self, session_id: str) -> ConversationState:
+        """Get conversation state for a session"""
+        session = self.get_session(session_id)
+        if not session:
+            return ConversationState()
+            
+        state_data = session.get("metadata", {}).get("state")
+        if state_data:
+            try:
+                return ConversationState(**state_data)
+            except Exception:
+                return ConversationState()
+        return ConversationState()
+
+    def update_state(self, session_id: str, state: ConversationState):
+        """Update conversation state for a session"""
+        session = self.get_session(session_id)
+        if not session:
+            return
+            
+        metadata = session.get("metadata", {})
+        metadata["state"] = state.model_dump()
+        
+        self.repository.update_session_metadata(session_id, metadata)
 
 # Global instance
 chat_service = ChatService()

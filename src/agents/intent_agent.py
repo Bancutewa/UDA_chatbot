@@ -5,7 +5,7 @@ import json
 from typing import Dict, Optional
 
 from .llm_agent import llm_agent
-from ..core.settings import SYSTEM_INTENT_PROMPT
+from ..intents.intent_registry import intent_registry
 from ..core.logger import logger
 from ..core.exceptions import IntentAnalysisError
 
@@ -13,9 +13,11 @@ class IntentAgent:
     """Intent analysis agent using LLM"""
 
     def __init__(self):
+        system_prompt = intent_registry.generate_system_prompt()
+        logger.debug(f"Intent Agent System Prompt: {system_prompt}")
         self.agent = llm_agent.create_agent(
             name="Intent Analyzer",
-            instructions=[SYSTEM_INTENT_PROMPT, "Luôn trả về JSON hợp lệ."],
+            instructions=[system_prompt, "Luôn trả về JSON hợp lệ."],
             description="AI phân tích ý định của người dùng",
             markdown=False,
             debug_mode=False
@@ -78,33 +80,7 @@ class IntentAgent:
 
     def _fallback_intent_analysis(self, message: str, response_text: str) -> Dict:
         """Fallback intent analysis when JSON parsing fails"""
-
-        message_lower = message.lower()
-
-        # Check for image generation keywords
-        if any(keyword in message_lower for keyword in ['vẽ', 'tạo ảnh', 'generate image', 'hình ảnh', 'bức ảnh']):
-            return {"intent": "generate_image", "description": message}
-
-        # Check for audio generation keywords
-        elif any(keyword in message_lower for keyword in ['đọc', 'phát', 'audio', 'âm thanh', 'podcast']):
-            return {"intent": "generate_audio", "description": message}
-
-        # Check for scheduling keywords
-        elif any(keyword in message_lower for keyword in ['đặt lịch', 'lịch xem', 'xem nhà', 'schedule visit']):
-            return {
-                "intent": "schedule_visit",
-                "preferred_time": message,
-                "district": "Quận 7" if "quận 7" in message_lower else "",
-                "message": message
-            }
-
-        # Check for estate keywords
-        elif any(keyword in message_lower for keyword in ['nhà', 'đất', 'bất động sản', 'mua nhà', 'bán nhà', 'cho thuê']):
-            return {"intent": "estate_query", "query": message}
-
-        # Default to general chat
-        else:
-            return {"intent": "general_chat", "message": message}
+        return intent_registry.get_fallback_intent(message)
 
 # Global instance
 intent_agent = IntentAgent()

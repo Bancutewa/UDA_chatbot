@@ -19,6 +19,14 @@ class ScheduleVisitIntent(BaseIntent):
         "Nhiệm vụ của bạn là xác định thời gian, khu vực (quận/huyện) và loại bất động sản người dùng muốn xem."
     )
 
+    @property
+    def description(self) -> str:
+        return "Người dùng muốn đặt lịch xem nhà/bất động sản. Từ khóa: đặt lịch, lịch xem, xem nhà, schedule visit. Cần trả về thời gian mong muốn (dạng natural language), khu vực (quận/huyện), loại bất động sản, ghi chú."
+
+    @property
+    def keywords(self) -> list[str]:
+        return ["đặt lịch", "lịch xem", "xem nhà", "schedule visit"]
+
     def __init__(self, agent=None):
         super().__init__(agent)
         self.schedule_service = schedule_service

@@ -24,6 +24,18 @@ class BaseIntent(ABC):
         """System prompt cho intent này"""
         pass
 
+    @property
+    @abstractmethod
+    def description(self) -> str:
+        """Mô tả intent cho LLM (dùng để tạo prompt tự động)"""
+        pass
+
+    @property
+    @abstractmethod
+    def keywords(self) -> list[str]:
+        """Danh sách từ khóa để fallback (khi LLM fail)"""
+        pass
+
     @abstractmethod
     def get_response(self, data: Dict[str, Any], context: Optional[str] = None) -> str:
         """

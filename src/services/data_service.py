@@ -486,27 +486,77 @@ class DataService:
     
     def _convert_price(self, value: Any) -> Any:
         """Convert price to VND"""
+        # Helper to process single number
+        def process_number(num):
+            # If value is very large (> 100 million), assume it's already VND
+            if num > 100_000_000:
+                return int(num)
+            # If value is small (e.g. 3.5, 10, 3950), assume it's in Millions
+            # Example: 3950 -> 3,950,000,000 (3.95 billion)
+            # Example: 3.5 -> 3,500,000 (3.5 million? Or 3.5 billion?)
+            # Context matters. But usually real estate prices are > 500 million.
+            # If num < 100: likely Billion (e.g. 3.5 tỷ)
+            # If num >= 100: likely Million (e.g. 3950 triệu)
+            
+            if num < 100: 
+                # Ambiguous: 3.5 could be 3.5 Million (rent) or 3.5 Billion (sale)
+                # But for 'gia_ban', usually Billion.
+                # Let's assume Billion for very small numbers if it's a sale price.
+                return int(num * 1_000_000_000)
+            else:
+                # Assume Million
+                return int(num * 1_000_000)
+
         if isinstance(value, (int, float)):
-            return int(value * 1_000_000)
+            return process_number(float(value))
         
         if not isinstance(value, str):
             return None
         
-        value_str = value.replace(',', '.').replace(' ', '')
-        numbers = re.findall(r'\d+(?:\.\d+)?', value_str)
-        
-        if not numbers:
-            return None
-        
-        multiplier = 1_000_000
-        if 'tỷ' in value.lower() or 'ty' in value.lower():
+        value_str = value.strip().lower()
+        if not value_str: return None
+
+        # Check for explicit units
+        multiplier = 1_000_000 # Default to Million
+        if 'tỷ' in value_str or 'ty' in value_str:
             multiplier = 1_000_000_000
+        elif 'tr' in value_str or 'triệu' in value_str or 'trieu' in value_str:
+            multiplier = 1_000_000
+        elif 'nghìn' in value_str or 'nghin' in value_str or 'k' in value_str:
+            multiplier = 1_000
+        
+        # Extract numbers
+        # Handle formats like "3,950" or "3.950" -> need to be careful with separators
+        # Vietnamese often use '.' for thousands and ',' for decimals, or vice versa.
+        # Safest is to remove non-numeric chars except one separator if present.
+        
+        # Simple extraction for now: find all numbers
+        # Replace ',' with '.' if it looks like decimal? 
+        # Actually, "3,950" in Excel might be read as string "3,950". 
+        # If we just remove ',' and '.' and parse? No, "3.5" becomes 35.
+        
+        # Let's try to parse the string as a float first after cleaning
+        clean_str = value_str.replace('tỷ', '').replace('ty', '').replace('triệu', '').replace('tr', '').replace('vnd', '').replace('đ', '').strip()
+        
+        # Try to handle "3,95" vs "3.95"
+        # If contains both . and , -> remove the one that appears more or first?
+        # Standardize: replace ',' with '.' if it's likely a decimal separator
+        
+        numbers = re.findall(r'\d+(?:[.,]\d+)?', clean_str)
         
         converted = []
         for num_str in numbers:
             try:
-                num = float(num_str)
-                converted.append(int(num * multiplier))
+                # Normalize separator: replace ',' with '.' for float parsing
+                num_val = float(num_str.replace(',', '.'))
+                
+                if 'tỷ' in value_str or 'ty' in value_str:
+                    converted.append(int(num_val * 1_000_000_000))
+                elif 'tr' in value_str or 'triệu' in value_str:
+                    converted.append(int(num_val * 1_000_000))
+                else:
+                    # No explicit unit, use heuristic
+                    converted.append(process_number(num_val))
             except:
                 continue
         

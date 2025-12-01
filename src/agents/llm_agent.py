@@ -31,7 +31,7 @@ class LLMAgent:
                     instructions: List[str],
                     description: str = "",
                     markdown: bool = True,
-                    debug_mode: bool = False) -> Agent:
+                    debug_mode: bool = True) -> Agent:
         """Create an agent with the Gemini model"""
 
         return Agent(
@@ -46,13 +46,15 @@ class LLMAgent:
     def run_prompt(self,
                    prompt: str,
                    instructions: Optional[List[str]] = None,
-                   name: str = "LLM Agent") -> str:
-        """Run a simple prompt"""
+                   name: str = "LLM Agent",
+                   debug_mode: bool = True) -> str:
+        """Run a simple prompt"""   
 
         agent = self.create_agent(
             name=name,
             instructions=instructions or ["You are a helpful AI assistant."],
-            description=f"Agent for: {name}"
+            description=f"Agent for: {name}",
+            debug_mode=debug_mode
         )
 
         try:

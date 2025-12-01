@@ -108,6 +108,26 @@ class MongoDBRepository:
             logger.error(f"Failed to update session title: {e}")
             raise DatabaseConnectionError(f"Update title failed: {e}")
 
+    def update_session_metadata(self, session_id: str, metadata: Dict):
+        """Update session metadata"""
+        try:
+            result = self.collection.update_one(
+                {"_id": session_id},
+                {
+                    "$set": {
+                        "metadata": metadata,
+                        "updated_at": datetime.utcnow()
+                    }
+                }
+            )
+            if result.modified_count > 0:
+                logger.debug(f"Updated session metadata: {session_id}")
+            else:
+                logger.warning(f"Session not found for metadata update: {session_id}")
+        except Exception as e:
+            logger.error(f"Failed to update session metadata: {e}")
+            raise DatabaseConnectionError(f"Update metadata failed: {e}")
+
     def add_message(self, session_id: str, role: str, content: str):
         """Add message to session"""
         message = {
@@ -216,7 +236,8 @@ class MongoDBRepository:
             "title": mongo_session.get("title", "Untitled"),
             "messages": mongo_session.get("messages", []),
             "created_at": mongo_session.get("created_at"),
-            "updated_at": mongo_session.get("updated_at")
+            "updated_at": mongo_session.get("updated_at"),
+            "metadata": mongo_session.get("metadata", {})
         }
 
     def close(self):

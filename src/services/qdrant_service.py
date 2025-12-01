@@ -69,19 +69,22 @@ class QdrantService:
             logger.error(f"Error upserting points to {collection_name}: {e}")
             raise e
 
-    def search(self, collection_name: str, query_vector: List[float], limit: int = 5, score_threshold: Optional[float] = None, query_filter: Optional[models.Filter] = None) -> List[models.ScoredPoint]:
-        """Search for similar vectors"""
+    def query_points(self, collection_name: str, query: List[float], limit: int = 10, query_filter: Optional[models.Filter] = None, with_payload: bool = True) -> models.QueryResponse:
+        """
+        Search using query_points API (more flexible)
+        """
         try:
-            results = self.client.search(
+            results = self.client.query_points(
                 collection_name=collection_name,
-                query_vector=query_vector,
+                query=query,
+                query_filter=query_filter,
                 limit=limit,
-                score_threshold=score_threshold,
-                query_filter=query_filter
+                with_payload=with_payload,
+                # using="default" # Removed to use default unnamed vector
             )
             return results
         except Exception as e:
-            logger.error(f"Error searching in {collection_name}: {e}")
+            logger.error(f"Error querying points in {collection_name}: {e}")
             raise e
 
     def create_payload_index(self, collection_name: str, field_name: str, field_schema: Optional[models.PayloadSchemaType] = None):
@@ -130,6 +133,8 @@ class QdrantService:
                 ('so_phong_ngu', models.PayloadSchemaType.INTEGER),
                 ('nhu_cau', models.PayloadSchemaType.KEYWORD),
                 ('du_an', models.PayloadSchemaType.KEYWORD),
+                ('gia_ban', models.PayloadSchemaType.INTEGER), # For range filter
+                ('dien_tich', models.PayloadSchemaType.FLOAT), # For range filter
             ]
             
             for field_name, field_type in important_fields:

@@ -18,6 +18,14 @@ class GenerateImageIntent(BaseIntent):
     def system_prompt(self) -> str:
         return "Bạn là AI hỗ trợ tạo ảnh. Nhận description và chuyển thành prompt chi tiết."
 
+    @property
+    def description(self) -> str:
+        return "Người dùng muốn tạo ảnh, vẽ, generate image, tạo hình ảnh. Từ khóa: vẽ, tạo ảnh, generate image, hình ảnh, bức ảnh."
+
+    @property
+    def keywords(self) -> list[str]:
+        return ["vẽ", "tạo ảnh", "generate image", "hình ảnh", "bức ảnh"]
+
     def get_response(self, data: Dict[str, Any], context: Optional[str] = None) -> str:
         """
         Xử lý response cho generate image
