@@ -21,6 +21,8 @@ class ConversationState(BaseModel):
     missing_slots: List[str] = Field(default_factory=list)
     last_action: Optional[str] = None
     last_intent: Optional[str] = None
+    last_intent_confidence: float = Field(default=1.0)
+    episodic_summary: Optional[str] = None
     
     # Context for specific flows
     last_viewed_apartment: Optional[str] = None

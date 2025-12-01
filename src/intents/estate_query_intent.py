@@ -53,23 +53,76 @@ class EstateQueryIntent(BaseIntent):
             logger.info(f"Loaded state: {current_state}")
 
             # 2. Understanding (NLU)
-            updated_state = estate_understanding.process(message, current_state)
+            updated_state, nlu_result = estate_understanding.process(message, current_state)
             
             # 3. Decision
-            action_plan = estate_decision.decide(updated_state)
+            action_plan = estate_decision.decide(updated_state, nlu_result)
             logger.info(f"Decision: {action_plan}")
             
             # Update state with last action
             updated_state.last_action = action_plan.get("action")
             
             # 4. Response (NLG)
-            response_text = estate_response.execute(action_plan)
+            response_data = estate_response.execute(action_plan, updated_state)
             
-            # 5. Save State
+            # 5. Update STM from response
+            if "session_update" in response_data:
+                for key, value in response_data["session_update"].items():
+                    if hasattr(updated_state, key):
+                        setattr(updated_state, key, value)
+
+            # Save State
             chat_service.update_state(session_id, updated_state)
             
-            return response_text
+            # 6. Format for UI
+            return self._format_response_for_ui(response_data)
 
         except Exception as e:
             logger.error(f"Error in EstateQueryIntent: {e}", exc_info=True)
             return "Xin lỗi, hệ thống đang gặp sự cố khi xử lý yêu cầu tìm kiếm của bạn."
+
+    def _format_response_for_ui(self, response_data: Dict[str, Any]) -> str:
+        """Convert structured response to markdown for Streamlit"""
+        messages = response_data.get("messages", [])
+        apartments = response_data.get("apartments", [])
+        
+        output_parts = []
+        
+        # Add text messages
+        for msg in messages:
+            output_parts.append(msg.get("content", ""))
+            
+        # Add apartment cards if any
+        if apartments:
+            output_parts.append("\n\n---\n\n**Kết quả tìm kiếm:**\n")
+            for i, apt in enumerate(apartments, 1):
+                card = self._format_apartment_card(apt, i)
+                output_parts.append(card)
+                
+        return "\n".join(output_parts)
+
+    def _format_apartment_card(self, apt: Dict[str, Any], index: int) -> str:
+        """Format single apartment data as markdown card"""
+        du_an = apt.get("du_an", "Căn hộ")
+        toa = apt.get("toa", "")
+        tang = apt.get("tang", "")
+        ma_can = apt.get("ma_can", "")
+        
+        title = f"**{index}. {du_an}**"
+        if toa: title += f" - Tòa {toa}"
+        if tang: title += f" - Tầng {tang}"
+        if ma_can: title += f" ({ma_can})"
+        
+        details = []
+        if ma_can: details.append(f"🆔 Mã căn: `{ma_can}`")
+        if apt.get("dien_tich"): details.append(f"📐 Diện tích: {apt['dien_tich']}m²")
+        if apt.get("so_phong_ngu"): details.append(f"🛏️ PN: {apt['so_phong_ngu']}")
+        if apt.get("huong"): details.append(f"🧭 Hướng: {apt['huong']}")
+        if apt.get("gia_ban"): 
+            gia = f"{apt['gia_ban']:,} VND".replace(",", ".")
+            details.append(f"💰 Giá: {gia}")
+        
+        return f"{title}\n" + " | ".join(details) + "\n"
+
+# Singleton
+estate_query_intent = EstateQueryIntent()

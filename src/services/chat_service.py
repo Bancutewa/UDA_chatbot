@@ -6,6 +6,7 @@ from typing import List, Dict, Optional
 from ..repositories.chat_history_repo import chat_history_repo
 from ..schemas.conversation_state import ConversationState, DialogState
 from ..core.logger import logger
+from ..core import settings
 
 class ChatService:
     """Service for chat operations"""
@@ -31,7 +32,7 @@ class ChatService:
         """Get messages for session"""
         return self.repository.get_session_messages(session_id)
 
-    def format_conversation_context(self, session_id: str, max_messages: int = 5) -> str:
+    def format_conversation_context(self, session_id: str, max_messages: int = settings.MAX_CONTEXT_MESSAGES) -> str:
         """
         Format conversation context for LLM
 

@@ -5,6 +5,8 @@
 
 data/*
 
+tests/*
+
 audio_generations/
 # Python
 __pycache__/

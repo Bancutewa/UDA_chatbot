@@ -142,15 +142,10 @@ class ChatHistoryRepository:
     def update_session_metadata(self, session_id: str, metadata: Dict):
         """Update session metadata"""
         if self.use_mongodb:
-            # Assuming mongo_repo has this method or we need to add it there too
             if hasattr(self.mongo_repo, 'update_session_metadata'):
                 self.mongo_repo.update_session_metadata(session_id, metadata)
             else:
-                # Fallback implementation for mongo if method missing (should be added to mongo repo ideally)
-                # For now, let's assume mongo_repo needs it.
-                # But wait, the error is AttributeError: 'ChatHistoryRepository' object has no attribute 'update_session_metadata'
-                # So we are adding it here.
-                pass 
+                logger.warning("MongoDB repository missing update_session_metadata method") 
         else:
             # JSON fallback
             sessions = self._load_sessions()

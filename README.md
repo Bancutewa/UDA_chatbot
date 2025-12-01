@@ -181,8 +181,12 @@ JWT_SECRET_KEY=your_secret_key_here
 ### 🏠 Tư vấn bất động sản (BĐS)
 
 - Intent: `estate_query`
-- RAG pipeline với Qdrant vector DB
-- Tư vấn dựa trên dữ liệu thực tế
+- **Kiến trúc 3 Layer**:
+  1. **Understanding (NLU)**: Trích xuất thông tin (slots) từ câu nói người dùng (Dự án, Giá, Phòng ngủ...). Xử lý phủ định và ngữ cảnh.
+  2. **Decision (Policy)**: Quyết định hành động tiếp theo (Tìm kiếm, Hỏi thêm thông tin, Show chi tiết, Đặt lịch...).
+  3. **Response (NLG)**: Thực thi hành động (Query Qdrant) và tạo câu trả lời tự nhiên.
+- **RAG Pipeline**: Sử dụng Qdrant vector DB để tìm kiếm ngữ nghĩa và lọc chính xác.
+- **Context Management**: Duy trì ngữ cảnh qua nhiều lượt hội thoại.
 
 ## 🧩 Intent System
 
@@ -229,6 +233,27 @@ UI → Services → Agents/Repositories → Core
 - Chat history: JSON-based (dễ migrate)
 - BDS data: Qdrant vectors
 - Metadata: MongoDB (tương lai)
+
+## 🧪 Testing
+
+Dự án bao gồm bộ test suite đầy đủ cho các layer của Chatbot BĐS.
+
+### Chạy Unit Tests
+
+```bash
+# Chạy toàn bộ unit tests
+python -m unittest discover chatbot/tests
+
+# Chạy test cụ thể
+python -m unittest chatbot/tests/test_understanding.py
+```
+
+### Chạy Integration Tests
+
+```bash
+# Chạy integration tests (kiểm tra luồng đi đầy đủ)
+python chatbot/tests/test_integration.py
+```
 
 ## 📊 Monitoring & Logging
 
