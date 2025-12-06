@@ -73,3 +73,10 @@ class UserSession(BaseModel):
     username: str
     role: UserRole
     is_active: bool
+
+
+class TokenPayload(BaseModel):
+    """Schema for token payload"""
+    sub: Optional[str] = None
+    username: Optional[str] = None
+    role: Optional[UserRole] = None
