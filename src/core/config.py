@@ -29,7 +29,6 @@ class Config:
 
     # Model Configuration
     GEMINI_MODEL: str = "gemini-2.5-flash"
-    GEMINI_MODEL_ID: str = "gemini-2.5-flash"
 
     # Embedding Configuration
     EMBEDDING_MODEL_NAME: str = os.getenv("EMBEDDING_MODEL_NAME","AITeamVN/Vietnamese_Embedding").strip()

@@ -1,6 +1,5 @@
 pydantic[email]>=2.0.0
 streamlit>=1.51.0
-agno>=2.2.13
 python-dotenv>=1.2.1
 PyJWT>=2.10.1
 numpy>=2.3.4
@@ -14,8 +13,11 @@ dateparser>=1.2.0
 streamlit-calendar>=1.0.0
 black>=23.0.0
 pytest>=7.0.0
-agno[all]
 pandas>=2.0.0
 openpyxl>=3.1.0
 sentence-transformers>=2.2.0
-dateparser>=1.1.8 
+
+# LangChain Dependencies
+langchain
+langchain-google-genai
+langchain-community

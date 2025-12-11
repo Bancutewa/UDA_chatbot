@@ -5,7 +5,6 @@ import streamlit as st
 from typing import Optional
 
 from ..services.chat_service import chat_service
-from ..agents.intent_agent import intent_agent
 from ..core.config import config
 from ..core.logger import logger
 from ..ui.schedule_interface import schedule_interface
@@ -17,7 +16,6 @@ class ChatInterface:
 
     def __init__(self):
         self.chat_service = chat_service
-        self.intent_agent = intent_agent
         self.current_user_session = None
 
     def render_sidebar(self, user_session=None):
@@ -198,7 +196,7 @@ class ChatInterface:
 
         # Chat input
         if config.GEMINI_API_KEY:
-            if user_input := st.chat_input("Hỏi tôi hoặc yêu cầu 'vẽ một con chó'...", disabled=not config.GEMINI_API_KEY):
+            if user_input := st.chat_input("Hỏi tôi...", disabled=not config.GEMINI_API_KEY):
                 # Add user message
                 self.chat_service.add_message(session_id, "user", user_input)
 
@@ -206,72 +204,28 @@ class ChatInterface:
                 with st.chat_message("user"):
                     st.markdown(user_input)
 
-                # Process with intent analysis and get response
+                # Process with LangChain Agent
                 with st.chat_message("assistant"):
                     with st.spinner("🤖 Đang suy nghĩ..."):
-                        # Initialize variables with defaults
-                        intent_name = "general_chat"
-                        intent_handler = None
-                        bot_response = ""
-
                         try:
-                            # Analyze intent
-                            # Get context for conversation
-                            context = self.chat_service.format_conversation_context(session_id)
-                            intent_result = self.intent_agent.analyze_intent(user_input, context)
+                            # Simplified Invoke using Agent Memory (MongoDB)
+                            # Passing session_id as thread_id so Agent manages history
+                            from ..agents.estate_agent import estate_agent
+                            
+                            bot_response = estate_agent.invoke(user_input, thread_id=session_id)
+                            
+                            st.markdown(bot_response)
+                            
+                            self.chat_service.add_message(session_id, "assistant", bot_response)
 
-                            # Route to appropriate intent handler
-                            from ..intents.intent_registry import intent_registry
-                            intent_name = intent_result.get("intent", "general_chat")
-
-                            intent_metadata = {
-                                "session_id": session_id,
-                                "user_session": user_session.model_dump() if user_session else None
-                            }
-                            intent_result.setdefault("message", user_input)
-                            intent_result["metadata"] = intent_metadata
-
-                            intent_handler = intent_registry.get_intent_instance(intent_name)
-                            if intent_handler:
-                                # Get response for all intents (no streaming)
-                                bot_response = intent_handler.get_response(intent_result, context)
-                            else:
-                                bot_response = f"❌ Không tìm thấy handler cho intent: {intent_name}"
-
-                            # Handle special responses (like audio)
-                            if intent_name == "generate_audio" and hasattr(intent_handler, 'get_display_response'):
-                                display_response = intent_handler.get_display_response()
-                                if display_response:
-                                    st.session_state.audio_display_response = display_response
-
-                            # Display response for all intents
-                            display_response = st.session_state.get('audio_display_response', bot_response)
-                            if 'audio_display_response' in st.session_state:
-                                del st.session_state.audio_display_response  # Clean up after use
-
-                            if display_response.strip():  # Only display if there's content
-                                st.markdown(display_response, unsafe_allow_html=True)
+                             # Auto-update title from first message
+                            if len(session["messages"]) == 2:  # user + assistant
+                                self.chat_service.update_session_title_from_first_message(session_id)
 
                         except Exception as e:
                             error_msg = f"❌ Lỗi xử lý: {str(e)}"
                             st.error(error_msg)
-                            bot_response = error_msg
-                            # Fallback to general chat when intent analysis fails
-                            intent_name = "general_chat"
-                            from ..intents.intent_registry import intent_registry
-                            intent_handler = intent_registry.get_intent_instance(intent_name)
-                            intent_result = {"intent": "general_chat", "message": user_input}  # Fallback result
-
-                # Save assistant response (use history response for audio, regular response for others)
-                history_response = bot_response
-                if intent_name == "generate_audio" and hasattr(intent_handler, 'get_history_response'):
-                    history_response = intent_handler.get_history_response() or bot_response
-
-                self.chat_service.add_message(session_id, "assistant", history_response)
-
-                # Auto-update title from first message
-                if len(session["messages"]) == 2:  # user + assistant
-                    self.chat_service.update_session_title_from_first_message(session_id)
+                            logger.error(f"Chat Error: {e}")
         else:
             st.error("❌ Thiếu API key! Vui lòng thiết lập GEMINI_API_KEY.")
 
