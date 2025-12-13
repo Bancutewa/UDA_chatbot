@@ -4,6 +4,7 @@ from typing import List, Dict, Any, Optional, Union
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langgraph.prebuilt import create_react_agent
 from langchain_core.messages import HumanMessage
+from langchain.agents import create_agent 
 from langgraph.checkpoint.mongodb import MongoDBSaver
 from langchain.agents.middleware import SummarizationMiddleware
 from pymongo import MongoClient
@@ -87,10 +88,10 @@ class EstateAgent:
         """
         
         # Using create_react_agent from langgraph.prebuilt which supports checkpointer correctly
-        return create_react_agent(
+        return create_agent(
             model=self.model, 
             tools=self.tools, 
-            prompt=system_prompt, # check prompt param for langgraph prebuilt version
+            system_prompt=system_prompt, # check prompt param for langgraph prebuilt version
             checkpointer=self.checkpointer
         )
 
