@@ -1,57 +1,81 @@
-# 🤖 AI Chatbot Assistant
+# 🤖 AI Chatbot Assistant (LangChain/LangGraph Edition)
 
-Chatbot AI đa năng với kiến trúc 7-layer, hỗ trợ authentication, trò chuyện, tạo ảnh và tạo audio.
+Mô hình Chatbot AI tư vấn bất động sản chuyên nghiệp được xây dựng trên nền tảng **LangChain** và **LangGraph**, với khả năng đa phương thức (Văn bản, Hình ảnh, Âm thanh).
 
-## 🏗️ Kiến trúc 7 Layer
+## � Project Objective
+
+Dự án này nhằm mục đích xây dựng một trợ lý ảo bất động sản chuyên nghiệp, giải quyết các bài toán thực tế trong việc tư vấn và tìm kiếm nhà đất:
+
+- **Mục tiêu**: Tự động hóa quy trình tư vấn sơ bộ, hỗ trợ tìm kiếm, so sánh bất động sản và cung cấp trải nghiệm đa phương tiện (xem ảnh mô phỏng, nghe giới thiệu).
+- **Đối tượng sử dụng**: Khách hàng tìm mua/thuê nhà, nhân viên môi giới cần công cụ hỗ trợ, và các kỹ sư AI muốn tham khảo kiến trúc agent hiện đại.
+- **Giá trị cốt lõi**: Kết hợp sức mạnh của LLM (Gemini) với dữ liệu thực tế (Qdrant Vector DB) để giảm thiểu ảo giác (hallucinations) và tăng tính chính xác.
+
+## 🧠 Agent Workflow (LangGraph)
+
+Quy trình xử lý của Agent được thiết kế theo luồng dữ liệu sau:
+
+<img src="./public/mermaid.png" alt="Agent Workflow" width="600">
+
+1. **User Input**: Người dùng gửi yêu cầu (tìm nhà, hỏi thông tin, vẽ ảnh...).
+2. **Intent Analysis**: Agent phân tích ý định và trích xuất thực thể (Entities).
+3. **Tool Selection**: Agent tự động quyết định công cụ phù hợp (Search, RAG, Image, Audio).
+4. **Execution**: Các công cụ tương tác với Database hoặc API bên thứ 3.
+5. **Synthesis**: Agent tổng hợp kết quả, kết hợp với ngữ cảnh lịch sử (Memory) để trả lời tự nhiên.
+
+## 🏗️ Kiến trúc Hệ thống
 
 ```
 chatbot/
-├── app.py                    # Entry point
+├── app.py                    # Streamlit Entry point
+├── verify_agent_cli.py       # CLI Verification Script
 ├── src/
-│   ├── core/                # ⚙️  Dependencies, config, logger, utils
+│   ├── core/                 # ⚙️  Dependencies, config, logger
 │   │   ├── config.py         # Configuration management
-│   │   ├── settings.py       # Constants & prompts
-│   │   ├── logger.py         # Logging setup
-│   │   └── exceptions.py     # Custom exceptions
+│   │   └── logger.py         # Logging setup
 │   │
-│   ├── agents/              # 🤖 Model agents (LLM / Image / Audio / Intent analyzer)
-│   │   ├── llm_agent.py      # Gemini API wrapper
-│   │   ├── intent_agent.py   # Intent analysis agent
-│   │   ├── image_agent.py    # Pollinations agent
-│   │   └── audio_agent.py    # ElevenLabs agent
+│   ├── agents/               # 🧠 Brain
+│   │   └── estate_agent.py   # Main Agent (LangGraph ReAct)
 │   │
-│   ├── intents/             # 🎯 Intent handlers
-│   │   ├── base_intent.py    # Abstract base class
-│   │   ├── intent_registry.py # Intent registry
-│   │   ├── general_chat_intent.py
-│   │   ├── generate_image_intent.py
-│   │   └── generate_audio_intent.py
+│   ├── tools/                # 🛠️ LangChain Tools
+│   │   ├── listing_tools.py  # Search, Details, Compare (Qdrant)
+│   │   ├── rag_tools.py      # Project Info RAG
+│   │   ├── booking_tools.py  # Appointment booking
+│   │   ├── audio_tools.py    # ElevenLabs Text-to-Speech
+│   │   └── image_tools.py    # Pollinations AI Image Gen
 │   │
-│   ├── services/            # 🔧 Business logic
-│   │   ├── chat_service.py   # Chat operations
-│   │   ├── image_service.py  # Image generation
-│   │   └── audio_service.py  # Audio generation
+│   ├── services/             # 🔧 Infrastructure Services
+│   │   ├── chat_service.py   # Chat session management
+│   │   ├── qdrant_service.py # Vector DB Interface
+│   │   └── embedding_service.py # Text Embeddings
 │   │
-│   ├── repositories/        # 💾 Database layer
-│   │   ├── chat_history_repo.py  # JSON chat storage
-│   │   └── user_repository.py    # User data storage
-│   │
-│   ├── schemas/             # 📋 Pydantic schemas
-│   │   ├── chat.py          # Chat schemas
-│   │   └── user.py          # User & auth schemas
-│   │
-│   ├── ui/                  # 🎨 User interface
-│   │   ├── chat_interface.py # Chat UI
-│   │   └── auth_interface.py # 🔐 Authentication UI
-│   │
-│   └── utils/               # 🛠️  Common helpers
-│   └── main_chatbot.py      # 🎼 Orchestrator
-│
-└── data/
-    └── audio_generations/   # Audio files
+│   ├── ui/                   # 🎨 User interface
+│   │   ├── chat_interface.py # Streamlit Chat UI (Media-aware)
+│   │   └── ...
 ```
 
-## 🚀 Cài đặt và Chạy
+## 🧩 Agent Design Decisions
+
+Tại sao lại chọn **Single Graph Agent** và **ReAct Pattern**?
+
+- **Single Graph Agent**: Thay vì sử dụng multi-agent phức tạp (như AutoGen) ngay từ đầu, tôi chọn một graph agent duy nhất để tập trung vào sự nhất quán của trạng thái hội thoại (Conversation State) và giảm độ trễ (Latency).
+- **ReAct Pattern**: Cho phép agent "Suy nghĩ" (Reasoning) trước khi "Hành động" (Acting). Điều này cực kỳ quan trọng trong tư vấn BĐS để agent hiểu rõ ràng khi nào cần tìm kiếm database và khi nào cần hỏi thêm thông tin từ người dùng.
+- **Structured Outputs**: Các tool được thiết kế để trả về dữ liệu có cấu trúc (JSON/Dict) thay vì văn bản tự do, giúp LLM dễ dàng xử lý và định dạng lại câu trả lời chính xác.
+
+## 🚀 Tính Năng Nổi Bật
+
+### 1. 🤖 Estate Agent (LangGraph)
+
+- **Tư duy ReAct**: Agent có khả năng suy luận, chọn công cụ phù hợp và trả lời thông minh.
+- **Bộ nhớ hội thoại**: Sử dụng **MongoDB** để lưu trữ lịch sử bền vững.
+- **Đa năng**: Xử lý đa tác vụ trong một luồng hội thoại duy nhất.
+
+### 2. 🛠️ Hệ thống Tools Đa Phương Tiện
+
+- **Quản lý Bất Động Sản**: Tìm kiếm, so sánh, xem chi tiết, gợi ý tương tự.
+- **Đa phương tiện**: Tạo ảnh mô phỏng (Pollinations AI) và đọc thông tin (ElevenLabs) để tăng trải nghiệm khách hàng.
+- **Tiện ích**: Đặt lịch xem nhà thực tế, tra cứu thông tin pháp lý dự án.
+
+## 🛠️ Cài đặt và Chạy
 
 ### 1. Cài đặt Dependencies
 
@@ -60,267 +84,59 @@ cd chatbot
 pip install -r requirements.txt
 ```
 
-### 2. Cấu hình API Key
+### 2. Cấu hình
 
-**Cách 1: Environment variable**
+Tạo file `.env` và điền API Key:
 
-```bash
-export GEMINI_API_KEY=your_gemini_api_key_here
+```env
+# AI Models
+GEMINI_API_KEY=your_key
+
+# Database
+MONGODB_URL=mongodb+srv://... (Optional)
+QDRANT_URL=http://localhost:6333
+QDRANT_API_KEY=your_key
+
+# Multimedia tools
+ELEVEN_LABS_API_KEY=your_key
 ```
 
-**Cách 2: File .env**
-
-```bash
-# Tạo file .env trong thư mục gốc
-echo "GEMINI_API_KEY=your_gemini_api_key_here" > .env
-```
-
-**Lấy API Key:**
-
-- **Gemini API Key**: Đăng ký tại [Google AI Studio](https://aistudio.google.com/)
-- Hoàn toàn miễn phí với 1,500 requests/ngày
-
-### 3. Chạy Chatbot
-
-**Tùy chọn A: Chạy trực tiếp**
+### 3. Khởi chạy
 
 ```bash
 streamlit run app.py
 ```
 
-**Tùy chọn B: Chạy với Docker**
+## ⚠️ Limitations (Giới hạn)
 
-_Yêu cầu: Docker và Docker Compose đã được cài đặt_
+- **Chất lượng dữ liệu**: Phụ thuộc vào dữ liệu đầu vào trong Qdrant. Nếu dữ liệu thiếu, agent có thể không tìm thấy kết quả.
+- **Hallucination**: Dù đã dùng RAG, LLM vẫn có xác suất nhỏ bịa thông tin nếu câu hỏi quá mơ hồ.
+- **Image Generation**: Hình ảnh tạo ra chỉ mang tính chất minh họa (concept art), không phải ảnh thực tế của căn hộ.
+- **API Cost**: Việc sử dụng ElevenLabs và Gemini liên tục có thể phát sinh chi phí nếu lượng request lớn.
 
-```bash
-# 1. Sao chép file env
-cp env.example .env
+## 🔮 Future Improvements (Roadmap)
 
-# 2. Chỉnh sửa .env với API keys của bạn
-nano .env
+- [ ] **Multi-Agent System**: Tách biệt thành Sales Agent (chốt sale) và Support Agent (CSKH) chuyên biệt.
+- [ ] **Voice Input**: Tích hợp Speech-to-Text để người dùng có thể nói chuyện trực tiếp với bot.
+- [ ] **Personalization**: Gợi ý nhà dựa trên lịch sử xem và hành vi người dùng (Long-term memory).
+- [ ] **Deployment**: Đóng gói Docker và triển khai lên Cloud Run / AWS ECS.
+- [ ] **Evaluation**: Xây dựng bộ test RAGAS để đo lường độ chính xác của câu trả lời.
 
-# 3. Build và chạy
-docker-compose up --build
+## 🧪 Testing & Verification
 
-# Hoặc chạy background
-docker-compose up -d --build
-```
-
-**Truy cập:** http://localhost:8501
-
-### Docker Configuration
-
-**Database:** Sử dụng MongoDB Atlas (cloud) - không cần MongoDB local
-
-**Ports:**
-
-- Chatbot: `8501`
-
-**Volumes:**
-
-- `./data`: Audio files và user data
-- `./logs`: Application logs
-
-**Lưu ý:** Dự án sử dụng MongoDB Atlas (cloud database), không cần MongoDB local.
-
-## 🔐 Authentication System
-
-### Đăng ký & Đăng nhập
-
-- **User Registration**: Tạo tài khoản mới với email, username, password (tự động có role `user`)
-- **User Login**: Đăng nhập với username/password
-- **JWT Authentication**: Token-based authentication
-- **Role-based Access**: Hỗ trợ 2 role `admin` và `user`
-- **User-specific Sessions**: Mỗi user chỉ thấy chat sessions của mình trong sidebar
-- **Session Management**: Hiển thị thời gian tạo, số tin nhắn, với UI thân thiện
-
-### Quản lý người dùng (Admin only)
-
-- **User Management**: Xem, chỉnh sửa, xóa user
-- **Role Assignment**: Thay đổi role của user
-- **Account Status**: Kích hoạt/vô hiệu hóa tài khoản
-
-### Cấu hình Authentication
+Dự án đi kèm script kiểm thử tự động:
 
 ```bash
-# Thêm vào .env
-JWT_SECRET_KEY=your_secret_key_here
+python verify_agent_langgraph.py
 ```
 
-**Lưu ý**: Tất cả user mới đăng ký sẽ tự động có role `user`. Admin accounts chỉ có thể được tạo bởi script `create_admin.py` hoặc được cấp bởi admin hiện tại.
+## 🤝 Technology Stack
 
-## 🎯 Tính năng
-
-### 💬 Trò chuyện thông thường
-
-- Intent: `general_chat`
-- Hỗ trợ context từ lịch sử chat
-- **Streaming Response**: Trả lời theo kiểu streaming (tương tự ChatGPT)
-- Trả lời bằng tiếng Việt
-
-### 🖼️ Tạo ảnh
-
-- Intent: `generate_image`
-- Sử dụng Pollinations AI
-- Tự động tạo prompt chi tiết từ mô tả đơn giản
-
-### 🎵 Tạo audio
-
-- Intent: `generate_audio`
-- Sử dụng ElevenLabs TTS
-- Hỗ trợ Firecrawl cho URL scraping
-- Voice: Nguyễn Ngân (Female, Vietnamese)
-
-### 📅 Đặt lịch xem nhà
-
-- Intent: `schedule_visit`
-- Hiểu các yêu cầu như "đặt lịch xem nhà quận 7 sáng thứ 7 này"
-- Tự động chuẩn hóa thời gian, lưu lịch vào calendar chung của admin
-- Admin có trang riêng để xem và cập nhật trạng thái lịch hẹn
-
-### 🏠 Tư vấn bất động sản (BĐS)
-
-- Intent: `estate_query`
-- **Kiến trúc 3 Layer**:
-  1. **Understanding (NLU)**: Trích xuất thông tin (slots) từ câu nói người dùng (Dự án, Giá, Phòng ngủ...). Xử lý phủ định và ngữ cảnh.
-  2. **Decision (Policy)**: Quyết định hành động tiếp theo (Tìm kiếm, Hỏi thêm thông tin, Show chi tiết, Đặt lịch...).
-  3. **Response (NLG)**: Thực thi hành động (Query Qdrant) và tạo câu trả lời tự nhiên.
-- **RAG Pipeline**: Sử dụng Qdrant vector DB để tìm kiếm ngữ nghĩa và lọc chính xác.
-- **Context Management**: Duy trì ngữ cảnh qua nhiều lượt hội thoại.
-
-## 🧩 Intent System
-
-Hệ thống intent thông minh tự động phân loại:
-
-| Intent           | Keywords               | Handler             |
-| ---------------- | ---------------------- | ------------------- |
-| `general_chat`   | chào, hỏi, trò chuyện  | GeneralChatIntent   |
-| `generate_image` | vẽ, tạo ảnh, hình ảnh  | GenerateImageIntent |
-| `generate_audio` | đọc, phát, audio       | GenerateAudioIntent |
-| `estate_query`   | nhà, đất, bất động sản | BDSIntent           |
-
-## 🏛️ Kiến trúc Clean Architecture
-
-### Dependency Direction:
-
-```
-UI → Services → Agents/Repositories → Core
-```
-
-### Benefits:
-
-- **Separation of Concerns**: Mỗi layer có trách nhiệm riêng
-- **Testability**: Dễ mock và test từng layer
-- **Maintainability**: Dễ mở rộng và sửa đổi
-- **Scalability**: Có thể thay thế implementation mà không ảnh hưởng layer khác
-
-## 🛠️ Development
-
-### Thêm Intent mới:
-
-1. Tạo class kế thừa `BaseIntent` trong `src/intents/`
-2. Register trong `IntentRegistry`
-3. Thêm system prompt trong `settings.py`
-
-### Thêm Service mới:
-
-1. Tạo service class trong `src/services/`
-2. Inject dependencies qua constructor
-3. Implement business logic
-
-### Database Migration:
-
-- Chat history: JSON-based (dễ migrate)
-- BDS data: Qdrant vectors
-- Metadata: MongoDB (tương lai)
-
-## 🧪 Testing
-
-Dự án bao gồm bộ test suite đầy đủ cho các layer của Chatbot BĐS.
-
-### Chạy Unit Tests
-
-```bash
-# Chạy toàn bộ unit tests
-python -m unittest discover chatbot/tests
-
-# Chạy test cụ thể
-python -m unittest chatbot/tests/test_understanding.py
-```
-
-### Chạy Integration Tests
-
-```bash
-# Chạy integration tests (kiểm tra luồng đi đầy đủ)
-python chatbot/tests/test_integration.py
-```
-
-## 📊 Monitoring & Logging
-
-- **Logs**: Tự động ghi vào `logs/chatbot.log`
-- **Error Handling**: Custom exceptions cho từng module
-- **API Status**: Real-time monitoring trong sidebar
-
-## 🗄️ Database Support
-
-### MongoDB Atlas Integration
-
-- ✅ **Auto-detection**: Tự động detect MongoDB nếu có `MONGODB_URL`
-- ✅ **Fallback**: Dùng JSON file nếu không có MongoDB
-- ✅ **Migration**: Chuyển dữ liệu từ JSON sang MongoDB
-- ✅ **Production Ready**: Scalable cho multi-user
-
-📖 **Xem [MONGODB_SETUP.md](MONGODB_SETUP.md) để setup MongoDB Atlas**
-
-### Database Architecture
-
-```javascript
-// MongoDB Collections
-chat_sessions: {
-  _id: "session_uuid",
-  user_id: "default",
-  title: "Chat Title",
-  messages: [
-    {role: "user", content: "...", timestamp: "..."},
-    {role: "assistant", content: "..."}
-  ],
-  created_at: ISODate(),
-  updated_at: ISODate()
-}
-
-// Future: BDS data
-bds_properties: {...}
-```
-
-## 🔮 Tương lai
-
-### Phase 2:
-
-- [x] MongoDB integration cho chat history
-- [ ] Qdrant production setup
-- [ ] Real BDS data scraping
-- [ ] Multi-user support
-- [ ] API rate limiting
-
-### Phase 3:
-
-- [ ] Voice input/output
-- [ ] Multi-language support
-- [ ] Plugin system
-- [ ] Webhook integrations
-
-## 🤝 Contributing
-
-1. Fork repository
-2. Tạo feature branch
-3. Implement theo clean architecture
-4. Add tests
-5. Submit PR
+- **Core**: Python 3.10+, LangChain, LangGraph
+- **AI Models**: Google Gemini, ElevenLabs, Pollinations
+- **Database**: Qdrant (Vector), MongoDB (NoSQL)
+- **UI**: Streamlit
 
 ## 📝 License
 
-MIT License - sử dụng tự do cho mục đích học tập và thương mại.
-
----
-
-**Built with ❤️ using Streamlit, Agno, and modern AI APIs**
+MIT License.

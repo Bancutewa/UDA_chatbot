@@ -2,9 +2,8 @@ import os
 from typing import List, Dict, Any, Optional, Union
 
 from langchain_google_genai import ChatGoogleGenerativeAI
-from langgraph.prebuilt import create_react_agent
-from langchain_core.messages import HumanMessage
 from langchain.agents import create_agent 
+from langchain_core.messages import HumanMessage
 from langgraph.checkpoint.mongodb import MongoDBSaver
 from langchain.agents.middleware import SummarizationMiddleware
 from pymongo import MongoClient
@@ -16,6 +15,8 @@ from ..core.logger import logger
 from ..tools.listing_tools import search_listings, get_listing_details, compare_listings, suggest_similar_listings
 from ..tools.booking_tools import book_appointment
 from ..tools.rag_tools import project_info_tool
+from ..tools.audio_tools import generate_audio_tool
+from ..tools.image_tools import generate_image_tool
 
 class EstateAgent:
     """
@@ -29,8 +30,11 @@ class EstateAgent:
             compare_listings, 
             suggest_similar_listings, 
             book_appointment, 
-            project_info_tool
+            project_info_tool,
+            generate_audio_tool,
+            generate_image_tool
         ]
+        
         self.model = ChatGoogleGenerativeAI(
             model=config.GEMINI_MODEL,
             google_api_key=config.GEMINI_API_KEY,
@@ -45,6 +49,7 @@ class EstateAgent:
                 # Reuse client from config if possible or create new one
                 self.mongo_client = MongoClient(config.MONGODB_URL)
                 self.checkpointer = MongoDBSaver(self.mongo_client, db_name=config.DATABASE_NAME)
+                logger.info("MongoDB Checkpointer initialized successfully")
             except Exception as e:
                 logger.error(f"Failed to initialize MongoDB Checkpointer: {e}")
         else:
@@ -81,18 +86,40 @@ class EstateAgent:
            
         6) project_info_tool:
            - Khi hỏi chung chung: "Tiện ích dự án là gì?", "Pháp lý thế nào?"
+
+        7) generate_image_tool:
+           - Khi người dùng muốn xem hình ảnh mô phỏng hoặc tưởng tượng: "Vẽ cho tôi căn hộ trong mơ", "Tạo ảnh phòng khách hiện đại".
+           - KHÔNG dùng tool này để lấy ảnh thực tế của căn hộ (dùng get_listing_details). Chỉ dùng để vẽ/tạo ảnh mới.
+
+        8) generate_audio_tool:
+           - Khi người dùng yêu cầu đọc thành tiếng hoặc tạo file âm thanh: "Đọc thông tin này cho tôi", "Tạo file audio giới thiệu".
            
         Tránh:
         - Không bịa đặt dữ liệu
         - Luôn trả lời bằng tiếng Việt lịch sự, chuyên nghiệp.
         """
         
-        # Using create_react_agent from langgraph.prebuilt which supports checkpointer correctly
+        # Initialize Summary Model
+        summary_model = ChatGoogleGenerativeAI(
+            model=config.GEMINI_MODEL,
+            google_api_key=config.GEMINI_API_KEY,
+            temperature=0.1,
+            convert_system_message_to_human=True
+        )
+
+        # Using create_react_agent from langgraph.prebuilt
         return create_agent(
             model=self.model, 
             tools=self.tools, 
-            system_prompt=system_prompt, # check prompt param for langgraph prebuilt version
-            checkpointer=self.checkpointer
+            system_prompt=system_prompt, 
+            checkpointer=self.checkpointer,
+            middleware=[
+                SummarizationMiddleware(
+                    model=summary_model, 
+                    trigger=("tokens", 4000), 
+                    keep=("messages", 20)
+                )
+            ]
         )
 
     def invoke(self, input_text: str, thread_id: str) -> str:
@@ -104,6 +131,7 @@ class EstateAgent:
             config_run = {"configurable": {"thread_id": thread_id}}
             
             # Invoke Agent
+            # LangGraph agent returns a dictionary with state keys (messages, etc.)
             response = self.agent.invoke(
                 {"messages": [{"role": "user", "content": input_text}]},
                 config=config_run
@@ -111,12 +139,20 @@ class EstateAgent:
             
             # Extract final response
             if isinstance(response, dict) and "messages" in response:
-                content = response["messages"][-1].content
-                # Handle complex content (list of blocks)
+                messages = response["messages"]
+                # The last message should be the AI's final response
+                final_message = messages[-1]
+                content = final_message.content
+                
+                # Handle complex content if any
                 if isinstance(content, list):
-                    text_parts = [block.get('text', '') for block in content if block.get('type') == 'text']
+                    text_parts = [block.get('text', '') for block in content if isinstance(block, dict) and block.get('type') == 'text']
+                    if not text_parts and len(content) > 0:
+                         # Fallback for other str types in list
+                         text_parts = [str(c) for c in content]
                     return "\n".join(text_parts)
                 return str(content)
+            
             return str(response)
             
         except Exception as e:

@@ -183,14 +183,12 @@ class ChatInterface:
                     content = message["content"]
                     if message["role"] == "assistant":
                         # Handle special display responses
-                        if st.session_state.get('audio_display_response'):
-                            display_content = st.session_state.audio_display_response
-                            del st.session_state.audio_display_response
-                            st.markdown(display_content, unsafe_allow_html=True)
-                        else:
-                            st.markdown(content, unsafe_allow_html=True)
+                        # Render content with media support
+                        self._render_message_content(content)
                     else:
                         st.markdown(content)
+
+
         else:
             st.info("👋 Bắt đầu cuộc trò chuyện mới!")
 
@@ -277,6 +275,70 @@ class ChatInterface:
             # Show normal chat interface
             self.render_sidebar(user_session)
             self.render_main_chat(current_session_id, user_session)
+
+
+    def _render_message_content(self, content: str):
+        """Render message content with auto-detected media"""
+        import re
+        import os
+        import base64
+
+        # 1. Render main text
+        st.markdown(content, unsafe_allow_html=True)
+        
+        # 2. Detect and render Audio
+        # Flexible pattern to catch audio file paths or "Audio generated successfully"
+        # Matches paths ending in .mp3 inside the content string, specifically looking for typical data/ structure
+        audio_matches = re.finditer(r"(?:data[/\\]audio_generations[/\\]|[^ \t\n\r\f\v]+\.mp3)", content)
+        
+        # More robust regex to find the specific path output by agent
+        # Example: "data/audio_generations\audio_d8...mp3"
+        # We look for a substring that looks like a valid audio path present in the content
+        
+        candidates = []
+        # Extract potential paths that exist
+        words = content.split()
+        for word in words:
+            # Clean punctuation from ends
+            clean_word = word.strip('."\',()')
+            if clean_word.endswith('.mp3') and 'audio' in clean_word:
+                 candidates.append(clean_word)
+        
+        # Also try regex for the specific pattern observed
+        regex_match = re.search(r"(data[/\\]audio_generations[/\\][\w-]+\.mp3)", content.replace('\\', '/'))
+        if regex_match:
+             candidates.append(regex_match.group(1))
+
+        # Render unique valid audio files
+        processed_audio = set()
+        for filepath in candidates:
+            # Normalize path separators
+            filepath = filepath.replace('/', os.sep).replace('\\', os.sep)
+            
+            if filepath in processed_audio:
+                continue
+                
+            if os.path.exists(filepath):
+                try:
+                    with open(filepath, "rb") as f:
+                        audio_bytes = f.read()
+                    st.audio(audio_bytes, format="audio/mp3")
+                    processed_audio.add(filepath)
+                except Exception as e:
+                    logger.error(f"Failed to render audio {filepath}: {e}")
+
+        # 3. Detect and render Images
+        # Regex to find https://image.pollinations.ai/... ending with space or punctuation
+        # We capture the full URL until a space or end of string
+        image_urls = re.findall(r"(https://image\.pollinations\.ai/prompt/[^ \s\)\"']+)", content)
+        
+        if image_urls:
+            # Check if likely in markdown already
+            # Heuristic: if content has ![...](url), we skip explicit st.image for that url
+            for url in image_urls:
+                # Basic check if URL is inside a markdown link structure
+                if f"]({url})" not in content:
+                     st.image(url, caption="Generated Image", use_container_width=True)
 
 
 # Global instance
