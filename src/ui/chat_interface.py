@@ -212,7 +212,7 @@ class ChatInterface:
                             
                             bot_response = estate_agent.invoke(user_input, thread_id=session_id)
                             
-                            st.markdown(bot_response)
+                            self._render_message_content(bot_response)
                             
                             self.chat_service.add_message(session_id, "assistant", bot_response)
 
@@ -339,6 +339,26 @@ class ChatInterface:
                 # Basic check if URL is inside a markdown link structure
                 if f"]({url})" not in content:
                      st.image(url, caption="Generated Image", use_container_width=True)
+
+        # 4. Detect and render Local Images (Gemini Generated)
+        # Look for paths like data/generated_images/uuid.png
+        local_image_matches = re.finditer(r"(data[/\\]generated_images[/\\][\w-]+\.png)", content.replace('\\', '/'))
+        
+        processed_images = set()
+        for match in local_image_matches:
+            image_path = match.group(1)
+            # Normalize path
+            image_path = image_path.replace('/', os.sep).replace('\\', os.sep)
+            
+            if image_path in processed_images:
+                continue
+                
+            if os.path.exists(image_path):
+                try:
+                    st.image(image_path, caption="Generated Image", use_container_width=True)
+                    processed_images.add(image_path)
+                except Exception as e:
+                    logger.error(f"Failed to render image {image_path}: {e}")
 
 
 # Global instance

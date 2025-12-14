@@ -5,6 +5,8 @@ import os
 from ..core.config import config
 from ..core.logger import logger
 
+from ..core.settings import DEFAULT_VOICE_ID
+
 @tool
 def generate_audio_tool(text: str, voice_id: Optional[str] = None) -> str:
     """
@@ -21,14 +23,8 @@ def generate_audio_tool(text: str, voice_id: Optional[str] = None) -> str:
     if not api_key:
         return "Error: ElevenLabs API Key is missing."
 
-    voice_id = voice_id or "21m00Tcm4TlvDq8ikWAM" # Default voice ID if config missing is usually Rachel, but let's use config or common default.
-    # Config has AUDIO_VOICE_ID but it seems to be mapped to a name in config.py: "Nguyễn Ngân (Female, Vietnamese)"
-    # We should probably use a specific ID. Let's assume the config might have the mapping or we just use a default ID for now if not clear.
-    # Actually config.AUDIO_VOICE_ID in the file read was "Nguyễn Ngân (Female, Vietnamese)" which is a name, not ID. 
-    # But wait, let's check if the previous audio_agent had a mapping. 
-    # previous audio_agent used DEFAULT_VOICE_ID import from settings. 
-    # We should probably do the same or just stick to a known ID for Vietnamese or English. 
-    # For now, let's just use the API to generate.
+    # Use default voice from settings if not provided
+    voice_id = voice_id or DEFAULT_VOICE_ID
     
     # We need a valid voice_id. 
     # Let's try to fetch from config or use a hardcoded Vietnamese voice if possible, or standard US.
