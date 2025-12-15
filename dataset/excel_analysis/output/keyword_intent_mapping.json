@@ -1,0 +1,3345 @@
+{
+  "bao tiền": [
+    {
+      "intent": "KH hỏi Giá",
+      "response": "Dạ, hiện nay giá hệ thống điện mặt trời chỉ tầm 7 triệu đồng/ ki lô oát , giá đã giảm 1 nửa so với t",
+      "sheet": "KBM SG 2"
+    },
+    {
+      "intent": "Giá",
+      "response": "\"Dạ giá từ 48 triệu/m2, căn 2pn trả có 500 triệu là ký HĐMB chỉ dành duy nhất cho khách hàng mua đợt",
+      "sheet": "KBM SG "
+    }
+  ],
+  "nhiêu tiền": [
+    {
+      "intent": "KH hỏi Giá",
+      "response": "Dạ, hiện nay giá hệ thống điện mặt trời chỉ tầm 7 triệu đồng/ ki lô oát , giá đã giảm 1 nửa so với t",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "xin giá": [
+    {
+      "intent": "KH hỏi Giá",
+      "response": "Dạ, hiện nay giá hệ thống điện mặt trời chỉ tầm 7 triệu đồng/ ki lô oát , giá đã giảm 1 nửa so với t",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "giá nhiêu": [
+    {
+      "intent": "KH hỏi Giá",
+      "response": "Dạ, hiện nay giá hệ thống điện mặt trời chỉ tầm 7 triệu đồng/ ki lô oát , giá đã giảm 1 nửa so với t",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "bao nhiêu": [
+    {
+      "intent": "KH hỏi Giá",
+      "response": "Dạ, hiện nay giá hệ thống điện mặt trời chỉ tầm 7 triệu đồng/ ki lô oát , giá đã giảm 1 nửa so với t",
+      "sheet": "KBM SG 2"
+    },
+    {
+      "intent": "Giá",
+      "response": "\"Dạ giá từ 48 triệu/m2, căn 2pn trả có 500 triệu là ký HĐMB chỉ dành duy nhất cho khách hàng mua đợt",
+      "sheet": "KBM SG "
+    },
+    {
+      "intent": "Giá",
+      "response": "\"Dạ giá từ 48 triệu/m2, căn 2pn trả có 500 triệu là ký HĐMB chỉ dành duy nhất cho khách hàng mua đợt",
+      "sheet": "KBM SG "
+    }
+  ],
+  "mắc không": [
+    {
+      "intent": "KH hỏi Giá",
+      "response": "Dạ, hiện nay giá hệ thống điện mặt trời chỉ tầm 7 triệu đồng/ ki lô oát , giá đã giảm 1 nửa so với t",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "đắt không": [
+    {
+      "intent": "KH hỏi Giá",
+      "response": "Dạ, hiện nay giá hệ thống điện mặt trời chỉ tầm 7 triệu đồng/ ki lô oát , giá đã giảm 1 nửa so với t",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "rẻ không": [
+    {
+      "intent": "KH hỏi Giá",
+      "response": "Dạ, hiện nay giá hệ thống điện mặt trời chỉ tầm 7 triệu đồng/ ki lô oát , giá đã giảm 1 nửa so với t",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "tiền nhiều không": [
+    {
+      "intent": "KH hỏi Giá",
+      "response": "Dạ, hiện nay giá hệ thống điện mặt trời chỉ tầm 7 triệu đồng/ ki lô oát , giá đã giảm 1 nửa so với t",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "giá combo": [
+    {
+      "intent": "KH hỏi Giá",
+      "response": "Dạ, hiện nay giá hệ thống điện mặt trời chỉ tầm 7 triệu đồng/ ki lô oát , giá đã giảm 1 nửa so với t",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "giá thấp nhất": [
+    {
+      "intent": "KH hỏi Giá",
+      "response": "Dạ, hiện nay giá hệ thống điện mặt trời chỉ tầm 7 triệu đồng/ ki lô oát , giá đã giảm 1 nửa so với t",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "giá trọn bộ": [
+    {
+      "intent": "KH hỏi Giá",
+      "response": "Dạ, hiện nay giá hệ thống điện mặt trời chỉ tầm 7 triệu đồng/ ki lô oát , giá đã giảm 1 nửa so với t",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "giá trọn gói": [
+    {
+      "intent": "KH hỏi Giá",
+      "response": "Dạ, hiện nay giá hệ thống điện mặt trời chỉ tầm 7 triệu đồng/ ki lô oát , giá đã giảm 1 nửa so với t",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "chi phí": [
+    {
+      "intent": "KH hỏi Giá",
+      "response": "Dạ, hiện nay giá hệ thống điện mặt trời chỉ tầm 7 triệu đồng/ ki lô oát , giá đã giảm 1 nửa so với t",
+      "sheet": "KBM SG 2"
+    },
+    {
+      "intent": "Giá",
+      "response": "\"Dạ giá từ 48 triệu/m2, căn 2pn trả có 500 triệu là ký HĐMB chỉ dành duy nhất cho khách hàng mua đợt",
+      "sheet": "KBM SG "
+    }
+  ],
+  "đơn giá": [
+    {
+      "intent": "KH hỏi Giá",
+      "response": "Dạ, hiện nay giá hệ thống điện mặt trời chỉ tầm 7 triệu đồng/ ki lô oát , giá đã giảm 1 nửa so với t",
+      "sheet": "KBM SG 2"
+    },
+    {
+      "intent": "Giá",
+      "response": "\"Dạ giá từ 48 triệu/m2, căn 2pn trả có 500 triệu là ký HĐMB chỉ dành duy nhất cho khách hàng mua đợt",
+      "sheet": "KBM SG "
+    }
+  ],
+  "trả góp": [
+    {
+      "intent": "Kh hỏi trả góp",
+      "response": "Dạ, hiện tại Sô la Sài Gòn Xanh đang có chương trình hỗ trợ trả góp trong 6 hoặc 12 tháng. Mình chỉ ",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "trả chậm": [
+    {
+      "intent": "Kh hỏi trả góp",
+      "response": "Dạ, hiện tại Sô la Sài Gòn Xanh đang có chương trình hỗ trợ trả góp trong 6 hoặc 12 tháng. Mình chỉ ",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "trả trước": [
+    {
+      "intent": "Kh hỏi trả góp",
+      "response": "Dạ, hiện tại Sô la Sài Gòn Xanh đang có chương trình hỗ trợ trả góp trong 6 hoặc 12 tháng. Mình chỉ ",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "trả từ từ": [
+    {
+      "intent": "Kh hỏi trả góp",
+      "response": "Dạ, hiện tại Sô la Sài Gòn Xanh đang có chương trình hỗ trợ trả góp trong 6 hoặc 12 tháng. Mình chỉ ",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "trả dần": [
+    {
+      "intent": "Kh hỏi trả góp",
+      "response": "Dạ, hiện tại Sô la Sài Gòn Xanh đang có chương trình hỗ trợ trả góp trong 6 hoặc 12 tháng. Mình chỉ ",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "trả theo tháng": [
+    {
+      "intent": "Kh hỏi trả góp",
+      "response": "Dạ, hiện tại Sô la Sài Gòn Xanh đang có chương trình hỗ trợ trả góp trong 6 hoặc 12 tháng. Mình chỉ ",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "chia nhỏ": [
+    {
+      "intent": "Kh hỏi trả góp",
+      "response": "Dạ, hiện tại Sô la Sài Gòn Xanh đang có chương trình hỗ trợ trả góp trong 6 hoặc 12 tháng. Mình chỉ ",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "chia kỳ thanh toán": [
+    {
+      "intent": "Kh hỏi trả góp",
+      "response": "Dạ, hiện tại Sô la Sài Gòn Xanh đang có chương trình hỗ trợ trả góp trong 6 hoặc 12 tháng. Mình chỉ ",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "góp linh hoạt": [
+    {
+      "intent": "Kh hỏi trả góp",
+      "response": "Dạ, hiện tại Sô la Sài Gòn Xanh đang có chương trình hỗ trợ trả góp trong 6 hoặc 12 tháng. Mình chỉ ",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "không đủ tiền": [
+    {
+      "intent": "Kh hỏi trả góp",
+      "response": "Dạ, hiện tại Sô la Sài Gòn Xanh đang có chương trình hỗ trợ trả góp trong 6 hoặc 12 tháng. Mình chỉ ",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "không có tiền": [
+    {
+      "intent": "Kh hỏi trả góp",
+      "response": "Dạ, hiện tại Sô la Sài Gòn Xanh đang có chương trình hỗ trợ trả góp trong 6 hoặc 12 tháng. Mình chỉ ",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "hết tiền": [
+    {
+      "intent": "Kh hỏi trả góp",
+      "response": "Dạ, hiện tại Sô la Sài Gòn Xanh đang có chương trình hỗ trợ trả góp trong 6 hoặc 12 tháng. Mình chỉ ",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "không có khả năng": [
+    {
+      "intent": "Kh hỏi trả góp",
+      "response": "Dạ, hiện tại Sô la Sài Gòn Xanh đang có chương trình hỗ trợ trả góp trong 6 hoặc 12 tháng. Mình chỉ ",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "chưa có điều kiện": [
+    {
+      "intent": "Kh hỏi trả góp",
+      "response": "Dạ, hiện tại Sô la Sài Gòn Xanh đang có chương trình hỗ trợ trả góp trong 6 hoặc 12 tháng. Mình chỉ ",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "chưa có tiền": [
+    {
+      "intent": "Kh hỏi trả góp",
+      "response": "Dạ, hiện tại Sô la Sài Gòn Xanh đang có chương trình hỗ trợ trả góp trong 6 hoặc 12 tháng. Mình chỉ ",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "kẹt tiền": [
+    {
+      "intent": "Kh hỏi trả góp",
+      "response": "Dạ, hiện tại Sô la Sài Gòn Xanh đang có chương trình hỗ trợ trả góp trong 6 hoặc 12 tháng. Mình chỉ ",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "ưu đãi": [
+    {
+      "intent": "Kh hỏi trả góp",
+      "response": "Dạ, hiện tại Sô la Sài Gòn Xanh đang có chương trình hỗ trợ trả góp trong 6 hoặc 12 tháng. Mình chỉ ",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "khuyến mãi": [
+    {
+      "intent": "Kh hỏi trả góp",
+      "response": "Dạ, hiện tại Sô la Sài Gòn Xanh đang có chương trình hỗ trợ trả góp trong 6 hoặc 12 tháng. Mình chỉ ",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "giá cao": [
+    {
+      "intent": "Kh hỏi trả góp",
+      "response": "Dạ, hiện tại Sô la Sài Gòn Xanh đang có chương trình hỗ trợ trả góp trong 6 hoặc 12 tháng. Mình chỉ ",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "mắc quá": [
+    {
+      "intent": "Kh hỏi trả góp",
+      "response": "Dạ, hiện tại Sô la Sài Gòn Xanh đang có chương trình hỗ trợ trả góp trong 6 hoặc 12 tháng. Mình chỉ ",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "đắt quá": [
+    {
+      "intent": "Kh hỏi trả góp",
+      "response": "Dạ, hiện tại Sô la Sài Gòn Xanh đang có chương trình hỗ trợ trả góp trong 6 hoặc 12 tháng. Mình chỉ ",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "cần cọc": [
+    {
+      "intent": "Kh hỏi trả góp",
+      "response": "Dạ, hiện tại Sô la Sài Gòn Xanh đang có chương trình hỗ trợ trả góp trong 6 hoặc 12 tháng. Mình chỉ ",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "đặt cọc": [
+    {
+      "intent": "Kh hỏi trả góp",
+      "response": "Dạ, hiện tại Sô la Sài Gòn Xanh đang có chương trình hỗ trợ trả góp trong 6 hoặc 12 tháng. Mình chỉ ",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "Là ai": [
+    {
+      "intent": "KH hỏi mình là ai?",
+      "response": "Dạ, em bên công ty Sô la Sài Gòn Xanh – đã giúp hơn 2000 khách hàng giảm được 70-90% tiền điện mỗi t",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "ai đấy": [
+    {
+      "intent": "KH hỏi mình là ai?",
+      "response": "Dạ, em bên công ty Sô la Sài Gòn Xanh – đã giúp hơn 2000 khách hàng giảm được 70-90% tiền điện mỗi t",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "ai đó": [
+    {
+      "intent": "KH hỏi mình là ai?",
+      "response": "Dạ, em bên công ty Sô la Sài Gòn Xanh – đã giúp hơn 2000 khách hàng giảm được 70-90% tiền điện mỗi t",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "ai vậy": [
+    {
+      "intent": "KH hỏi mình là ai?",
+      "response": "Dạ, em bên công ty Sô la Sài Gòn Xanh – đã giúp hơn 2000 khách hàng giảm được 70-90% tiền điện mỗi t",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "gì đấy": [
+    {
+      "intent": "KH hỏi mình là ai?",
+      "response": "Dạ, em bên công ty Sô la Sài Gòn Xanh – đã giúp hơn 2000 khách hàng giảm được 70-90% tiền điện mỗi t",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "đơn vị nào": [
+    {
+      "intent": "KH hỏi mình là ai?",
+      "response": "Dạ, em bên công ty Sô la Sài Gòn Xanh – đã giúp hơn 2000 khách hàng giảm được 70-90% tiền điện mỗi t",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "bên nào": [
+    {
+      "intent": "KH hỏi mình là ai?",
+      "response": "Dạ, em bên công ty Sô la Sài Gòn Xanh – đã giúp hơn 2000 khách hàng giảm được 70-90% tiền điện mỗi t",
+      "sheet": "KBM SG 2"
+    },
+    {
+      "intent": "Hỏi lại",
+      "response": "Dạ, em là chuyên viên tư vấn dự án The Gió chủ đầu tư An Gia vị trí ngay trạm Metro với nhiều chính ",
+      "sheet": "KBM SG "
+    }
+  ],
+  "công ty nào": [
+    {
+      "intent": "KH hỏi mình là ai?",
+      "response": "Dạ, em bên công ty Sô la Sài Gòn Xanh – đã giúp hơn 2000 khách hàng giảm được 70-90% tiền điện mỗi t",
+      "sheet": "KBM SG 2"
+    },
+    {
+      "intent": "Hỏi lại",
+      "response": "Dạ, em là chuyên viên tư vấn dự án The Gió chủ đầu tư An Gia vị trí ngay trạm Metro với nhiều chính ",
+      "sheet": "KBM SG "
+    }
+  ],
+  "từ đâu": [
+    {
+      "intent": "KH hỏi mình là ai?",
+      "response": "Dạ, em bên công ty Sô la Sài Gòn Xanh – đã giúp hơn 2000 khách hàng giảm được 70-90% tiền điện mỗi t",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "ở đâu vậy": [
+    {
+      "intent": "KH hỏi mình là ai?",
+      "response": "Dạ, em bên công ty Sô la Sài Gòn Xanh – đã giúp hơn 2000 khách hàng giảm được 70-90% tiền điện mỗi t",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "tên gì": [
+    {
+      "intent": "KH hỏi mình là ai?",
+      "response": "Dạ, em bên công ty Sô la Sài Gòn Xanh – đã giúp hơn 2000 khách hàng giảm được 70-90% tiền điện mỗi t",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "tổ chức nào": [
+    {
+      "intent": "KH hỏi mình là ai?",
+      "response": "Dạ, em bên công ty Sô la Sài Gòn Xanh – đã giúp hơn 2000 khách hàng giảm được 70-90% tiền điện mỗi t",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "ai gọi": [
+    {
+      "intent": "KH hỏi mình là ai?",
+      "response": "Dạ, em bên công ty Sô la Sài Gòn Xanh – đã giúp hơn 2000 khách hàng giảm được 70-90% tiền điện mỗi t",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "từ công ty gì đó": [
+    {
+      "intent": "KH hỏi mình là ai?",
+      "response": "Dạ, em bên công ty Sô la Sài Gòn Xanh – đã giúp hơn 2000 khách hàng giảm được 70-90% tiền điện mỗi t",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "tôi không quen": [
+    {
+      "intent": "KH hỏi mình là ai?",
+      "response": "Dạ, em bên công ty Sô la Sài Gòn Xanh – đã giúp hơn 2000 khách hàng giảm được 70-90% tiền điện mỗi t",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "danh tính": [
+    {
+      "intent": "KH hỏi mình là ai?",
+      "response": "Dạ, em bên công ty Sô la Sài Gòn Xanh – đã giúp hơn 2000 khách hàng giảm được 70-90% tiền điện mỗi t",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "chưa từng nghe": [
+    {
+      "intent": "KH hỏi mình là ai?",
+      "response": "Dạ, em bên công ty Sô la Sài Gòn Xanh – đã giúp hơn 2000 khách hàng giảm được 70-90% tiền điện mỗi t",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "không biết ai": [
+    {
+      "intent": "KH hỏi mình là ai?",
+      "response": "Dạ, em bên công ty Sô la Sài Gòn Xanh – đã giúp hơn 2000 khách hàng giảm được 70-90% tiền điện mỗi t",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "cái gì": [
+    {
+      "intent": "KH hỏi lại thông tin",
+      "response": "Dạ, bên em chuyên cung cấp giải pháp điện mặt trời giúp giảm từ 70-90% tiền điện hàng tháng. Em thấy",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "gì cơ": [
+    {
+      "intent": "KH hỏi lại thông tin",
+      "response": "Dạ, bên em chuyên cung cấp giải pháp điện mặt trời giúp giảm từ 70-90% tiền điện hàng tháng. Em thấy",
+      "sheet": "KBM SG 2"
+    },
+    {
+      "intent": "Hỏi lại",
+      "response": "Dạ, em là chuyên viên tư vấn dự án The Gió chủ đầu tư An Gia vị trí ngay trạm Metro với nhiều chính ",
+      "sheet": "KBM SG "
+    }
+  ],
+  "a lô": [
+    {
+      "intent": "KH hỏi lại thông tin",
+      "response": "Dạ, bên em chuyên cung cấp giải pháp điện mặt trời giúp giảm từ 70-90% tiền điện hàng tháng. Em thấy",
+      "sheet": "KBM SG 2"
+    },
+    {
+      "intent": "Hỏi lại",
+      "response": "Dạ, em là chuyên viên tư vấn dự án The Gió chủ đầu tư An Gia vị trí ngay trạm Metro với nhiều chính ",
+      "sheet": "KBM SG "
+    }
+  ],
+  "chưa rõ": [
+    {
+      "intent": "KH hỏi lại thông tin",
+      "response": "Dạ, bên em chuyên cung cấp giải pháp điện mặt trời giúp giảm từ 70-90% tiền điện hàng tháng. Em thấy",
+      "sheet": "KBM SG 2"
+    },
+    {
+      "intent": "Hỏi lại",
+      "response": "Dạ, em là chuyên viên tư vấn dự án The Gió chủ đầu tư An Gia vị trí ngay trạm Metro với nhiều chính ",
+      "sheet": "KBM SG "
+    }
+  ],
+  "nói to": [
+    {
+      "intent": "KH hỏi lại thông tin",
+      "response": "Dạ, bên em chuyên cung cấp giải pháp điện mặt trời giúp giảm từ 70-90% tiền điện hàng tháng. Em thấy",
+      "sheet": "KBM SG 2"
+    },
+    {
+      "intent": "Hỏi lại",
+      "response": "Dạ, em là chuyên viên tư vấn dự án The Gió chủ đầu tư An Gia vị trí ngay trạm Metro với nhiều chính ",
+      "sheet": "KBM SG "
+    }
+  ],
+  "nói lại": [
+    {
+      "intent": "KH hỏi lại thông tin",
+      "response": "Dạ, bên em chuyên cung cấp giải pháp điện mặt trời giúp giảm từ 70-90% tiền điện hàng tháng. Em thấy",
+      "sheet": "KBM SG 2"
+    },
+    {
+      "intent": "Hỏi lại",
+      "response": "Dạ, em là chuyên viên tư vấn dự án The Gió chủ đầu tư An Gia vị trí ngay trạm Metro với nhiều chính ",
+      "sheet": "KBM SG "
+    }
+  ],
+  "ồn quá": [
+    {
+      "intent": "KH hỏi lại thông tin",
+      "response": "Dạ, bên em chuyên cung cấp giải pháp điện mặt trời giúp giảm từ 70-90% tiền điện hàng tháng. Em thấy",
+      "sheet": "KBM SG 2"
+    },
+    {
+      "intent": "Hỏi lại",
+      "response": "Dạ, em là chuyên viên tư vấn dự án The Gió chủ đầu tư An Gia vị trí ngay trạm Metro với nhiều chính ",
+      "sheet": "KBM SG "
+    }
+  ],
+  "không rõ": [
+    {
+      "intent": "KH hỏi lại thông tin",
+      "response": "Dạ, bên em chuyên cung cấp giải pháp điện mặt trời giúp giảm từ 70-90% tiền điện hàng tháng. Em thấy",
+      "sheet": "KBM SG 2"
+    },
+    {
+      "intent": "Hỏi lại",
+      "response": "Dạ, em là chuyên viên tư vấn dự án The Gió chủ đầu tư An Gia vị trí ngay trạm Metro với nhiều chính ",
+      "sheet": "KBM SG "
+    }
+  ],
+  "sao đấy": [
+    {
+      "intent": "KH hỏi lại thông tin",
+      "response": "Dạ, bên em chuyên cung cấp giải pháp điện mặt trời giúp giảm từ 70-90% tiền điện hàng tháng. Em thấy",
+      "sheet": "KBM SG 2"
+    },
+    {
+      "intent": "Hỏi lại",
+      "response": "Dạ, em là chuyên viên tư vấn dự án The Gió chủ đầu tư An Gia vị trí ngay trạm Metro với nhiều chính ",
+      "sheet": "KBM SG "
+    }
+  ],
+  "chưa hiểu": [
+    {
+      "intent": "KH hỏi lại thông tin",
+      "response": "Dạ, bên em chuyên cung cấp giải pháp điện mặt trời giúp giảm từ 70-90% tiền điện hàng tháng. Em thấy",
+      "sheet": "KBM SG 2"
+    },
+    {
+      "intent": "Hỏi lại",
+      "response": "Dạ, em là chuyên viên tư vấn dự án The Gió chủ đầu tư An Gia vị trí ngay trạm Metro với nhiều chính ",
+      "sheet": "KBM SG "
+    }
+  ],
+  "không nghe thấy": [
+    {
+      "intent": "KH hỏi lại thông tin",
+      "response": "Dạ, bên em chuyên cung cấp giải pháp điện mặt trời giúp giảm từ 70-90% tiền điện hàng tháng. Em thấy",
+      "sheet": "KBM SG 2"
+    },
+    {
+      "intent": "Hỏi lại",
+      "response": "Dạ, em là chuyên viên tư vấn dự án The Gió chủ đầu tư An Gia vị trí ngay trạm Metro với nhiều chính ",
+      "sheet": "KBM SG "
+    }
+  ],
+  "nói gì": [
+    {
+      "intent": "KH hỏi lại thông tin",
+      "response": "Dạ, bên em chuyên cung cấp giải pháp điện mặt trời giúp giảm từ 70-90% tiền điện hàng tháng. Em thấy",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "chưa nghe": [
+    {
+      "intent": "KH hỏi lại thông tin",
+      "response": "Dạ, bên em chuyên cung cấp giải pháp điện mặt trời giúp giảm từ 70-90% tiền điện hàng tháng. Em thấy",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "nhỏ quá": [
+    {
+      "intent": "KH hỏi lại thông tin",
+      "response": "Dạ, bên em chuyên cung cấp giải pháp điện mặt trời giúp giảm từ 70-90% tiền điện hàng tháng. Em thấy",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "gọi gì": [
+    {
+      "intent": "KH hỏi lại thông tin",
+      "response": "Dạ, bên em chuyên cung cấp giải pháp điện mặt trời giúp giảm từ 70-90% tiền điện hàng tháng. Em thấy",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "gọi chi": [
+    {
+      "intent": "KH hỏi lại thông tin",
+      "response": "Dạ, bên em chuyên cung cấp giải pháp điện mặt trời giúp giảm từ 70-90% tiền điện hàng tháng. Em thấy",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "sao gọi tôi": [
+    {
+      "intent": "KH hỏi lại thông tin",
+      "response": "Dạ, bên em chuyên cung cấp giải pháp điện mặt trời giúp giảm từ 70-90% tiền điện hàng tháng. Em thấy",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "sản phẩm": [
+    {
+      "intent": "KH hỏi lại thông tin",
+      "response": "Dạ, bên em chuyên cung cấp giải pháp điện mặt trời giúp giảm từ 70-90% tiền điện hàng tháng. Em thấy",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "thiết bị": [
+    {
+      "intent": "KH hỏi về thiết bị – hiệu suất – bảo hành – bảo trì – tuổi thọ",
+      "response": "Dạ, hệ thống điện mặt trời bên em sử dụng thiết bị chính hãng, đạt tiêu chuẩn quốc tế từ các thương ",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "bộ này": [
+    {
+      "intent": "KH hỏi về thiết bị – hiệu suất – bảo hành – bảo trì – tuổi thọ",
+      "response": "Dạ, hệ thống điện mặt trời bên em sử dụng thiết bị chính hãng, đạt tiêu chuẩn quốc tế từ các thương ",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "pin gì": [
+    {
+      "intent": "KH hỏi về thiết bị – hiệu suất – bảo hành – bảo trì – tuổi thọ",
+      "response": "Dạ, hệ thống điện mặt trời bên em sử dụng thiết bị chính hãng, đạt tiêu chuẩn quốc tế từ các thương ",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "tấm pin": [
+    {
+      "intent": "KH hỏi về thiết bị – hiệu suất – bảo hành – bảo trì – tuổi thọ",
+      "response": "Dạ, hệ thống điện mặt trời bên em sử dụng thiết bị chính hãng, đạt tiêu chuẩn quốc tế từ các thương ",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "inverter": [
+    {
+      "intent": "KH hỏi về thiết bị – hiệu suất – bảo hành – bảo trì – tuổi thọ",
+      "response": "Dạ, hệ thống điện mặt trời bên em sử dụng thiết bị chính hãng, đạt tiêu chuẩn quốc tế từ các thương ",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "thương hiệu": [
+    {
+      "intent": "KH hỏi về thiết bị – hiệu suất – bảo hành – bảo trì – tuổi thọ",
+      "response": "Dạ, hệ thống điện mặt trời bên em sử dụng thiết bị chính hãng, đạt tiêu chuẩn quốc tế từ các thương ",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "hãng nào": [
+    {
+      "intent": "KH hỏi về thiết bị – hiệu suất – bảo hành – bảo trì – tuổi thọ",
+      "response": "Dạ, hệ thống điện mặt trời bên em sử dụng thiết bị chính hãng, đạt tiêu chuẩn quốc tế từ các thương ",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "linh kiện": [
+    {
+      "intent": "KH hỏi về thiết bị – hiệu suất – bảo hành – bảo trì – tuổi thọ",
+      "response": "Dạ, hệ thống điện mặt trời bên em sử dụng thiết bị chính hãng, đạt tiêu chuẩn quốc tế từ các thương ",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "xuất xứ": [
+    {
+      "intent": "KH hỏi về thiết bị – hiệu suất – bảo hành – bảo trì – tuổi thọ",
+      "response": "Dạ, hệ thống điện mặt trời bên em sử dụng thiết bị chính hãng, đạt tiêu chuẩn quốc tế từ các thương ",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "sản xuất ở đâu": [
+    {
+      "intent": "KH hỏi về thiết bị – hiệu suất – bảo hành – bảo trì – tuổi thọ",
+      "response": "Dạ, hệ thống điện mặt trời bên em sử dụng thiết bị chính hãng, đạt tiêu chuẩn quốc tế từ các thương ",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "hàng gì": [
+    {
+      "intent": "KH hỏi về thiết bị – hiệu suất – bảo hành – bảo trì – tuổi thọ",
+      "response": "Dạ, hệ thống điện mặt trời bên em sử dụng thiết bị chính hãng, đạt tiêu chuẩn quốc tế từ các thương ",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "cấu tạo": [
+    {
+      "intent": "KH hỏi về thiết bị – hiệu suất – bảo hành – bảo trì – tuổi thọ",
+      "response": "Dạ, hệ thống điện mặt trời bên em sử dụng thiết bị chính hãng, đạt tiêu chuẩn quốc tế từ các thương ",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "tiêu chuẩn": [
+    {
+      "intent": "KH hỏi về thiết bị – hiệu suất – bảo hành – bảo trì – tuổi thọ",
+      "response": "Dạ, hệ thống điện mặt trời bên em sử dụng thiết bị chính hãng, đạt tiêu chuẩn quốc tế từ các thương ",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "chất lượng": [
+    {
+      "intent": "KH hỏi về thiết bị – hiệu suất – bảo hành – bảo trì – tuổi thọ",
+      "response": "Dạ, hệ thống điện mặt trời bên em sử dụng thiết bị chính hãng, đạt tiêu chuẩn quốc tế từ các thương ",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "hiệu suất": [
+    {
+      "intent": "KH hỏi về thiết bị – hiệu suất – bảo hành – bảo trì – tuổi thọ",
+      "response": "Dạ, hệ thống điện mặt trời bên em sử dụng thiết bị chính hãng, đạt tiêu chuẩn quốc tế từ các thương ",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "hiệu suất giảm": [
+    {
+      "intent": "KH hỏi về thiết bị – hiệu suất – bảo hành – bảo trì – tuổi thọ",
+      "response": "Dạ, hệ thống điện mặt trời bên em sử dụng thiết bị chính hãng, đạt tiêu chuẩn quốc tế từ các thương ",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "pin chai": [
+    {
+      "intent": "KH hỏi về thiết bị – hiệu suất – bảo hành – bảo trì – tuổi thọ",
+      "response": "Dạ, hệ thống điện mặt trời bên em sử dụng thiết bị chính hãng, đạt tiêu chuẩn quốc tế từ các thương ",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "bền không": [
+    {
+      "intent": "KH hỏi về thiết bị – hiệu suất – bảo hành – bảo trì – tuổi thọ",
+      "response": "Dạ, hệ thống điện mặt trời bên em sử dụng thiết bị chính hãng, đạt tiêu chuẩn quốc tế từ các thương ",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "lâu không": [
+    {
+      "intent": "KH hỏi về thiết bị – hiệu suất – bảo hành – bảo trì – tuổi thọ",
+      "response": "Dạ, hệ thống điện mặt trời bên em sử dụng thiết bị chính hãng, đạt tiêu chuẩn quốc tế từ các thương ",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "tuổi thọ": [
+    {
+      "intent": "KH hỏi về thiết bị – hiệu suất – bảo hành – bảo trì – tuổi thọ",
+      "response": "Dạ, hệ thống điện mặt trời bên em sử dụng thiết bị chính hãng, đạt tiêu chuẩn quốc tế từ các thương ",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "dùng bao lâu": [
+    {
+      "intent": "KH hỏi về thiết bị – hiệu suất – bảo hành – bảo trì – tuổi thọ",
+      "response": "Dạ, hệ thống điện mặt trời bên em sử dụng thiết bị chính hãng, đạt tiêu chuẩn quốc tế từ các thương ",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "có hư không": [
+    {
+      "intent": "KH hỏi về thiết bị – hiệu suất – bảo hành – bảo trì – tuổi thọ",
+      "response": "Dạ, hệ thống điện mặt trời bên em sử dụng thiết bị chính hãng, đạt tiêu chuẩn quốc tế từ các thương ",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "dễ hư": [
+    {
+      "intent": "KH hỏi về thiết bị – hiệu suất – bảo hành – bảo trì – tuổi thọ",
+      "response": "Dạ, hệ thống điện mặt trời bên em sử dụng thiết bị chính hãng, đạt tiêu chuẩn quốc tế từ các thương ",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "nhanh hư": [
+    {
+      "intent": "KH hỏi về thiết bị – hiệu suất – bảo hành – bảo trì – tuổi thọ",
+      "response": "Dạ, hệ thống điện mặt trời bên em sử dụng thiết bị chính hãng, đạt tiêu chuẩn quốc tế từ các thương ",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "bảo hành": [
+    {
+      "intent": "KH hỏi về thiết bị – hiệu suất – bảo hành – bảo trì – tuổi thọ",
+      "response": "Dạ, hệ thống điện mặt trời bên em sử dụng thiết bị chính hãng, đạt tiêu chuẩn quốc tế từ các thương ",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "bảo hành bao lâu": [
+    {
+      "intent": "KH hỏi về thiết bị – hiệu suất – bảo hành – bảo trì – tuổi thọ",
+      "response": "Dạ, hệ thống điện mặt trời bên em sử dụng thiết bị chính hãng, đạt tiêu chuẩn quốc tế từ các thương ",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "bảo hành tận nơi": [
+    {
+      "intent": "KH hỏi về thiết bị – hiệu suất – bảo hành – bảo trì – tuổi thọ",
+      "response": "Dạ, hệ thống điện mặt trời bên em sử dụng thiết bị chính hãng, đạt tiêu chuẩn quốc tế từ các thương ",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "có bảo hành không": [
+    {
+      "intent": "KH hỏi về thiết bị – hiệu suất – bảo hành – bảo trì – tuổi thọ",
+      "response": "Dạ, hệ thống điện mặt trời bên em sử dụng thiết bị chính hãng, đạt tiêu chuẩn quốc tế từ các thương ",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "bảo hành tại nhà": [
+    {
+      "intent": "KH hỏi về thiết bị – hiệu suất – bảo hành – bảo trì – tuổi thọ",
+      "response": "Dạ, hệ thống điện mặt trời bên em sử dụng thiết bị chính hãng, đạt tiêu chuẩn quốc tế từ các thương ",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "bảo trì": [
+    {
+      "intent": "KH hỏi về thiết bị – hiệu suất – bảo hành – bảo trì – tuổi thọ",
+      "response": "Dạ, hệ thống điện mặt trời bên em sử dụng thiết bị chính hãng, đạt tiêu chuẩn quốc tế từ các thương ",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "bảo dưỡng": [
+    {
+      "intent": "KH hỏi về thiết bị – hiệu suất – bảo hành – bảo trì – tuổi thọ",
+      "response": "Dạ, hệ thống điện mặt trời bên em sử dụng thiết bị chính hãng, đạt tiêu chuẩn quốc tế từ các thương ",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "định kỳ": [
+    {
+      "intent": "KH hỏi về thiết bị – hiệu suất – bảo hành – bảo trì – tuổi thọ",
+      "response": "Dạ, hệ thống điện mặt trời bên em sử dụng thiết bị chính hãng, đạt tiêu chuẩn quốc tế từ các thương ",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "khó bảo dưỡng": [
+    {
+      "intent": "KH hỏi về thiết bị – hiệu suất – bảo hành – bảo trì – tuổi thọ",
+      "response": "Dạ, hệ thống điện mặt trời bên em sử dụng thiết bị chính hãng, đạt tiêu chuẩn quốc tế từ các thương ",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "sửa chữa": [
+    {
+      "intent": "KH hỏi về thiết bị – hiệu suất – bảo hành – bảo trì – tuổi thọ",
+      "response": "Dạ, hệ thống điện mặt trời bên em sử dụng thiết bị chính hãng, đạt tiêu chuẩn quốc tế từ các thương ",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "hỗ trợ": [
+    {
+      "intent": "KH hỏi về thiết bị – hiệu suất – bảo hành – bảo trì – tuổi thọ",
+      "response": "Dạ, hệ thống điện mặt trời bên em sử dụng thiết bị chính hãng, đạt tiêu chuẩn quốc tế từ các thương ",
+      "sheet": "KBM SG 2"
+    },
+    {
+      "intent": "Giá",
+      "response": "\"Dạ giá từ 48 triệu/m2, căn 2pn trả có 500 triệu là ký HĐMB chỉ dành duy nhất cho khách hàng mua đợt",
+      "sheet": "KBM SG "
+    }
+  ],
+  "kỹ thuật": [
+    {
+      "intent": "KH hỏi về thiết bị – hiệu suất – bảo hành – bảo trì – tuổi thọ",
+      "response": "Dạ, hệ thống điện mặt trời bên em sử dụng thiết bị chính hãng, đạt tiêu chuẩn quốc tế từ các thương ",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "ai xử lý": [
+    {
+      "intent": "KH hỏi về thiết bị – hiệu suất – bảo hành – bảo trì – tuổi thọ",
+      "response": "Dạ, hệ thống điện mặt trời bên em sử dụng thiết bị chính hãng, đạt tiêu chuẩn quốc tế từ các thương ",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "chăm sóc sau lắp": [
+    {
+      "intent": "KH hỏi về thiết bị – hiệu suất – bảo hành – bảo trì – tuổi thọ",
+      "response": "Dạ, hệ thống điện mặt trời bên em sử dụng thiết bị chính hãng, đạt tiêu chuẩn quốc tế từ các thương ",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "trách nhiệm": [
+    {
+      "intent": "KH hỏi về thiết bị – hiệu suất – bảo hành – bảo trì – tuổi thọ",
+      "response": "Dạ, hệ thống điện mặt trời bên em sử dụng thiết bị chính hãng, đạt tiêu chuẩn quốc tế từ các thương ",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "hiệu quả": [
+    {
+      "intent": "KH hỏi về hiệu quả và công suất hệ thống",
+      "response": "Dạ, hệ thống điện mặt trời giúp tiết kiệm 70–90% tiền điện nếu sử dụng ban ngày. Công suất lắp tùy t",
+      "sheet": "KBM SG 2"
+    },
+    {
+      "intent": "không, hông, thôi, cảm ơn, đừng, đau đầu, xin lỗi, cám, nghèo, cảm, phiền, công nhân, nông dân, quèn, đắt, quan tâm, không cần, gọi nhiều, gọi lắm, suốt ngày gọi, mệt quá, đừng gọi nữa, gọi lắm thế, không muốn, không có nhu cầu, hông cần, chưa cần, chưa có nhu cầu, chưa quan tâm, không thích, không có ý định, chưa có ý định, chưa sẵn sàng",
+      "response": "KH từ chối lần 2",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "công suất": [
+    {
+      "intent": "KH hỏi về hiệu quả và công suất hệ thống",
+      "response": "Dạ, hệ thống điện mặt trời giúp tiết kiệm 70–90% tiền điện nếu sử dụng ban ngày. Công suất lắp tùy t",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "tiết kiệm": [
+    {
+      "intent": "KH hỏi về hiệu quả và công suất hệ thống",
+      "response": "Dạ, hệ thống điện mặt trời giúp tiết kiệm 70–90% tiền điện nếu sử dụng ban ngày. Công suất lắp tùy t",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "sinh lời": [
+    {
+      "intent": "KH hỏi về hiệu quả và công suất hệ thống",
+      "response": "Dạ, hệ thống điện mặt trời giúp tiết kiệm 70–90% tiền điện nếu sử dụng ban ngày. Công suất lắp tùy t",
+      "sheet": "KBM SG 2"
+    },
+    {
+      "intent": "KH hỏi có bán điện lại cho EVN được không",
+      "response": "Dạ, nếu mình lắp hệ thống hòa lưới và dùng không hết điện thì có thể bán phần dư lại cho EVN theo ch",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "giảm bao nhiêu": [
+    {
+      "intent": "KH hỏi về hiệu quả và công suất hệ thống",
+      "response": "Dạ, hệ thống điện mặt trời giúp tiết kiệm 70–90% tiền điện nếu sử dụng ban ngày. Công suất lắp tùy t",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "bao lâu thu hồi": [
+    {
+      "intent": "KH hỏi về hiệu quả và công suất hệ thống",
+      "response": "Dạ, hệ thống điện mặt trời giúp tiết kiệm 70–90% tiền điện nếu sử dụng ban ngày. Công suất lắp tùy t",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "có thật không": [
+    {
+      "intent": "KH hỏi về hiệu quả và công suất hệ thống",
+      "response": "Dạ, hệ thống điện mặt trời giúp tiết kiệm 70–90% tiền điện nếu sử dụng ban ngày. Công suất lắp tùy t",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "tính ra sao": [
+    {
+      "intent": "KH hỏi về hiệu quả và công suất hệ thống",
+      "response": "Dạ, hệ thống điện mặt trời giúp tiết kiệm 70–90% tiền điện nếu sử dụng ban ngày. Công suất lắp tùy t",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "tính tiền thế nào": [
+    {
+      "intent": "KH hỏi về hiệu quả và công suất hệ thống",
+      "response": "Dạ, hệ thống điện mặt trời giúp tiết kiệm 70–90% tiền điện nếu sử dụng ban ngày. Công suất lắp tùy t",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "giảm được mấy phần trăm": [
+    {
+      "intent": "KH hỏi về hiệu quả và công suất hệ thống",
+      "response": "Dạ, hệ thống điện mặt trời giúp tiết kiệm 70–90% tiền điện nếu sử dụng ban ngày. Công suất lắp tùy t",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "có ổn định không": [
+    {
+      "intent": "KH hỏi về hiệu quả và công suất hệ thống",
+      "response": "Dạ, hệ thống điện mặt trời giúp tiết kiệm 70–90% tiền điện nếu sử dụng ban ngày. Công suất lắp tùy t",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "lúc nào tiết kiệm": [
+    {
+      "intent": "KH hỏi về hiệu quả và công suất hệ thống",
+      "response": "Dạ, hệ thống điện mặt trời giúp tiết kiệm 70–90% tiền điện nếu sử dụng ban ngày. Công suất lắp tùy t",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "mùa mưa thì sao": [
+    {
+      "intent": "KH hỏi về hiệu quả và công suất hệ thống",
+      "response": "Dạ, hệ thống điện mặt trời giúp tiết kiệm 70–90% tiền điện nếu sử dụng ban ngày. Công suất lắp tùy t",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "có bị giảm không": [
+    {
+      "intent": "KH hỏi về hiệu quả và công suất hệ thống",
+      "response": "Dạ, hệ thống điện mặt trời giúp tiết kiệm 70–90% tiền điện nếu sử dụng ban ngày. Công suất lắp tùy t",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "sản lượng điện": [
+    {
+      "intent": "KH hỏi về hiệu quả và công suất hệ thống",
+      "response": "Dạ, hệ thống điện mặt trời giúp tiết kiệm 70–90% tiền điện nếu sử dụng ban ngày. Công suất lắp tùy t",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "tỷ lệ hoàn vốn": [
+    {
+      "intent": "KH hỏi về hiệu quả và công suất hệ thống",
+      "response": "Dạ, hệ thống điện mặt trời giúp tiết kiệm 70–90% tiền điện nếu sử dụng ban ngày. Công suất lắp tùy t",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "trả lời rõ hơn": [
+    {
+      "intent": "KH hỏi về hiệu quả và công suất hệ thống",
+      "response": "Dạ, hệ thống điện mặt trời giúp tiết kiệm 70–90% tiền điện nếu sử dụng ban ngày. Công suất lắp tùy t",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "minh chứng": [
+    {
+      "intent": "KH hỏi về hiệu quả và công suất hệ thống",
+      "response": "Dạ, hệ thống điện mặt trời giúp tiết kiệm 70–90% tiền điện nếu sử dụng ban ngày. Công suất lắp tùy t",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "số liệu": [
+    {
+      "intent": "KH hỏi về hiệu quả và công suất hệ thống",
+      "response": "Dạ, hệ thống điện mặt trời giúp tiết kiệm 70–90% tiền điện nếu sử dụng ban ngày. Công suất lắp tùy t",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "báo cáo": [
+    {
+      "intent": "KH hỏi về hiệu quả và công suất hệ thống",
+      "response": "Dạ, hệ thống điện mặt trời giúp tiết kiệm 70–90% tiền điện nếu sử dụng ban ngày. Công suất lắp tùy t",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "khách cũ": [
+    {
+      "intent": "KH hỏi về hiệu quả và công suất hệ thống",
+      "response": "Dạ, hệ thống điện mặt trời giúp tiết kiệm 70–90% tiền điện nếu sử dụng ban ngày. Công suất lắp tùy t",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "bán điện": [
+    {
+      "intent": "KH hỏi có bán điện lại cho EVN được không",
+      "response": "Dạ, nếu mình lắp hệ thống hòa lưới và dùng không hết điện thì có thể bán phần dư lại cho EVN theo ch",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "bán lại điện": [
+    {
+      "intent": "KH hỏi có bán điện lại cho EVN được không",
+      "response": "Dạ, nếu mình lắp hệ thống hòa lưới và dùng không hết điện thì có thể bán phần dư lại cho EVN theo ch",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "có bán điện": [
+    {
+      "intent": "KH hỏi có bán điện lại cho EVN được không",
+      "response": "Dạ, nếu mình lắp hệ thống hòa lưới và dùng không hết điện thì có thể bán phần dư lại cho EVN theo ch",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "bán lại cho EVN": [
+    {
+      "intent": "KH hỏi có bán điện lại cho EVN được không",
+      "response": "Dạ, nếu mình lắp hệ thống hòa lưới và dùng không hết điện thì có thể bán phần dư lại cho EVN theo ch",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "EVN mua điện": [
+    {
+      "intent": "KH hỏi có bán điện lại cho EVN được không",
+      "response": "Dạ, nếu mình lắp hệ thống hòa lưới và dùng không hết điện thì có thể bán phần dư lại cho EVN theo ch",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "EVN mua": [
+    {
+      "intent": "KH hỏi có bán điện lại cho EVN được không",
+      "response": "Dạ, nếu mình lắp hệ thống hòa lưới và dùng không hết điện thì có thể bán phần dư lại cho EVN theo ch",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "điện dư": [
+    {
+      "intent": "KH hỏi có bán điện lại cho EVN được không",
+      "response": "Dạ, nếu mình lắp hệ thống hòa lưới và dùng không hết điện thì có thể bán phần dư lại cho EVN theo ch",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "dư thì sao": [
+    {
+      "intent": "KH hỏi có bán điện lại cho EVN được không",
+      "response": "Dạ, nếu mình lắp hệ thống hòa lưới và dùng không hết điện thì có thể bán phần dư lại cho EVN theo ch",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "bán dư": [
+    {
+      "intent": "KH hỏi có bán điện lại cho EVN được không",
+      "response": "Dạ, nếu mình lắp hệ thống hòa lưới và dùng không hết điện thì có thể bán phần dư lại cho EVN theo ch",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "hòa lưới": [
+    {
+      "intent": "KH hỏi có bán điện lại cho EVN được không",
+      "response": "Dạ, nếu mình lắp hệ thống hòa lưới và dùng không hết điện thì có thể bán phần dư lại cho EVN theo ch",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "công tơ 2 chiều": [
+    {
+      "intent": "KH hỏi có bán điện lại cho EVN được không",
+      "response": "Dạ, nếu mình lắp hệ thống hòa lưới và dùng không hết điện thì có thể bán phần dư lại cho EVN theo ch",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "hóa đơn điện âm": [
+    {
+      "intent": "KH hỏi có bán điện lại cho EVN được không",
+      "response": "Dạ, nếu mình lắp hệ thống hòa lưới và dùng không hết điện thì có thể bán phần dư lại cho EVN theo ch",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "hoàn tiền": [
+    {
+      "intent": "KH hỏi có bán điện lại cho EVN được không",
+      "response": "Dạ, nếu mình lắp hệ thống hòa lưới và dùng không hết điện thì có thể bán phần dư lại cho EVN theo ch",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "có thu nhập": [
+    {
+      "intent": "KH hỏi có bán điện lại cho EVN được không",
+      "response": "Dạ, nếu mình lắp hệ thống hòa lưới và dùng không hết điện thì có thể bán phần dư lại cho EVN theo ch",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "có lời": [
+    {
+      "intent": "KH hỏi có bán điện lại cho EVN được không",
+      "response": "Dạ, nếu mình lắp hệ thống hòa lưới và dùng không hết điện thì có thể bán phần dư lại cho EVN theo ch",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "có tiền": [
+    {
+      "intent": "KH hỏi có bán điện lại cho EVN được không",
+      "response": "Dạ, nếu mình lắp hệ thống hòa lưới và dùng không hết điện thì có thể bán phần dư lại cho EVN theo ch",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "có lợi": [
+    {
+      "intent": "KH hỏi có bán điện lại cho EVN được không",
+      "response": "Dạ, nếu mình lắp hệ thống hòa lưới và dùng không hết điện thì có thể bán phần dư lại cho EVN theo ch",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "có tính tiền": [
+    {
+      "intent": "KH hỏi có bán điện lại cho EVN được không",
+      "response": "Dạ, nếu mình lắp hệ thống hòa lưới và dùng không hết điện thì có thể bán phần dư lại cho EVN theo ch",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "có được thanh toán": [
+    {
+      "intent": "KH hỏi có bán điện lại cho EVN được không",
+      "response": "Dạ, nếu mình lắp hệ thống hòa lưới và dùng không hết điện thì có thể bán phần dư lại cho EVN theo ch",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "lợi nhuận": [
+    {
+      "intent": "KH hỏi có bán điện lại cho EVN được không",
+      "response": "Dạ, nếu mình lắp hệ thống hòa lưới và dùng không hết điện thì có thể bán phần dư lại cho EVN theo ch",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "xài ít có lời": [
+    {
+      "intent": "KH hỏi có bán điện lại cho EVN được không",
+      "response": "Dạ, nếu mình lắp hệ thống hòa lưới và dùng không hết điện thì có thể bán phần dư lại cho EVN theo ch",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "thu tiền": [
+    {
+      "intent": "KH hỏi có bán điện lại cho EVN được không",
+      "response": "Dạ, nếu mình lắp hệ thống hòa lưới và dùng không hết điện thì có thể bán phần dư lại cho EVN theo ch",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "hợp đồng": [
+    {
+      "intent": "KH hỏi có bán điện lại cho EVN được không",
+      "response": "Dạ, nếu mình lắp hệ thống hòa lưới và dùng không hết điện thì có thể bán phần dư lại cho EVN theo ch",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "chính sách": [
+    {
+      "intent": "KH hỏi có bán điện lại cho EVN được không",
+      "response": "Dạ, nếu mình lắp hệ thống hòa lưới và dùng không hết điện thì có thể bán phần dư lại cho EVN theo ch",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "thông tư": [
+    {
+      "intent": "KH hỏi có bán điện lại cho EVN được không",
+      "response": "Dạ, nếu mình lắp hệ thống hòa lưới và dùng không hết điện thì có thể bán phần dư lại cho EVN theo ch",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "lợi ích": [
+    {
+      "intent": "KH hỏi có bán điện lại cho EVN được không",
+      "response": "Dạ, nếu mình lắp hệ thống hòa lưới và dùng không hết điện thì có thể bán phần dư lại cho EVN theo ch",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "kiếm tiền": [
+    {
+      "intent": "KH hỏi có bán điện lại cho EVN được không",
+      "response": "Dạ, nếu mình lắp hệ thống hòa lưới và dùng không hết điện thì có thể bán phần dư lại cho EVN theo ch",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "thanh toán": [
+    {
+      "intent": "KH hỏi có bán điện lại cho EVN được không",
+      "response": "Dạ, nếu mình lắp hệ thống hòa lưới và dùng không hết điện thì có thể bán phần dư lại cho EVN theo ch",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "ai mua": [
+    {
+      "intent": "KH hỏi có bán điện lại cho EVN được không",
+      "response": "Dạ, nếu mình lắp hệ thống hòa lưới và dùng không hết điện thì có thể bán phần dư lại cho EVN theo ch",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "quy trình": [
+    {
+      "intent": "KH hỏi về quy trình triển khai / lắp đặt",
+      "response": "Dạ, bên em có quy trình rõ ràng: khảo sát – thiết kế – lắp đặt – nghiệm thu. Tất cả chỉ từ 2 đến 4 n",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "bao lâu": [
+    {
+      "intent": "KH hỏi về quy trình triển khai / lắp đặt",
+      "response": "Dạ, bên em có quy trình rõ ràng: khảo sát – thiết kế – lắp đặt – nghiệm thu. Tất cả chỉ từ 2 đến 4 n",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "khảo sát": [
+    {
+      "intent": "KH hỏi về quy trình triển khai / lắp đặt",
+      "response": "Dạ, bên em có quy trình rõ ràng: khảo sát – thiết kế – lắp đặt – nghiệm thu. Tất cả chỉ từ 2 đến 4 n",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "lắp mấy ngày": [
+    {
+      "intent": "KH hỏi về quy trình triển khai / lắp đặt",
+      "response": "Dạ, bên em có quy trình rõ ràng: khảo sát – thiết kế – lắp đặt – nghiệm thu. Tất cả chỉ từ 2 đến 4 n",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "mất thời gian": [
+    {
+      "intent": "KH hỏi về quy trình triển khai / lắp đặt",
+      "response": "Dạ, bên em có quy trình rõ ràng: khảo sát – thiết kế – lắp đặt – nghiệm thu. Tất cả chỉ từ 2 đến 4 n",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "có cần giấy tờ gì": [
+    {
+      "intent": "KH hỏi về quy trình triển khai / lắp đặt",
+      "response": "Dạ, bên em có quy trình rõ ràng: khảo sát – thiết kế – lắp đặt – nghiệm thu. Tất cả chỉ từ 2 đến 4 n",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "xin phép gì": [
+    {
+      "intent": "KH hỏi về quy trình triển khai / lắp đặt",
+      "response": "Dạ, bên em có quy trình rõ ràng: khảo sát – thiết kế – lắp đặt – nghiệm thu. Tất cả chỉ từ 2 đến 4 n",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "cần chuẩn bị gì": [
+    {
+      "intent": "KH hỏi về quy trình triển khai / lắp đặt",
+      "response": "Dạ, bên em có quy trình rõ ràng: khảo sát – thiết kế – lắp đặt – nghiệm thu. Tất cả chỉ từ 2 đến 4 n",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "có cần nghỉ ở nhà": [
+    {
+      "intent": "KH hỏi về quy trình triển khai / lắp đặt",
+      "response": "Dạ, bên em có quy trình rõ ràng: khảo sát – thiết kế – lắp đặt – nghiệm thu. Tất cả chỉ từ 2 đến 4 n",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "bao lâu có điện": [
+    {
+      "intent": "KH hỏi về quy trình triển khai / lắp đặt",
+      "response": "Dạ, bên em có quy trình rõ ràng: khảo sát – thiết kế – lắp đặt – nghiệm thu. Tất cả chỉ từ 2 đến 4 n",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "ai lắp": [
+    {
+      "intent": "KH hỏi về quy trình triển khai / lắp đặt",
+      "response": "Dạ, bên em có quy trình rõ ràng: khảo sát – thiết kế – lắp đặt – nghiệm thu. Tất cả chỉ từ 2 đến 4 n",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "có chuyên nghiệp": [
+    {
+      "intent": "KH hỏi về quy trình triển khai / lắp đặt",
+      "response": "Dạ, bên em có quy trình rõ ràng: khảo sát – thiết kế – lắp đặt – nghiệm thu. Tất cả chỉ từ 2 đến 4 n",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "có bảo hiểm": [
+    {
+      "intent": "KH hỏi về quy trình triển khai / lắp đặt",
+      "response": "Dạ, bên em có quy trình rõ ràng: khảo sát – thiết kế – lắp đặt – nghiệm thu. Tất cả chỉ từ 2 đến 4 n",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "có bị cắt điện": [
+    {
+      "intent": "KH hỏi về quy trình triển khai / lắp đặt",
+      "response": "Dạ, bên em có quy trình rõ ràng: khảo sát – thiết kế – lắp đặt – nghiệm thu. Tất cả chỉ từ 2 đến 4 n",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "có tháo mái": [
+    {
+      "intent": "KH hỏi về quy trình triển khai / lắp đặt",
+      "response": "Dạ, bên em có quy trình rõ ràng: khảo sát – thiết kế – lắp đặt – nghiệm thu. Tất cả chỉ từ 2 đến 4 n",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "có cam kết": [
+    {
+      "intent": "KH hỏi về quy trình triển khai / lắp đặt",
+      "response": "Dạ, bên em có quy trình rõ ràng: khảo sát – thiết kế – lắp đặt – nghiệm thu. Tất cả chỉ từ 2 đến 4 n",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "bên nào bảo hành": [
+    {
+      "intent": "KH hỏi về quy trình triển khai / lắp đặt",
+      "response": "Dạ, bên em có quy trình rõ ràng: khảo sát – thiết kế – lắp đặt – nghiệm thu. Tất cả chỉ từ 2 đến 4 n",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "có kiểm tra": [
+    {
+      "intent": "KH hỏi về quy trình triển khai / lắp đặt",
+      "response": "Dạ, bên em có quy trình rõ ràng: khảo sát – thiết kế – lắp đặt – nghiệm thu. Tất cả chỉ từ 2 đến 4 n",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "ai chịu trách nhiệm": [
+    {
+      "intent": "KH hỏi về quy trình triển khai / lắp đặt",
+      "response": "Dạ, bên em có quy trình rõ ràng: khảo sát – thiết kế – lắp đặt – nghiệm thu. Tất cả chỉ từ 2 đến 4 n",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "ký gì": [
+    {
+      "intent": "KH hỏi về quy trình triển khai / lắp đặt",
+      "response": "Dạ, bên em có quy trình rõ ràng: khảo sát – thiết kế – lắp đặt – nghiệm thu. Tất cả chỉ từ 2 đến 4 n",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "bao giờ bắt đầu": [
+    {
+      "intent": "KH hỏi về quy trình triển khai / lắp đặt",
+      "response": "Dạ, bên em có quy trình rõ ràng: khảo sát – thiết kế – lắp đặt – nghiệm thu. Tất cả chỉ từ 2 đến 4 n",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "cần nhiêu mét": [
+    {
+      "intent": "KH hỏi về diện tích mái nhà tối thiểu cần có",
+      "response": "Dạ, thông thường chỉ cần khoảng 10–20m² mái là có thể lắp hệ thống cơ bản rồi ạ. Và trung bình 4.5m²",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "mái nhỏ": [
+    {
+      "intent": "KH hỏi về diện tích mái nhà tối thiểu cần có",
+      "response": "Dạ, thông thường chỉ cần khoảng 10–20m² mái là có thể lắp hệ thống cơ bản rồi ạ. Và trung bình 4.5m²",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "diện tích mái": [
+    {
+      "intent": "KH hỏi về diện tích mái nhà tối thiểu cần có",
+      "response": "Dạ, thông thường chỉ cần khoảng 10–20m² mái là có thể lắp hệ thống cơ bản rồi ạ. Và trung bình 4.5m²",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "mái nhà nhỏ": [
+    {
+      "intent": "KH hỏi về diện tích mái nhà tối thiểu cần có",
+      "response": "Dạ, thông thường chỉ cần khoảng 10–20m² mái là có thể lắp hệ thống cơ bản rồi ạ. Và trung bình 4.5m²",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "không đủ chỗ": [
+    {
+      "intent": "KH hỏi về diện tích mái nhà tối thiểu cần có",
+      "response": "Dạ, thông thường chỉ cần khoảng 10–20m² mái là có thể lắp hệ thống cơ bản rồi ạ. Và trung bình 4.5m²",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "tối thiểu bao nhiêu": [
+    {
+      "intent": "KH hỏi về diện tích mái nhà tối thiểu cần có",
+      "response": "Dạ, thông thường chỉ cần khoảng 10–20m² mái là có thể lắp hệ thống cơ bản rồi ạ. Và trung bình 4.5m²",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "cần rộng": [
+    {
+      "intent": "KH hỏi về diện tích mái nhà tối thiểu cần có",
+      "response": "Dạ, thông thường chỉ cần khoảng 10–20m² mái là có thể lắp hệ thống cơ bản rồi ạ. Và trung bình 4.5m²",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "mái tôn": [
+    {
+      "intent": "KH hỏi về diện tích mái nhà tối thiểu cần có",
+      "response": "Dạ, thông thường chỉ cần khoảng 10–20m² mái là có thể lắp hệ thống cơ bản rồi ạ. Và trung bình 4.5m²",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "mái bê tông": [
+    {
+      "intent": "KH hỏi về diện tích mái nhà tối thiểu cần có",
+      "response": "Dạ, thông thường chỉ cần khoảng 10–20m² mái là có thể lắp hệ thống cơ bản rồi ạ. Và trung bình 4.5m²",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "sân thượng": [
+    {
+      "intent": "KH hỏi về diện tích mái nhà tối thiểu cần có",
+      "response": "Dạ, thông thường chỉ cần khoảng 10–20m² mái là có thể lắp hệ thống cơ bản rồi ạ. Và trung bình 4.5m²",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "có đủ chỗ không": [
+    {
+      "intent": "KH hỏi về diện tích mái nhà tối thiểu cần có",
+      "response": "Dạ, thông thường chỉ cần khoảng 10–20m² mái là có thể lắp hệ thống cơ bản rồi ạ. Và trung bình 4.5m²",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "mái nghiêng": [
+    {
+      "intent": "KH hỏi về diện tích mái nhà tối thiểu cần có",
+      "response": "Dạ, thông thường chỉ cần khoảng 10–20m² mái là có thể lắp hệ thống cơ bản rồi ạ. Và trung bình 4.5m²",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "mái bằng": [
+    {
+      "intent": "KH hỏi về diện tích mái nhà tối thiểu cần có",
+      "response": "Dạ, thông thường chỉ cần khoảng 10–20m² mái là có thể lắp hệ thống cơ bản rồi ạ. Và trung bình 4.5m²",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "hướng nắng": [
+    {
+      "intent": "KH hỏi về diện tích mái nhà tối thiểu cần có",
+      "response": "Dạ, thông thường chỉ cần khoảng 10–20m² mái là có thể lắp hệ thống cơ bản rồi ạ. Và trung bình 4.5m²",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "mái rợp cây": [
+    {
+      "intent": "KH hỏi về diện tích mái nhà tối thiểu cần có",
+      "response": "Dạ, thông thường chỉ cần khoảng 10–20m² mái là có thể lắp hệ thống cơ bản rồi ạ. Và trung bình 4.5m²",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "mét": [
+    {
+      "intent": "KH hỏi về diện tích mái nhà tối thiểu cần có",
+      "response": "Dạ, thông thường chỉ cần khoảng 10–20m² mái là có thể lắp hệ thống cơ bản rồi ạ. Và trung bình 4.5m²",
+      "sheet": "KBM SG 2"
+    },
+    {
+      "intent": "Giá",
+      "response": "\"Dạ giá từ 48 triệu/m2, căn 2pn trả có 500 triệu là ký HĐMB chỉ dành duy nhất cho khách hàng mua đợt",
+      "sheet": "KBM SG "
+    }
+  ],
+  "xin phép": [
+    {
+      "intent": "KH hỏi có cần xin phép / pháp lý ra sao",
+      "response": "Dạ, hiện tại Nhà nước đang khuyến khích mạnh mẽ việc lắp đặt sử dụng điện mặt trời, và sẽ mua lại 20",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "có cần xin phép không": [
+    {
+      "intent": "KH hỏi có cần xin phép / pháp lý ra sao",
+      "response": "Dạ, hiện tại Nhà nước đang khuyến khích mạnh mẽ việc lắp đặt sử dụng điện mặt trời, và sẽ mua lại 20",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "giấy tờ": [
+    {
+      "intent": "KH hỏi có cần xin phép / pháp lý ra sao",
+      "response": "Dạ, hiện tại Nhà nước đang khuyến khích mạnh mẽ việc lắp đặt sử dụng điện mặt trời, và sẽ mua lại 20",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "có giấy tờ gì không": [
+    {
+      "intent": "KH hỏi có cần xin phép / pháp lý ra sao",
+      "response": "Dạ, hiện tại Nhà nước đang khuyến khích mạnh mẽ việc lắp đặt sử dụng điện mặt trời, và sẽ mua lại 20",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "hợp pháp": [
+    {
+      "intent": "KH hỏi có cần xin phép / pháp lý ra sao",
+      "response": "Dạ, hiện tại Nhà nước đang khuyến khích mạnh mẽ việc lắp đặt sử dụng điện mặt trời, và sẽ mua lại 20",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "hợp lệ": [
+    {
+      "intent": "KH hỏi có cần xin phép / pháp lý ra sao",
+      "response": "Dạ, hiện tại Nhà nước đang khuyến khích mạnh mẽ việc lắp đặt sử dụng điện mặt trời, và sẽ mua lại 20",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "pháp lý": [
+    {
+      "intent": "KH hỏi có cần xin phép / pháp lý ra sao",
+      "response": "Dạ, hiện tại Nhà nước đang khuyến khích mạnh mẽ việc lắp đặt sử dụng điện mặt trời, và sẽ mua lại 20",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "luật": [
+    {
+      "intent": "KH hỏi có cần xin phép / pháp lý ra sao",
+      "response": "Dạ, hiện tại Nhà nước đang khuyến khích mạnh mẽ việc lắp đặt sử dụng điện mặt trời, và sẽ mua lại 20",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "quy định": [
+    {
+      "intent": "KH hỏi có cần xin phép / pháp lý ra sao",
+      "response": "Dạ, hiện tại Nhà nước đang khuyến khích mạnh mẽ việc lắp đặt sử dụng điện mặt trời, và sẽ mua lại 20",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "nhà nước": [
+    {
+      "intent": "KH hỏi có cần xin phép / pháp lý ra sao",
+      "response": "Dạ, hiện tại Nhà nước đang khuyến khích mạnh mẽ việc lắp đặt sử dụng điện mặt trời, và sẽ mua lại 20",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "báo chính quyền": [
+    {
+      "intent": "KH hỏi có cần xin phép / pháp lý ra sao",
+      "response": "Dạ, hiện tại Nhà nước đang khuyến khích mạnh mẽ việc lắp đặt sử dụng điện mặt trời, và sẽ mua lại 20",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "EVN có cho không": [
+    {
+      "intent": "KH hỏi có cần xin phép / pháp lý ra sao",
+      "response": "Dạ, hiện tại Nhà nước đang khuyến khích mạnh mẽ việc lắp đặt sử dụng điện mặt trời, và sẽ mua lại 20",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "bên điện có cho không": [
+    {
+      "intent": "KH hỏi có cần xin phép / pháp lý ra sao",
+      "response": "Dạ, hiện tại Nhà nước đang khuyến khích mạnh mẽ việc lắp đặt sử dụng điện mặt trời, và sẽ mua lại 20",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "phải đăng ký không": [
+    {
+      "intent": "KH hỏi có cần xin phép / pháp lý ra sao",
+      "response": "Dạ, hiện tại Nhà nước đang khuyến khích mạnh mẽ việc lắp đặt sử dụng điện mặt trời, và sẽ mua lại 20",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "có liên quan đến nhà nước không": [
+    {
+      "intent": "KH hỏi có cần xin phép / pháp lý ra sao",
+      "response": "Dạ, hiện tại Nhà nước đang khuyến khích mạnh mẽ việc lắp đặt sử dụng điện mặt trời, và sẽ mua lại 20",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "có bị phạt không": [
+    {
+      "intent": "KH hỏi có cần xin phép / pháp lý ra sao",
+      "response": "Dạ, hiện tại Nhà nước đang khuyến khích mạnh mẽ việc lắp đặt sử dụng điện mặt trời, và sẽ mua lại 20",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "có bị bắt không": [
+    {
+      "intent": "KH hỏi có cần xin phép / pháp lý ra sao",
+      "response": "Dạ, hiện tại Nhà nước đang khuyến khích mạnh mẽ việc lắp đặt sử dụng điện mặt trời, và sẽ mua lại 20",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "bị kiểm tra": [
+    {
+      "intent": "KH hỏi có cần xin phép / pháp lý ra sao",
+      "response": "Dạ, hiện tại Nhà nước đang khuyến khích mạnh mẽ việc lắp đặt sử dụng điện mặt trời, và sẽ mua lại 20",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "có bị kiểm tra không": [
+    {
+      "intent": "KH hỏi có cần xin phép / pháp lý ra sao",
+      "response": "Dạ, hiện tại Nhà nước đang khuyến khích mạnh mẽ việc lắp đặt sử dụng điện mặt trời, và sẽ mua lại 20",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "bị cắt điện không": [
+    {
+      "intent": "KH hỏi có cần xin phép / pháp lý ra sao",
+      "response": "Dạ, hiện tại Nhà nước đang khuyến khích mạnh mẽ việc lắp đặt sử dụng điện mặt trời, và sẽ mua lại 20",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "có an toàn không": [
+    {
+      "intent": "KH hỏi có cần xin phép / pháp lý ra sao",
+      "response": "Dạ, hiện tại Nhà nước đang khuyến khích mạnh mẽ việc lắp đặt sử dụng điện mặt trời, và sẽ mua lại 20",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "kiểm tra": [
+    {
+      "intent": "KH hỏi có cần xin phép / pháp lý ra sao",
+      "response": "Dạ, hiện tại Nhà nước đang khuyến khích mạnh mẽ việc lắp đặt sử dụng điện mặt trời, và sẽ mua lại 20",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "bị phạt": [
+    {
+      "intent": "KH hỏi có cần xin phép / pháp lý ra sao",
+      "response": "Dạ, hiện tại Nhà nước đang khuyến khích mạnh mẽ việc lắp đặt sử dụng điện mặt trời, và sẽ mua lại 20",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "sợ rắc rối": [
+    {
+      "intent": "KH hỏi có cần xin phép / pháp lý ra sao",
+      "response": "Dạ, hiện tại Nhà nước đang khuyến khích mạnh mẽ việc lắp đặt sử dụng điện mặt trời, và sẽ mua lại 20",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "có cho lắp không": [
+    {
+      "intent": "KH hỏi có cần xin phép / pháp lý ra sao",
+      "response": "Dạ, hiện tại Nhà nước đang khuyến khích mạnh mẽ việc lắp đặt sử dụng điện mặt trời, và sẽ mua lại 20",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "thủ tục": [
+    {
+      "intent": "KH hỏi có cần xin phép / pháp lý ra sao",
+      "response": "Dạ, hiện tại Nhà nước đang khuyến khích mạnh mẽ việc lắp đặt sử dụng điện mặt trời, và sẽ mua lại 20",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "chính quyền": [
+    {
+      "intent": "KH hỏi có cần xin phép / pháp lý ra sao",
+      "response": "Dạ, hiện tại Nhà nước đang khuyến khích mạnh mẽ việc lắp đặt sử dụng điện mặt trời, và sẽ mua lại 20",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "cháy nổ": [
+    {
+      "intent": "KH hỏi có cần bảo hiểm hay rủi ro cháy nổ không",
+      "response": "Dạ, hệ thống điện mặt trời đạt tiêu chuẩn an toàn quốc tế, có bộ chống sét và cầu dao chống rò điện.",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "rủi ro": [
+    {
+      "intent": "KH hỏi có cần bảo hiểm hay rủi ro cháy nổ không",
+      "response": "Dạ, hệ thống điện mặt trời đạt tiêu chuẩn an toàn quốc tế, có bộ chống sét và cầu dao chống rò điện.",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "an toàn không": [
+    {
+      "intent": "KH hỏi có cần bảo hiểm hay rủi ro cháy nổ không",
+      "response": "Dạ, hệ thống điện mặt trời đạt tiêu chuẩn an toàn quốc tế, có bộ chống sét và cầu dao chống rò điện.",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "sét đánh": [
+    {
+      "intent": "KH hỏi có cần bảo hiểm hay rủi ro cháy nổ không",
+      "response": "Dạ, hệ thống điện mặt trời đạt tiêu chuẩn an toàn quốc tế, có bộ chống sét và cầu dao chống rò điện.",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "có bị cháy không": [
+    {
+      "intent": "KH hỏi có cần bảo hiểm hay rủi ro cháy nổ không",
+      "response": "Dạ, hệ thống điện mặt trời đạt tiêu chuẩn an toàn quốc tế, có bộ chống sét và cầu dao chống rò điện.",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "có nổ không": [
+    {
+      "intent": "KH hỏi có cần bảo hiểm hay rủi ro cháy nổ không",
+      "response": "Dạ, hệ thống điện mặt trời đạt tiêu chuẩn an toàn quốc tế, có bộ chống sét và cầu dao chống rò điện.",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "rò điện": [
+    {
+      "intent": "KH hỏi có cần bảo hiểm hay rủi ro cháy nổ không",
+      "response": "Dạ, hệ thống điện mặt trời đạt tiêu chuẩn an toàn quốc tế, có bộ chống sét và cầu dao chống rò điện.",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "chập điện": [
+    {
+      "intent": "KH hỏi có cần bảo hiểm hay rủi ro cháy nổ không",
+      "response": "Dạ, hệ thống điện mặt trời đạt tiêu chuẩn an toàn quốc tế, có bộ chống sét và cầu dao chống rò điện.",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "nguy hiểm không": [
+    {
+      "intent": "KH hỏi có cần bảo hiểm hay rủi ro cháy nổ không",
+      "response": "Dạ, hệ thống điện mặt trời đạt tiêu chuẩn an toàn quốc tế, có bộ chống sét và cầu dao chống rò điện.",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "có bị hư không": [
+    {
+      "intent": "KH hỏi có cần bảo hiểm hay rủi ro cháy nổ không",
+      "response": "Dạ, hệ thống điện mặt trời đạt tiêu chuẩn an toàn quốc tế, có bộ chống sét và cầu dao chống rò điện.",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "có cần bảo hiểm không": [
+    {
+      "intent": "KH hỏi có cần bảo hiểm hay rủi ro cháy nổ không",
+      "response": "Dạ, hệ thống điện mặt trời đạt tiêu chuẩn an toàn quốc tế, có bộ chống sét và cầu dao chống rò điện.",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "an toàn điện": [
+    {
+      "intent": "KH hỏi có cần bảo hiểm hay rủi ro cháy nổ không",
+      "response": "Dạ, hệ thống điện mặt trời đạt tiêu chuẩn an toàn quốc tế, có bộ chống sét và cầu dao chống rò điện.",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "trẻ con": [
+    {
+      "intent": "KH hỏi có cần bảo hiểm hay rủi ro cháy nổ không",
+      "response": "Dạ, hệ thống điện mặt trời đạt tiêu chuẩn an toàn quốc tế, có bộ chống sét và cầu dao chống rò điện.",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "mái tôn nóng": [
+    {
+      "intent": "KH hỏi có cần bảo hiểm hay rủi ro cháy nổ không",
+      "response": "Dạ, hệ thống điện mặt trời đạt tiêu chuẩn an toàn quốc tế, có bộ chống sét và cầu dao chống rò điện.",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "trời mưa": [
+    {
+      "intent": "KH hỏi có cần bảo hiểm hay rủi ro cháy nổ không",
+      "response": "Dạ, hệ thống điện mặt trời đạt tiêu chuẩn an toàn quốc tế, có bộ chống sét và cầu dao chống rò điện.",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "bão": [
+    {
+      "intent": "KH hỏi có cần bảo hiểm hay rủi ro cháy nổ không",
+      "response": "Dạ, hệ thống điện mặt trời đạt tiêu chuẩn an toàn quốc tế, có bộ chống sét và cầu dao chống rò điện.",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "giông": [
+    {
+      "intent": "KH hỏi có cần bảo hiểm hay rủi ro cháy nổ không",
+      "response": "Dạ, hệ thống điện mặt trời đạt tiêu chuẩn an toàn quốc tế, có bộ chống sét và cầu dao chống rò điện.",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "ban đêm": [
+    {
+      "intent": "KH hỏi hệ thống có dùng ban đêm không / có lưu trữ không / mất điện/ điện yếu",
+      "response": "Dạ, nếu mình muốn dùng điện vào ban đêm hoặc khi cúp điện, hay điện yếu, bên em có phương án lắp thê",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "buổi tối": [
+    {
+      "intent": "KH hỏi hệ thống có dùng ban đêm không / có lưu trữ không / mất điện/ điện yếu",
+      "response": "Dạ, nếu mình muốn dùng điện vào ban đêm hoặc khi cúp điện, hay điện yếu, bên em có phương án lắp thê",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "lưu điện": [
+    {
+      "intent": "KH hỏi hệ thống có dùng ban đêm không / có lưu trữ không / mất điện/ điện yếu",
+      "response": "Dạ, nếu mình muốn dùng điện vào ban đêm hoặc khi cúp điện, hay điện yếu, bên em có phương án lắp thê",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "lưu trữ": [
+    {
+      "intent": "KH hỏi hệ thống có dùng ban đêm không / có lưu trữ không / mất điện/ điện yếu",
+      "response": "Dạ, nếu mình muốn dùng điện vào ban đêm hoặc khi cúp điện, hay điện yếu, bên em có phương án lắp thê",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "mất điện": [
+    {
+      "intent": "KH hỏi hệ thống có dùng ban đêm không / có lưu trữ không / mất điện/ điện yếu",
+      "response": "Dạ, nếu mình muốn dùng điện vào ban đêm hoặc khi cúp điện, hay điện yếu, bên em có phương án lắp thê",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "bình điện": [
+    {
+      "intent": "KH hỏi hệ thống có dùng ban đêm không / có lưu trữ không / mất điện/ điện yếu",
+      "response": "Dạ, nếu mình muốn dùng điện vào ban đêm hoặc khi cúp điện, hay điện yếu, bên em có phương án lắp thê",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "dự phòng": [
+    {
+      "intent": "KH hỏi hệ thống có dùng ban đêm không / có lưu trữ không / mất điện/ điện yếu",
+      "response": "Dạ, nếu mình muốn dùng điện vào ban đêm hoặc khi cúp điện, hay điện yếu, bên em có phương án lắp thê",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "điện yếu": [
+    {
+      "intent": "KH hỏi hệ thống có dùng ban đêm không / có lưu trữ không / mất điện/ điện yếu",
+      "response": "Dạ, nếu mình muốn dùng điện vào ban đêm hoặc khi cúp điện, hay điện yếu, bên em có phương án lắp thê",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "cúp điện": [
+    {
+      "intent": "KH hỏi hệ thống có dùng ban đêm không / có lưu trữ không / mất điện/ điện yếu",
+      "response": "Dạ, nếu mình muốn dùng điện vào ban đêm hoặc khi cúp điện, hay điện yếu, bên em có phương án lắp thê",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "điện không ổn định": [
+    {
+      "intent": "KH hỏi hệ thống có dùng ban đêm không / có lưu trữ không / mất điện/ điện yếu",
+      "response": "Dạ, nếu mình muốn dùng điện vào ban đêm hoặc khi cúp điện, hay điện yếu, bên em có phương án lắp thê",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "không đủ điện": [
+    {
+      "intent": "KH hỏi hệ thống có dùng ban đêm không / có lưu trữ không / mất điện/ điện yếu",
+      "response": "Dạ, nếu mình muốn dùng điện vào ban đêm hoặc khi cúp điện, hay điện yếu, bên em có phương án lắp thê",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "điện chập": [
+    {
+      "intent": "KH hỏi hệ thống có dùng ban đêm không / có lưu trữ không / mất điện/ điện yếu",
+      "response": "Dạ, nếu mình muốn dùng điện vào ban đêm hoặc khi cúp điện, hay điện yếu, bên em có phương án lắp thê",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "điện kém": [
+    {
+      "intent": "KH hỏi hệ thống có dùng ban đêm không / có lưu trữ không / mất điện/ điện yếu",
+      "response": "Dạ, nếu mình muốn dùng điện vào ban đêm hoặc khi cúp điện, hay điện yếu, bên em có phương án lắp thê",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "điện hư": [
+    {
+      "intent": "KH hỏi hệ thống có dùng ban đêm không / có lưu trữ không / mất điện/ điện yếu",
+      "response": "Dạ, nếu mình muốn dùng điện vào ban đêm hoặc khi cúp điện, hay điện yếu, bên em có phương án lắp thê",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "lưới yếu": [
+    {
+      "intent": "KH hỏi hệ thống có dùng ban đêm không / có lưu trữ không / mất điện/ điện yếu",
+      "response": "Dạ, nếu mình muốn dùng điện vào ban đêm hoặc khi cúp điện, hay điện yếu, bên em có phương án lắp thê",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "tải yếu": [
+    {
+      "intent": "KH hỏi hệ thống có dùng ban đêm không / có lưu trữ không / mất điện/ điện yếu",
+      "response": "Dạ, nếu mình muốn dùng điện vào ban đêm hoặc khi cúp điện, hay điện yếu, bên em có phương án lắp thê",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "chuyển nhà thì sao": [
+    {
+      "intent": "KH hỏi nếu di dời / chuyển nhà thì sao",
+      "response": "Dạ, hệ thống có thể tháo ra và di dời sang nhà mới dễ dàng nếu cần. Bên em có đội kỹ thuật hỗ trợ th",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "có gỡ ra được không": [
+    {
+      "intent": "KH hỏi nếu di dời / chuyển nhà thì sao",
+      "response": "Dạ, hệ thống có thể tháo ra và di dời sang nhà mới dễ dàng nếu cần. Bên em có đội kỹ thuật hỗ trợ th",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "di dời được không": [
+    {
+      "intent": "KH hỏi nếu di dời / chuyển nhà thì sao",
+      "response": "Dạ, hệ thống có thể tháo ra và di dời sang nhà mới dễ dàng nếu cần. Bên em có đội kỹ thuật hỗ trợ th",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "mang đi được không": [
+    {
+      "intent": "KH hỏi nếu di dời / chuyển nhà thì sao",
+      "response": "Dạ, hệ thống có thể tháo ra và di dời sang nhà mới dễ dàng nếu cần. Bên em có đội kỹ thuật hỗ trợ th",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "gắn lại được không": [
+    {
+      "intent": "KH hỏi nếu di dời / chuyển nhà thì sao",
+      "response": "Dạ, hệ thống có thể tháo ra và di dời sang nhà mới dễ dàng nếu cần. Bên em có đội kỹ thuật hỗ trợ th",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "tháo ra sao": [
+    {
+      "intent": "KH hỏi nếu di dời / chuyển nhà thì sao",
+      "response": "Dạ, hệ thống có thể tháo ra và di dời sang nhà mới dễ dàng nếu cần. Bên em có đội kỹ thuật hỗ trợ th",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "chuyển đi nơi khác": [
+    {
+      "intent": "KH hỏi nếu di dời / chuyển nhà thì sao",
+      "response": "Dạ, hệ thống có thể tháo ra và di dời sang nhà mới dễ dàng nếu cần. Bên em có đội kỹ thuật hỗ trợ th",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "đổi địa điểm": [
+    {
+      "intent": "KH hỏi nếu di dời / chuyển nhà thì sao",
+      "response": "Dạ, hệ thống có thể tháo ra và di dời sang nhà mới dễ dàng nếu cần. Bên em có đội kỹ thuật hỗ trợ th",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "sau này dọn đi": [
+    {
+      "intent": "KH hỏi nếu di dời / chuyển nhà thì sao",
+      "response": "Dạ, hệ thống có thể tháo ra và di dời sang nhà mới dễ dàng nếu cần. Bên em có đội kỹ thuật hỗ trợ th",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "có chuyển sang nhà khác được không": [
+    {
+      "intent": "KH hỏi nếu di dời / chuyển nhà thì sao",
+      "response": "Dạ, hệ thống có thể tháo ra và di dời sang nhà mới dễ dàng nếu cần. Bên em có đội kỹ thuật hỗ trợ th",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "thuê nhà": [
+    {
+      "intent": "KH hỏi nếu di dời / chuyển nhà thì sao",
+      "response": "Dạ, hệ thống có thể tháo ra và di dời sang nhà mới dễ dàng nếu cần. Bên em có đội kỹ thuật hỗ trợ th",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "nhà tạm": [
+    {
+      "intent": "KH hỏi nếu di dời / chuyển nhà thì sao",
+      "response": "Dạ, hệ thống có thể tháo ra và di dời sang nhà mới dễ dàng nếu cần. Bên em có đội kỹ thuật hỗ trợ th",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "nhà trọ": [
+    {
+      "intent": "KH hỏi có phù hợp với nhà trọ, nhà thuê, nhà gác lửng không",
+      "response": "Dạ, nếu là nhà thuê hoặc nhà trọ thì mình nên cân nhắc lắp hệ thống nhỏ để dễ tháo dỡ khi cần di chu",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "nhà thuê": [
+    {
+      "intent": "KH hỏi có phù hợp với nhà trọ, nhà thuê, nhà gác lửng không",
+      "response": "Dạ, nếu là nhà thuê hoặc nhà trọ thì mình nên cân nhắc lắp hệ thống nhỏ để dễ tháo dỡ khi cần di chu",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "nhà gác": [
+    {
+      "intent": "KH hỏi có phù hợp với nhà trọ, nhà thuê, nhà gác lửng không",
+      "response": "Dạ, nếu là nhà thuê hoặc nhà trọ thì mình nên cân nhắc lắp hệ thống nhỏ để dễ tháo dỡ khi cần di chu",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "nhà cấp 4": [
+    {
+      "intent": "KH hỏi có phù hợp với nhà trọ, nhà thuê, nhà gác lửng không",
+      "response": "Dạ, nếu là nhà thuê hoặc nhà trọ thì mình nên cân nhắc lắp hệ thống nhỏ để dễ tháo dỡ khi cần di chu",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "mái yếu": [
+    {
+      "intent": "KH hỏi có phù hợp với nhà trọ, nhà thuê, nhà gác lửng không",
+      "response": "Dạ, nếu là nhà thuê hoặc nhà trọ thì mình nên cân nhắc lắp hệ thống nhỏ để dễ tháo dỡ khi cần di chu",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "có phù hợp không": [
+    {
+      "intent": "KH hỏi có phù hợp với nhà trọ, nhà thuê, nhà gác lửng không",
+      "response": "Dạ, nếu là nhà thuê hoặc nhà trọ thì mình nên cân nhắc lắp hệ thống nhỏ để dễ tháo dỡ khi cần di chu",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "có nên làm không": [
+    {
+      "intent": "KH hỏi có phù hợp với nhà trọ, nhà thuê, nhà gác lửng không",
+      "response": "Dạ, nếu là nhà thuê hoặc nhà trọ thì mình nên cân nhắc lắp hệ thống nhỏ để dễ tháo dỡ khi cần di chu",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "nên lắp không": [
+    {
+      "intent": "KH hỏi có phù hợp với nhà trọ, nhà thuê, nhà gác lửng không",
+      "response": "Dạ, nếu là nhà thuê hoặc nhà trọ thì mình nên cân nhắc lắp hệ thống nhỏ để dễ tháo dỡ khi cần di chu",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "nhà nhỏ": [
+    {
+      "intent": "KH hỏi có phù hợp với nhà trọ, nhà thuê, nhà gác lửng không",
+      "response": "Dạ, nếu là nhà thuê hoặc nhà trọ thì mình nên cân nhắc lắp hệ thống nhỏ để dễ tháo dỡ khi cần di chu",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "nhà chật": [
+    {
+      "intent": "KH hỏi có phù hợp với nhà trọ, nhà thuê, nhà gác lửng không",
+      "response": "Dạ, nếu là nhà thuê hoặc nhà trọ thì mình nên cân nhắc lắp hệ thống nhỏ để dễ tháo dỡ khi cần di chu",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "không phải nhà mình": [
+    {
+      "intent": "KH hỏi có phù hợp với nhà trọ, nhà thuê, nhà gác lửng không",
+      "response": "Dạ, nếu là nhà thuê hoặc nhà trọ thì mình nên cân nhắc lắp hệ thống nhỏ để dễ tháo dỡ khi cần di chu",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "thuê nhà thì sao": [
+    {
+      "intent": "KH hỏi có phù hợp với nhà trọ, nhà thuê, nhà gác lửng không",
+      "response": "Dạ, nếu là nhà thuê hoặc nhà trọ thì mình nên cân nhắc lắp hệ thống nhỏ để dễ tháo dỡ khi cần di chu",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "có ràng buộc gì không": [
+    {
+      "intent": "KH hỏi có phù hợp với nhà trọ, nhà thuê, nhà gác lửng không",
+      "response": "Dạ, nếu là nhà thuê hoặc nhà trọ thì mình nên cân nhắc lắp hệ thống nhỏ để dễ tháo dỡ khi cần di chu",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "nhà sơ sài": [
+    {
+      "intent": "KH hỏi có phù hợp với nhà trọ, nhà thuê, nhà gác lửng không",
+      "response": "Dạ, nếu là nhà thuê hoặc nhà trọ thì mình nên cân nhắc lắp hệ thống nhỏ để dễ tháo dỡ khi cần di chu",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "ai làm chưa": [
+    {
+      "intent": "KH hỏi có ai từng làm chưa / cần minh chứng thực tế",
+      "response": "Dạ, bên em đã lắp đặt cho hơn 2.000 khách hàng, riêng tại tỉnh Tây Ninh đã lắp đặt hơn 300 hệ thống.",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "có ai dùng chưa": [
+    {
+      "intent": "KH hỏi có ai từng làm chưa / cần minh chứng thực tế",
+      "response": "Dạ, bên em đã lắp đặt cho hơn 2.000 khách hàng, riêng tại tỉnh Tây Ninh đã lắp đặt hơn 300 hệ thống.",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "có minh chứng không": [
+    {
+      "intent": "KH hỏi có ai từng làm chưa / cần minh chứng thực tế",
+      "response": "Dạ, bên em đã lắp đặt cho hơn 2.000 khách hàng, riêng tại tỉnh Tây Ninh đã lắp đặt hơn 300 hệ thống.",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "có ví dụ thực tế không": [
+    {
+      "intent": "KH hỏi có ai từng làm chưa / cần minh chứng thực tế",
+      "response": "Dạ, bên em đã lắp đặt cho hơn 2.000 khách hàng, riêng tại tỉnh Tây Ninh đã lắp đặt hơn 300 hệ thống.",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "có khách cũ không": [
+    {
+      "intent": "KH hỏi có ai từng làm chưa / cần minh chứng thực tế",
+      "response": "Dạ, bên em đã lắp đặt cho hơn 2.000 khách hàng, riêng tại tỉnh Tây Ninh đã lắp đặt hơn 300 hệ thống.",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "ai đã lắp rồi": [
+    {
+      "intent": "KH hỏi có ai từng làm chưa / cần minh chứng thực tế",
+      "response": "Dạ, bên em đã lắp đặt cho hơn 2.000 khách hàng, riêng tại tỉnh Tây Ninh đã lắp đặt hơn 300 hệ thống.",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "có đánh giá không": [
+    {
+      "intent": "KH hỏi có ai từng làm chưa / cần minh chứng thực tế",
+      "response": "Dạ, bên em đã lắp đặt cho hơn 2.000 khách hàng, riêng tại tỉnh Tây Ninh đã lắp đặt hơn 300 hệ thống.",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "có hình ảnh không": [
+    {
+      "intent": "KH hỏi có ai từng làm chưa / cần minh chứng thực tế",
+      "response": "Dạ, bên em đã lắp đặt cho hơn 2.000 khách hàng, riêng tại tỉnh Tây Ninh đã lắp đặt hơn 300 hệ thống.",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "cho tôi coi thử": [
+    {
+      "intent": "KH hỏi có ai từng làm chưa / cần minh chứng thực tế",
+      "response": "Dạ, bên em đã lắp đặt cho hơn 2.000 khách hàng, riêng tại tỉnh Tây Ninh đã lắp đặt hơn 300 hệ thống.",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "có ai lắp gần đây không": [
+    {
+      "intent": "KH hỏi có ai từng làm chưa / cần minh chứng thực tế",
+      "response": "Dạ, bên em đã lắp đặt cho hơn 2.000 khách hàng, riêng tại tỉnh Tây Ninh đã lắp đặt hơn 300 hệ thống.",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "có case thực tế không": [
+    {
+      "intent": "KH hỏi có ai từng làm chưa / cần minh chứng thực tế",
+      "response": "Dạ, bên em đã lắp đặt cho hơn 2.000 khách hàng, riêng tại tỉnh Tây Ninh đã lắp đặt hơn 300 hệ thống.",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "có video không": [
+    {
+      "intent": "KH hỏi có ai từng làm chưa / cần minh chứng thực tế",
+      "response": "Dạ, bên em đã lắp đặt cho hơn 2.000 khách hàng, riêng tại tỉnh Tây Ninh đã lắp đặt hơn 300 hệ thống.",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "Sao biết": [
+    {
+      "intent": "KH hỏi sao có SĐT",
+      "response": "Dạ, bên em có khảo sát thị trường tại khu vực mình nên có được thông tin liên hệ ạ. Mình cho em xin ",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "sao có": [
+    {
+      "intent": "KH hỏi sao có SĐT",
+      "response": "Dạ, bên em có khảo sát thị trường tại khu vực mình nên có được thông tin liên hệ ạ. Mình cho em xin ",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "có số": [
+    {
+      "intent": "KH hỏi sao có SĐT",
+      "response": "Dạ, bên em có khảo sát thị trường tại khu vực mình nên có được thông tin liên hệ ạ. Mình cho em xin ",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "ai cho": [
+    {
+      "intent": "KH hỏi sao có SĐT",
+      "response": "Dạ, bên em có khảo sát thị trường tại khu vực mình nên có được thông tin liên hệ ạ. Mình cho em xin ",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "điện thoại": [
+    {
+      "intent": "KH hỏi sao có SĐT",
+      "response": "Dạ, bên em có khảo sát thị trường tại khu vực mình nên có được thông tin liên hệ ạ. Mình cho em xin ",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "tự nhiên gọi": [
+    {
+      "intent": "KH hỏi sao có SĐT",
+      "response": "Dạ, bên em có khảo sát thị trường tại khu vực mình nên có được thông tin liên hệ ạ. Mình cho em xin ",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "quen tôi": [
+    {
+      "intent": "KH hỏi sao có SĐT",
+      "response": "Dạ, bên em có khảo sát thị trường tại khu vực mình nên có được thông tin liên hệ ạ. Mình cho em xin ",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "gọi nhầm": [
+    {
+      "intent": "KH hỏi sao có SĐT",
+      "response": "Dạ, bên em có khảo sát thị trường tại khu vực mình nên có được thông tin liên hệ ạ. Mình cho em xin ",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "nhầm số": [
+    {
+      "intent": "KH hỏi sao có SĐT",
+      "response": "Dạ, bên em có khảo sát thị trường tại khu vực mình nên có được thông tin liên hệ ạ. Mình cho em xin ",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "lấy số": [
+    {
+      "intent": "KH hỏi sao có SĐT",
+      "response": "Dạ, bên em có khảo sát thị trường tại khu vực mình nên có được thông tin liên hệ ạ. Mình cho em xin ",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "lấy thông tin": [
+    {
+      "intent": "KH hỏi sao có SĐT",
+      "response": "Dạ, bên em có khảo sát thị trường tại khu vực mình nên có được thông tin liên hệ ạ. Mình cho em xin ",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "cung cấp số": [
+    {
+      "intent": "KH hỏi sao có SĐT",
+      "response": "Dạ, bên em có khảo sát thị trường tại khu vực mình nên có được thông tin liên hệ ạ. Mình cho em xin ",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "ai đưa số": [
+    {
+      "intent": "KH hỏi sao có SĐT",
+      "response": "Dạ, bên em có khảo sát thị trường tại khu vực mình nên có được thông tin liên hệ ạ. Mình cho em xin ",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "ai cấp số": [
+    {
+      "intent": "KH hỏi sao có SĐT",
+      "response": "Dạ, bên em có khảo sát thị trường tại khu vực mình nên có được thông tin liên hệ ạ. Mình cho em xin ",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "đăng ký": [
+    {
+      "intent": "KH hỏi sao có SĐT",
+      "response": "Dạ, bên em có khảo sát thị trường tại khu vực mình nên có được thông tin liên hệ ạ. Mình cho em xin ",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "danh sách ở đâu": [
+    {
+      "intent": "KH hỏi sao có SĐT",
+      "response": "Dạ, bên em có khảo sát thị trường tại khu vực mình nên có được thông tin liên hệ ạ. Mình cho em xin ",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "liên quan gì": [
+    {
+      "intent": "KH hỏi sao có SĐT",
+      "response": "Dạ, bên em có khảo sát thị trường tại khu vực mình nên có được thông tin liên hệ ạ. Mình cho em xin ",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "thu thập từ đâu": [
+    {
+      "intent": "KH hỏi sao có SĐT",
+      "response": "Dạ, bên em có khảo sát thị trường tại khu vực mình nên có được thông tin liên hệ ạ. Mình cho em xin ",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "ai chia sẻ": [
+    {
+      "intent": "KH hỏi sao có SĐT",
+      "response": "Dạ, bên em có khảo sát thị trường tại khu vực mình nên có được thông tin liên hệ ạ. Mình cho em xin ",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "ai gửi thông tin": [
+    {
+      "intent": "KH hỏi sao có SĐT",
+      "response": "Dạ, bên em có khảo sát thị trường tại khu vực mình nên có được thông tin liên hệ ạ. Mình cho em xin ",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "đau đầu": [
+    {
+      "intent": "KH không quan tâm - Phản ứng mạnh",
+      "response": "Dạ vâng. Em chào mình ạ!",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "Cút": [
+    {
+      "intent": "KH không quan tâm - Phản ứng mạnh",
+      "response": "Dạ vâng. Em chào mình ạ!",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "Phiền": [
+    {
+      "intent": "KH không quan tâm - Phản ứng mạnh",
+      "response": "Dạ vâng. Em chào mình ạ!",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "Biến": [
+    {
+      "intent": "KH không quan tâm - Phản ứng mạnh",
+      "response": "Dạ vâng. Em chào mình ạ!",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "Không muốn nghe": [
+    {
+      "intent": "KH không quan tâm - Phản ứng mạnh",
+      "response": "Dạ vâng. Em chào mình ạ!",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "Bực": [
+    {
+      "intent": "KH không quan tâm - Phản ứng mạnh",
+      "response": "Dạ vâng. Em chào mình ạ!",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "Vớ vẩn": [
+    {
+      "intent": "KH không quan tâm - Phản ứng mạnh",
+      "response": "Dạ vâng. Em chào mình ạ!",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "Miễn": [
+    {
+      "intent": "KH không quan tâm - Phản ứng mạnh",
+      "response": "Dạ vâng. Em chào mình ạ!",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "cúp máy": [
+    {
+      "intent": "KH không quan tâm - Phản ứng mạnh",
+      "response": "Dạ vâng. Em chào mình ạ!",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "dẹp đi": [
+    {
+      "intent": "KH không quan tâm - Phản ứng mạnh",
+      "response": "Dạ vâng. Em chào mình ạ!",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "là gì": [
+    {
+      "intent": "KH chưa biết về điện mặt trời",
+      "response": "Dạ, hệ thống điện năng lượng mặt trời là hệ thống sử dụng các tấm pin mặt trời để hấp thu ánh nắng v",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "là sao": [
+    {
+      "intent": "KH chưa biết về điện mặt trời",
+      "response": "Dạ, hệ thống điện năng lượng mặt trời là hệ thống sử dụng các tấm pin mặt trời để hấp thu ánh nắng v",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "dùng sao": [
+    {
+      "intent": "KH chưa biết về điện mặt trời",
+      "response": "Dạ, hệ thống điện năng lượng mặt trời là hệ thống sử dụng các tấm pin mặt trời để hấp thu ánh nắng v",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "sử dụng sao": [
+    {
+      "intent": "KH chưa biết về điện mặt trời",
+      "response": "Dạ, hệ thống điện năng lượng mặt trời là hệ thống sử dụng các tấm pin mặt trời để hấp thu ánh nắng v",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "hoạt động sao": [
+    {
+      "intent": "KH chưa biết về điện mặt trời",
+      "response": "Dạ, hệ thống điện năng lượng mặt trời là hệ thống sử dụng các tấm pin mặt trời để hấp thu ánh nắng v",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "chạy như nào": [
+    {
+      "intent": "KH chưa biết về điện mặt trời",
+      "response": "Dạ, hệ thống điện năng lượng mặt trời là hệ thống sử dụng các tấm pin mặt trời để hấp thu ánh nắng v",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "khó dùng không": [
+    {
+      "intent": "KH chưa biết về điện mặt trời",
+      "response": "Dạ, hệ thống điện năng lượng mặt trời là hệ thống sử dụng các tấm pin mặt trời để hấp thu ánh nắng v",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "dùng thế nào": [
+    {
+      "intent": "KH chưa biết về điện mặt trời",
+      "response": "Dạ, hệ thống điện năng lượng mặt trời là hệ thống sử dụng các tấm pin mặt trời để hấp thu ánh nắng v",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "không rành": [
+    {
+      "intent": "KH chưa biết về điện mặt trời",
+      "response": "Dạ, hệ thống điện năng lượng mặt trời là hệ thống sử dụng các tấm pin mặt trời để hấp thu ánh nắng v",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "lần đầu nghe": [
+    {
+      "intent": "KH chưa biết về điện mặt trời",
+      "response": "Dạ, hệ thống điện năng lượng mặt trời là hệ thống sử dụng các tấm pin mặt trời để hấp thu ánh nắng v",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "chưa tìm hiểu": [
+    {
+      "intent": "KH chưa biết về điện mặt trời",
+      "response": "Dạ, hệ thống điện năng lượng mặt trời là hệ thống sử dụng các tấm pin mặt trời để hấp thu ánh nắng v",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "chưa từng biết": [
+    {
+      "intent": "KH chưa biết về điện mặt trời",
+      "response": "Dạ, hệ thống điện năng lượng mặt trời là hệ thống sử dụng các tấm pin mặt trời để hấp thu ánh nắng v",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "chưa nghe bao giờ": [
+    {
+      "intent": "KH chưa biết về điện mặt trời",
+      "response": "Dạ, hệ thống điện năng lượng mặt trời là hệ thống sử dụng các tấm pin mặt trời để hấp thu ánh nắng v",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "chưa nghe nói": [
+    {
+      "intent": "KH chưa biết về điện mặt trời",
+      "response": "Dạ, hệ thống điện năng lượng mặt trời là hệ thống sử dụng các tấm pin mặt trời để hấp thu ánh nắng v",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "chưa hình dung": [
+    {
+      "intent": "KH chưa biết về điện mặt trời",
+      "response": "Dạ, hệ thống điện năng lượng mặt trời là hệ thống sử dụng các tấm pin mặt trời để hấp thu ánh nắng v",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "hệ thống gì": [
+    {
+      "intent": "KH chưa biết về điện mặt trời",
+      "response": "Dạ, hệ thống điện năng lượng mặt trời là hệ thống sử dụng các tấm pin mặt trời để hấp thu ánh nắng v",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "không biết": [
+    {
+      "intent": "KH chưa biết về điện mặt trời",
+      "response": "Dạ, hệ thống điện năng lượng mặt trời là hệ thống sử dụng các tấm pin mặt trời để hấp thu ánh nắng v",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "chức năng": [
+    {
+      "intent": "KH chưa biết về điện mặt trời",
+      "response": "Dạ, hệ thống điện năng lượng mặt trời là hệ thống sử dụng các tấm pin mặt trời để hấp thu ánh nắng v",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "chưa từng gặp": [
+    {
+      "intent": "KH chưa biết về điện mặt trời",
+      "response": "Dạ, hệ thống điện năng lượng mặt trời là hệ thống sử dụng các tấm pin mặt trời để hấp thu ánh nắng v",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "không quen sản phẩm": [
+    {
+      "intent": "KH chưa biết về điện mặt trời",
+      "response": "Dạ, hệ thống điện năng lượng mặt trời là hệ thống sử dụng các tấm pin mặt trời để hấp thu ánh nắng v",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "chưa từng dùng": [
+    {
+      "intent": "KH chưa biết về điện mặt trời",
+      "response": "Dạ, hệ thống điện năng lượng mặt trời là hệ thống sử dụng các tấm pin mặt trời để hấp thu ánh nắng v",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "thấy lạ": [
+    {
+      "intent": "KH chưa biết về điện mặt trời",
+      "response": "Dạ, hệ thống điện năng lượng mặt trời là hệ thống sử dụng các tấm pin mặt trời để hấp thu ánh nắng v",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "chưa được tư vấn": [
+    {
+      "intent": "KH chưa biết về điện mặt trời",
+      "response": "Dạ, hệ thống điện năng lượng mặt trời là hệ thống sử dụng các tấm pin mặt trời để hấp thu ánh nắng v",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "chưa được giới thiệu": [
+    {
+      "intent": "KH chưa biết về điện mặt trời",
+      "response": "Dạ, hệ thống điện năng lượng mặt trời là hệ thống sử dụng các tấm pin mặt trời để hấp thu ánh nắng v",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "không hiểu cơ chế": [
+    {
+      "intent": "KH chưa biết về điện mặt trời",
+      "response": "Dạ, hệ thống điện năng lượng mặt trời là hệ thống sử dụng các tấm pin mặt trời để hấp thu ánh nắng v",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "cần giải thích": [
+    {
+      "intent": "KH chưa biết về điện mặt trời",
+      "response": "Dạ, hệ thống điện năng lượng mặt trời là hệ thống sử dụng các tấm pin mặt trời để hấp thu ánh nắng v",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "nghe nói sơ sơ": [
+    {
+      "intent": "KH chưa biết về điện mặt trời",
+      "response": "Dạ, hệ thống điện năng lượng mặt trời là hệ thống sử dụng các tấm pin mặt trời để hấp thu ánh nắng v",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "mù mờ": [
+    {
+      "intent": "KH chưa biết về điện mặt trời",
+      "response": "Dạ, hệ thống điện năng lượng mặt trời là hệ thống sử dụng các tấm pin mặt trời để hấp thu ánh nắng v",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "Dạ": [
+    {
+      "intent": "Có việc, công việc, lái xe, chạy xe, đi đường, họp, đang làm, ăn cỗ, gọi lại, không tiện nghe, lúc khác, khi khác, bận, không rảnh, đang chở khách, đi công chuyện, lát gọi, đang ăn, đang ngủ, có khách, không có nhà, để suy nghĩ, đang đi chơi, lát nói chuyện sau",
+      "response": "",
+      "sheet": "KBM SG 2"
+    },
+    {
+      "intent": "không, hông, thôi, cảm ơn, đừng, đau đầu, xin lỗi, cám, nghèo, cảm, phiền, công nhân, nông dân, quèn, đắt, quan tâm, không cần, gọi nhiều, gọi lắm, suốt ngày gọi, mệt quá, đừng gọi nữa, gọi lắm thế, không muốn, không có nhu cầu, hông cần, chưa cần, chưa có nhu cầu, chưa quan tâm, không thích, không có ý định, chưa có ý định, chưa sẵn sàng",
+      "response": "KH từ chối lần 2",
+      "sheet": "KBM SG 2"
+    },
+    {
+      "intent": "( KH phản hồi những từ khóa không trùng với những Trường hợp mình đã phân lọc)",
+      "response": "",
+      "sheet": "KBM SG 2"
+    },
+    {
+      "intent": "4.2. Chưa quan tâm tới dự án này.",
+      "response": "",
+      "sheet": "KBM SG "
+    },
+    {
+      "intent": "4.4. Đang đầu tư chỗ khác",
+      "response": "",
+      "sheet": "KBM SG "
+    },
+    {
+      "intent": "4.5.Giá cao quá, không đủ khả năng.",
+      "response": "",
+      "sheet": "KBM SG "
+    },
+    {
+      "intent": "4.9.Khi nào rảnh sẽ gọi lại.",
+      "response": "",
+      "sheet": "KBM SG "
+    },
+    {
+      "intent": "4.11.Cần xem thêm dự án khác để so sánh.",
+      "response": "",
+      "sheet": "KBM SG "
+    },
+    {
+      "intent": "4.13. Sợ thị trường đang chậm, chưa dám xuống tiền.",
+      "response": "",
+      "sheet": "KBM SG "
+    },
+    {
+      "intent": "ok, ô kê, oki, ô cây, thử, anh nghe, chị nghe, được, vâng, đồng ý, thông tin, gửi hình ảnh, nói đi, nói nghe, nói thử, đang nghe, nghe đây, tiếp đi, nói nhanh, thử xem, nói đại đi, trình bày đi, nói tiếp, tiếp tục, rồi rồi, nghe nè, nói luôn đi em, mở đầu đi, thử trình bày, nghe một chút đi, giới thiệu đi, nghe thử",
+      "response": "",
+      "sheet": "KBM SG "
+    },
+    {
+      "intent": "8.1. muốn xem nhà, đi xem nhà, chốt",
+      "response": "",
+      "sheet": "KBM SG "
+    }
+  ],
+  "em hiểu là mình đang rất bận ạ. Em xin gửi thông tin tóm tắt qua Zalo để mình tranh thủ xem lúc rảnh. Sau đó em sẽ liên hệ lại để hỗ trợ nếu mình cần thêm thông tin nha ạ!": [
+    {
+      "intent": "Có việc, công việc, lái xe, chạy xe, đi đường, họp, đang làm, ăn cỗ, gọi lại, không tiện nghe, lúc khác, khi khác, bận, không rảnh, đang chở khách, đi công chuyện, lát gọi, đang ăn, đang ngủ, có khách, không có nhà, để suy nghĩ, đang đi chơi, lát nói chuyện sau",
+      "response": "",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "em hiểu hiện tại mình chưa thật sự quan tâm đâu ạ. Nếu tiện": [
+    {
+      "intent": "không, hông, thôi, cảm ơn, đừng, đau đầu, xin lỗi, cám, nghèo, cảm, phiền, công nhân, nông dân, quèn, đắt, quan tâm, không cần, gọi nhiều, gọi lắm, suốt ngày gọi, mệt quá, đừng gọi nữa, gọi lắm thế, không muốn, không có nhu cầu, hông cần, chưa cần, chưa có nhu cầu, chưa quan tâm, không thích, không có ý định, chưa có ý định, chưa sẵn sàng",
+      "response": "KH từ chối lần 2",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "mình chia sẻ giúp em một chút – không biết mình đang băn khoăn ở chỗ chi phí": [
+    {
+      "intent": "không, hông, thôi, cảm ơn, đừng, đau đầu, xin lỗi, cám, nghèo, cảm, phiền, công nhân, nông dân, quèn, đắt, quan tâm, không cần, gọi nhiều, gọi lắm, suốt ngày gọi, mệt quá, đừng gọi nữa, gọi lắm thế, không muốn, không có nhu cầu, hông cần, chưa cần, chưa có nhu cầu, chưa quan tâm, không thích, không có ý định, chưa có ý định, chưa sẵn sàng",
+      "response": "KH từ chối lần 2",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "hay chưa thật sự cần thiết lúc này ạ? Biết đâu em có thể chia sẻ thêm góc nhìn hoặc thông tin phù hợp hơn cho mình tham khảo sau này!": [
+    {
+      "intent": "không, hông, thôi, cảm ơn, đừng, đau đầu, xin lỗi, cám, nghèo, cảm, phiền, công nhân, nông dân, quèn, đắt, quan tâm, không cần, gọi nhiều, gọi lắm, suốt ngày gọi, mệt quá, đừng gọi nữa, gọi lắm thế, không muốn, không có nhu cầu, hông cần, chưa cần, chưa có nhu cầu, chưa quan tâm, không thích, không có ý định, chưa có ý định, chưa sẵn sàng",
+      "response": "KH từ chối lần 2",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "em nhận thông tin ạ. Em xin phép phản hồi qua Zalo cho mình nhé ạ?": [
+    {
+      "intent": "( KH phản hồi những từ khóa không trùng với những Trường hợp mình đã phân lọc)",
+      "response": "",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "Dạ để xác định công suất hệ thống phù hợp": [
+    {
+      "intent": "ok, ô kê, oki, ô cây, thử, anh nghe, chị nghe, được, vâng, đồng ý, thông tin, gửi hình ảnh, nói đi, nói nghe, nói thử, đang nghe, nghe đây, tiếp đi, nói nhanh, thử xem, nói đại đi, trình bày đi, nói tiếp, tiếp tục, rồi rồi, nghe nè, nói luôn đi em, mở đầu đi, thử trình bày, nghe một chút đi, giới thiệu đi, nghe thử",
+      "response": "",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "mình cho em hỏi tiền điện một tháng của mình khoảng bao nhiêu vậy ạ?": [
+    {
+      "intent": "ok, ô kê, oki, ô cây, thử, anh nghe, chị nghe, được, vâng, đồng ý, thông tin, gửi hình ảnh, nói đi, nói nghe, nói thử, đang nghe, nghe đây, tiếp đi, nói nhanh, thử xem, nói đại đi, trình bày đi, nói tiếp, tiếp tục, rồi rồi, nghe nè, nói luôn đi em, mở đầu đi, thử trình bày, nghe một chút đi, giới thiệu đi, nghe thử",
+      "response": "",
+      "sheet": "KBM SG 2"
+    }
+  ],
+  "\"Là ai": [
+    {
+      "intent": "Hỏi lại",
+      "response": "Dạ, em là chuyên viên tư vấn dự án The Gió chủ đầu tư An Gia vị trí ngay trạm Metro với nhiều chính ",
+      "sheet": "KBM SG "
+    }
+  ],
+  "sàn nào": [
+    {
+      "intent": "Hỏi lại",
+      "response": "Dạ, em là chuyên viên tư vấn dự án The Gió chủ đầu tư An Gia vị trí ngay trạm Metro với nhiều chính ",
+      "sheet": "KBM SG "
+    }
+  ],
+  "ai đấy.\nCái gì": [
+    {
+      "intent": "Hỏi lại",
+      "response": "Dạ, em là chuyên viên tư vấn dự án The Gió chủ đầu tư An Gia vị trí ngay trạm Metro với nhiều chính ",
+      "sheet": "KBM SG "
+    }
+  ],
+  "ai": [
+    {
+      "intent": "Hỏi lại",
+      "response": "Dạ, em là chuyên viên tư vấn dự án The Gió chủ đầu tư An Gia vị trí ngay trạm Metro với nhiều chính ",
+      "sheet": "KBM SG "
+    }
+  ],
+  "không hiểu": [
+    {
+      "intent": "Hỏi lại",
+      "response": "Dạ, em là chuyên viên tư vấn dự án The Gió chủ đầu tư An Gia vị trí ngay trạm Metro với nhiều chính ",
+      "sheet": "KBM SG "
+    }
+  ],
+  "nói gì.\"": [
+    {
+      "intent": "Hỏi lại",
+      "response": "Dạ, em là chuyên viên tư vấn dự án The Gió chủ đầu tư An Gia vị trí ngay trạm Metro với nhiều chính ",
+      "sheet": "KBM SG "
+    }
+  ],
+  "Ở đâu": [
+    {
+      "intent": "Vị Trí",
+      "response": "\"Dạ dự án nằm ngay trục xa lộ hà nội, hiện là thuộc phường Đông Hòa, hcm, đối diện là Trạm ga Metro ",
+      "sheet": "KBM SG "
+    }
+  ],
+  "thành phố": [
+    {
+      "intent": "Vị Trí",
+      "response": "\"Dạ dự án nằm ngay trục xa lộ hà nội, hiện là thuộc phường Đông Hòa, hcm, đối diện là Trạm ga Metro ",
+      "sheet": "KBM SG "
+    }
+  ],
+  "khu nào": [
+    {
+      "intent": "Vị Trí",
+      "response": "\"Dạ dự án nằm ngay trục xa lộ hà nội, hiện là thuộc phường Đông Hòa, hcm, đối diện là Trạm ga Metro ",
+      "sheet": "KBM SG "
+    },
+    {
+      "intent": "Vị Trí",
+      "response": "\"Dạ dự án nằm ngay trục xa lộ hà nội, hiện là thuộc phường Đông Hòa, hcm, đối diện là Trạm ga Metro ",
+      "sheet": "KBM SG "
+    }
+  ],
+  "chỗ nào": [
+    {
+      "intent": "Vị Trí",
+      "response": "\"Dạ dự án nằm ngay trục xa lộ hà nội, hiện là thuộc phường Đông Hòa, hcm, đối diện là Trạm ga Metro ",
+      "sheet": "KBM SG "
+    },
+    {
+      "intent": "Vị Trí",
+      "response": "\"Dạ dự án nằm ngay trục xa lộ hà nội, hiện là thuộc phường Đông Hòa, hcm, đối diện là Trạm ga Metro ",
+      "sheet": "KBM SG "
+    }
+  ],
+  "dự án nào": [
+    {
+      "intent": "Vị Trí",
+      "response": "\"Dạ dự án nằm ngay trục xa lộ hà nội, hiện là thuộc phường Đông Hòa, hcm, đối diện là Trạm ga Metro ",
+      "sheet": "KBM SG "
+    }
+  ],
+  "tỉnh nào": [
+    {
+      "intent": "Vị Trí",
+      "response": "\"Dạ dự án nằm ngay trục xa lộ hà nội, hiện là thuộc phường Đông Hòa, hcm, đối diện là Trạm ga Metro ",
+      "sheet": "KBM SG "
+    }
+  ],
+  "có muốn": [
+    {
+      "intent": "Vị Trí",
+      "response": "\"Dạ dự án nằm ngay trục xa lộ hà nội, hiện là thuộc phường Đông Hòa, hcm, đối diện là Trạm ga Metro ",
+      "sheet": "KBM SG "
+    }
+  ],
+  "khu phố": [
+    {
+      "intent": "Vị Trí",
+      "response": "\"Dạ dự án nằm ngay trục xa lộ hà nội, hiện là thuộc phường Đông Hòa, hcm, đối diện là Trạm ga Metro ",
+      "sheet": "KBM SG "
+    }
+  ],
+  "khu vực": [
+    {
+      "intent": "Vị Trí",
+      "response": "\"Dạ dự án nằm ngay trục xa lộ hà nội, hiện là thuộc phường Đông Hòa, hcm, đối diện là Trạm ga Metro ",
+      "sheet": "KBM SG "
+    }
+  ],
+  "địa chỉ": [
+    {
+      "intent": "Vị Trí",
+      "response": "\"Dạ dự án nằm ngay trục xa lộ hà nội, hiện là thuộc phường Đông Hòa, hcm, đối diện là Trạm ga Metro ",
+      "sheet": "KBM SG "
+    }
+  ],
+  "địa điểm": [
+    {
+      "intent": "Vị Trí",
+      "response": "\"Dạ dự án nằm ngay trục xa lộ hà nội, hiện là thuộc phường Đông Hòa, hcm, đối diện là Trạm ga Metro ",
+      "sheet": "KBM SG "
+    }
+  ],
+  "nằm": [
+    {
+      "intent": "Vị Trí",
+      "response": "\"Dạ dự án nằm ngay trục xa lộ hà nội, hiện là thuộc phường Đông Hòa, hcm, đối diện là Trạm ga Metro ",
+      "sheet": "KBM SG "
+    }
+  ],
+  "thuộc.": [
+    {
+      "intent": "Vị Trí",
+      "response": "\"Dạ dự án nằm ngay trục xa lộ hà nội, hiện là thuộc phường Đông Hòa, hcm, đối diện là Trạm ga Metro ",
+      "sheet": "KBM SG "
+    }
+  ],
+  "Chủ đầu tư": [
+    {
+      "intent": "Chủ đầu tư",
+      "response": "\"Dạ An Gia là CĐT.  The Gió là dự án thứ 10, tất cả các dự án trước đó đều đã và đang ra sổ. Có gì e",
+      "sheet": "KBM SG "
+    }
+  ],
+  "đầu tư": [
+    {
+      "intent": "Chủ đầu tư",
+      "response": "\"Dạ An Gia là CĐT.  The Gió là dự án thứ 10, tất cả các dự án trước đó đều đã và đang ra sổ. Có gì e",
+      "sheet": "KBM SG "
+    }
+  ],
+  "Chủ đầu tư là ai": [
+    {
+      "intent": "Chủ đầu tư",
+      "response": "\"Dạ An Gia là CĐT.  The Gió là dự án thứ 10, tất cả các dự án trước đó đều đã và đang ra sổ. Có gì e",
+      "sheet": "KBM SG "
+    }
+  ],
+  "chủ đầu tư nào": [
+    {
+      "intent": "Chủ đầu tư",
+      "response": "\"Dạ An Gia là CĐT.  The Gió là dự án thứ 10, tất cả các dự án trước đó đều đã và đang ra sổ. Có gì e",
+      "sheet": "KBM SG "
+    }
+  ],
+  "chủ đầu tư": [
+    {
+      "intent": "Chủ đầu tư",
+      "response": "\"Dạ An Gia là CĐT.  The Gió là dự án thứ 10, tất cả các dự án trước đó đều đã và đang ra sổ. Có gì e",
+      "sheet": "KBM SG "
+    }
+  ],
+  "ecopark phải không": [
+    {
+      "intent": "Chủ đầu tư",
+      "response": "\"Dạ An Gia là CĐT.  The Gió là dự án thứ 10, tất cả các dự án trước đó đều đã và đang ra sổ. Có gì e",
+      "sheet": "KBM SG "
+    }
+  ],
+  "e cô bắc": [
+    {
+      "intent": "Chủ đầu tư",
+      "response": "\"Dạ An Gia là CĐT.  The Gió là dự án thứ 10, tất cả các dự án trước đó đều đã và đang ra sổ. Có gì e",
+      "sheet": "KBM SG "
+    }
+  ],
+  "Tiến độ": [
+    {
+      "intent": "Tiến độ",
+      "response": "Dạ hiện dự án đã thi công xong 3 tầng hầm và dự kiến bàn giao vào quý I/2028 ạ. thông tin chi tiết e",
+      "sheet": "KBM SG "
+    }
+  ],
+  "bàn giao": [
+    {
+      "intent": "Tiến độ",
+      "response": "Dạ hiện dự án đã thi công xong 3 tầng hầm và dự kiến bàn giao vào quý I/2028 ạ. thông tin chi tiết e",
+      "sheet": "KBM SG "
+    }
+  ],
+  "xây chưa": [
+    {
+      "intent": "Tiến độ",
+      "response": "Dạ hiện dự án đã thi công xong 3 tầng hầm và dự kiến bàn giao vào quý I/2028 ạ. thông tin chi tiết e",
+      "sheet": "KBM SG "
+    }
+  ],
+  "xây tới đâu": [
+    {
+      "intent": "Tiến độ",
+      "response": "Dạ hiện dự án đã thi công xong 3 tầng hầm và dự kiến bàn giao vào quý I/2028 ạ. thông tin chi tiết e",
+      "sheet": "KBM SG "
+    }
+  ],
+  "hoàn thiện chưa": [
+    {
+      "intent": "Tiến độ",
+      "response": "Dạ hiện dự án đã thi công xong 3 tầng hầm và dự kiến bàn giao vào quý I/2028 ạ. thông tin chi tiết e",
+      "sheet": "KBM SG "
+    }
+  ],
+  "khi nào": [
+    {
+      "intent": "Tiến độ",
+      "response": "Dạ hiện dự án đã thi công xong 3 tầng hầm và dự kiến bàn giao vào quý I/2028 ạ. thông tin chi tiết e",
+      "sheet": "KBM SG "
+    }
+  ],
+  "Giá": [
+    {
+      "intent": "Giá",
+      "response": "\"Dạ giá từ 48 triệu/m2, căn 2pn trả có 500 triệu là ký HĐMB chỉ dành duy nhất cho khách hàng mua đợt",
+      "sheet": "KBM SG "
+    }
+  ],
+  "tỷ": [
+    {
+      "intent": "Giá",
+      "response": "\"Dạ giá từ 48 triệu/m2, căn 2pn trả có 500 triệu là ký HĐMB chỉ dành duy nhất cho khách hàng mua đợt",
+      "sheet": "KBM SG "
+    }
+  ],
+  "nhiêu": [
+    {
+      "intent": "Giá",
+      "response": "\"Dạ giá từ 48 triệu/m2, căn 2pn trả có 500 triệu là ký HĐMB chỉ dành duy nhất cho khách hàng mua đợt",
+      "sheet": "KBM SG "
+    }
+  ],
+  "căn": [
+    {
+      "intent": "Giá",
+      "response": "\"Dạ giá từ 48 triệu/m2, căn 2pn trả có 500 triệu là ký HĐMB chỉ dành duy nhất cho khách hàng mua đợt",
+      "sheet": "KBM SG "
+    }
+  ],
+  "vốn": [
+    {
+      "intent": "Giá",
+      "response": "\"Dạ giá từ 48 triệu/m2, căn 2pn trả có 500 triệu là ký HĐMB chỉ dành duy nhất cho khách hàng mua đợt",
+      "sheet": "KBM SG "
+    }
+  ],
+  "vay": [
+    {
+      "intent": "Giá",
+      "response": "\"Dạ giá từ 48 triệu/m2, căn 2pn trả có 500 triệu là ký HĐMB chỉ dành duy nhất cho khách hàng mua đợt",
+      "sheet": "KBM SG "
+    }
+  ],
+  "ngân hàng": [
+    {
+      "intent": "Giá",
+      "response": "\"Dạ giá từ 48 triệu/m2, căn 2pn trả có 500 triệu là ký HĐMB chỉ dành duy nhất cho khách hàng mua đợt",
+      "sheet": "KBM SG "
+    }
+  ],
+  "mét vuông": [
+    {
+      "intent": "Giá",
+      "response": "\"Dạ giá từ 48 triệu/m2, căn 2pn trả có 500 triệu là ký HĐMB chỉ dành duy nhất cho khách hàng mua đợt",
+      "sheet": "KBM SG "
+    }
+  ],
+  "đóng": [
+    {
+      "intent": "Giá",
+      "response": "\"Dạ giá từ 48 triệu/m2, căn 2pn trả có 500 triệu là ký HĐMB chỉ dành duy nhất cho khách hàng mua đợt",
+      "sheet": "KBM SG "
+    }
+  ],
+  "tiền": [
+    {
+      "intent": "Giá",
+      "response": "\"Dạ giá từ 48 triệu/m2, căn 2pn trả có 500 triệu là ký HĐMB chỉ dành duy nhất cho khách hàng mua đợt",
+      "sheet": "KBM SG "
+    }
+  ],
+  "Diện tích": [
+    {
+      "intent": "Diện tích",
+      "response": "\"Dạ đợt này căn hộ The Gió sở hữu những sản phẩm có diện tích dao động từ studio 41m2 , 2pn 65m2 đến",
+      "sheet": "KBM SG "
+    }
+  ],
+  "bao nhiêu mét": [
+    {
+      "intent": "Diện tích",
+      "response": "\"Dạ đợt này căn hộ The Gió sở hữu những sản phẩm có diện tích dao động từ studio 41m2 , 2pn 65m2 đến",
+      "sheet": "KBM SG "
+    }
+  ],
+  "mấy mét": [
+    {
+      "intent": "Diện tích",
+      "response": "\"Dạ đợt này căn hộ The Gió sở hữu những sản phẩm có diện tích dao động từ studio 41m2 , 2pn 65m2 đến",
+      "sheet": "KBM SG "
+    }
+  ],
+  "rộng bao nhiêu": [
+    {
+      "intent": "Diện tích",
+      "response": "\"Dạ đợt này căn hộ The Gió sở hữu những sản phẩm có diện tích dao động từ studio 41m2 , 2pn 65m2 đến",
+      "sheet": "KBM SG "
+    }
+  ],
+  "rộng không": [
+    {
+      "intent": "Diện tích",
+      "response": "\"Dạ đợt này căn hộ The Gió sở hữu những sản phẩm có diện tích dao động từ studio 41m2 , 2pn 65m2 đến",
+      "sheet": "KBM SG "
+    }
+  ],
+  "Thế bên em có phương thức thanh toán gì?": [
+    {
+      "intent": "PTTT",
+      "response": "Về thanh toán thì trong 3 năm mình chỉ thanh toán có 600tr là nhận nhà ạ. Đang có chính sách miễn lã",
+      "sheet": "KBM SG "
+    }
+  ],
+  "Phương thức thanh toán như thế nào?": [
+    {
+      "intent": "PTTT",
+      "response": "Về thanh toán thì trong 3 năm mình chỉ thanh toán có 600tr là nhận nhà ạ. Đang có chính sách miễn lã",
+      "sheet": "KBM SG "
+    }
+  ],
+  "tiện ích": [
+    {
+      "intent": "View/Tiện tích",
+      "response": "Bên em có 68 tiện ích trải dài trên 4 tầng của toà tháp, phục vụ nhu cầu sinh hoạt, vui chơi, giải t",
+      "sheet": "KBM SG "
+    }
+  ],
+  "có tiện ích gì": [
+    {
+      "intent": "View/Tiện tích",
+      "response": "Bên em có 68 tiện ích trải dài trên 4 tầng của toà tháp, phục vụ nhu cầu sinh hoạt, vui chơi, giải t",
+      "sheet": "KBM SG "
+    }
+  ],
+  "view": [
+    {
+      "intent": "View/Tiện tích",
+      "response": "Bên em có 68 tiện ích trải dài trên 4 tầng của toà tháp, phục vụ nhu cầu sinh hoạt, vui chơi, giải t",
+      "sheet": "KBM SG "
+    }
+  ],
+  "view như thế nào": [
+    {
+      "intent": "View/Tiện tích",
+      "response": "Bên em có 68 tiện ích trải dài trên 4 tầng của toà tháp, phục vụ nhu cầu sinh hoạt, vui chơi, giải t",
+      "sheet": "KBM SG "
+    }
+  ],
+  "Dạ vâng": [
+    {
+      "intent": "Có việc, công việc, lái xe, chạy xe, đi đường, họp, đang làm, ăn cỗ, gọi lại, không tiện nghe, lúc khác, khi khác, bận, không rảnh, đang chở khách, đi công chuyện, lát gọi, đang ăn, đang ngủ, có khách, không có nhà, để suy nghĩ, đang đi chơi, lát nói chuyện sau, thời gian, không có thời gian, đang kẹt, kẹt, làm việc, mất làm,",
+      "response": "",
+      "sheet": "KBM SG "
+    }
+  ],
+  "em xin phép sẽ gọi lại sau. Em có thể gọi vào khung giờ nào để tiện nhất ạ? (3)": [
+    {
+      "intent": "Có việc, công việc, lái xe, chạy xe, đi đường, họp, đang làm, ăn cỗ, gọi lại, không tiện nghe, lúc khác, khi khác, bận, không rảnh, đang chở khách, đi công chuyện, lát gọi, đang ăn, đang ngủ, có khách, không có nhà, để suy nghĩ, đang đi chơi, lát nói chuyện sau, thời gian, không có thời gian, đang kẹt, kẹt, làm việc, mất làm,",
+      "response": "",
+      "sheet": "KBM SG "
+    }
+  ],
+  "Dạ em hiểu. Nhiều khách cũng nghĩ vậy": [
+    {
+      "intent": "4.1 Không có nhu cầu mua nhà, không có nhu cầu, không nhu cầu",
+      "response": "KH từ chối lần 2",
+      "sheet": "KBM SG "
+    }
+  ],
+  "nhưng khi biết chính sách miễn lãi 3 năm": [
+    {
+      "intent": "4.1 Không có nhu cầu mua nhà, không có nhu cầu, không nhu cầu",
+      "response": "KH từ chối lần 2",
+      "sheet": "KBM SG "
+    }
+  ],
+  "ân hạn gốc 5 năm thì thấy rất nhẹ. Em gửi thông tin qua Zalo để anh/chị tham khảo thêm ạ. (4.1)": [
+    {
+      "intent": "4.1 Không có nhu cầu mua nhà, không có nhu cầu, không nhu cầu",
+      "response": "KH từ chối lần 2",
+      "sheet": "KBM SG "
+    }
+  ],
+  "em hiểu. Dự án ngay trục xuyên tâm XLHN \nvà Vành Đai 3": [
+    {
+      "intent": "4.2. Chưa quan tâm tới dự án này.",
+      "response": "",
+      "sheet": "KBM SG "
+    }
+  ],
+  "đối diện ga Metro nên đang rất \nnhiều anh/ chị quan tâm mua vì tiềm năng cực \nkỳ cao. Em gửi anh/chị thông tin qua Zalo xem \nthử nha. (4.2)": [
+    {
+      "intent": "4.2. Chưa quan tâm tới dự án này.",
+      "response": "",
+      "sheet": "KBM SG "
+    }
+  ],
+  "Dạ em hiểu. Nhưng nhiều khách vẫn chọn thêm để đầu tư vì view sông và ngay nhà ga Metro hiếm lắm. Em gửi thông tin để anh/chị tham khảo nhé. (4.3)": [
+    {
+      "intent": "4.3. Đang ở nhà rồi, không cần thêm.",
+      "response": "",
+      "sheet": "KBM SG "
+    }
+  ],
+  "em hiểu. Mình đang đầu tư thì chắc chắn quan tâm lợi nhuận. Dự án này ngay khu Đông HCM đang được nhà nước đầu tư công nhiều nhất cả nước. Em gửi chi tiết để anh/chị so sánh thêm nha. (4.4)": [
+    {
+      "intent": "4.4. Đang đầu tư chỗ khác",
+      "response": "",
+      "sheet": "KBM SG "
+    }
+  ],
+  "em hiểu. Nhưng hiện có chính sách miễn lãi 3 năm": [
+    {
+      "intent": "4.5.Giá cao quá, không đủ khả năng.",
+      "response": "",
+      "sheet": "KBM SG "
+    }
+  ],
+  "ân hạn gốc 5 năm": [
+    {
+      "intent": "4.5.Giá cao quá, không đủ khả năng.",
+      "response": "",
+      "sheet": "KBM SG "
+    }
+  ],
+  "booking chỉ 50 triệu hoàn lại. Em gửi bảng giá để anh/chị xem thử nhé. (4.5')": [
+    {
+      "intent": "4.5.Giá cao quá, không đủ khả năng.",
+      "response": "",
+      "sheet": "KBM SG "
+    }
+  ],
+  "Dạ em hiểu. Với chính sách trả 15% ký hdmb rồi miễn lãi 36 tháng": [
+    {
+      "intent": "4.6.Chưa xoay kịp tài chính",
+      "response": "",
+      "sheet": "KBM SG "
+    }
+  ],
+  "mình nhẹ vốn ban đầu lắm. Em gửi phương án thanh toán để anh/chị tham khảo ạ. (4.6)": [
+    {
+      "intent": "4.6.Chưa xoay kịp tài chính",
+      "response": "",
+      "sheet": "KBM SG "
+    }
+  ],
+  "Dạ đúng rồi": [
+    {
+      "intent": "4.7.Để hỏi thêm gia đình, vợ/chồng.",
+      "response": "",
+      "sheet": "KBM SG "
+    }
+  ],
+  "việc lớn nên cứ bàn bạc thêm. Em gửi thông tin qua Zalo để anh/chị cùng gia đình xem trước nhé. (4.7)": [
+    {
+      "intent": "4.7.Để hỏi thêm gia đình, vợ/chồng.",
+      "response": "",
+      "sheet": "KBM SG "
+    }
+  ],
+  "Dạ em hiểu. Em gửi trước video và hình ảnh thực tế": [
+    {
+      "intent": "4.8.Bận, không đi xem dự án được.",
+      "response": "",
+      "sheet": "KBM SG "
+    }
+  ],
+  "khi nào rảnh mình ghé tham quan nhanh cũng được ạ. nhà mẫu thì ngay quận 1 ấy anh/ chị (4.8)": [
+    {
+      "intent": "4.8.Bận, không đi xem dự án được.",
+      "response": "",
+      "sheet": "KBM SG "
+    }
+  ],
+  "để tiện hơn em gửi thông tin qua Zalo trước": [
+    {
+      "intent": "4.9.Khi nào rảnh sẽ gọi lại.",
+      "response": "",
+      "sheet": "KBM SG "
+    }
+  ],
+  "khi nào anh/chị rảnh mình trao đổi thêm ạ. (4.9)": [
+    {
+      "intent": "4.9.Khi nào rảnh sẽ gọi lại.",
+      "response": "",
+      "sheet": "KBM SG "
+    }
+  ],
+  "Dạ em hiểu. Nhiều khách vẫn giữ chỗ 50 triệu để chọn căn đẹp": [
+    {
+      "intent": "4.10. Chưa có kế hoạch mua trong năm nay.",
+      "response": "",
+      "sheet": "KBM SG "
+    }
+  ],
+  "không mua thì hoàn lại. Em gửi chi tiết cho anh/chị xem trước nha. (4.10)": [
+    {
+      "intent": "4.10. Chưa có kế hoạch mua trong năm nay.",
+      "response": "",
+      "sheet": "KBM SG "
+    }
+  ],
+  "em hiểu. The Gió nằm ngay Metro và Vành Đai 3": [
+    {
+      "intent": "4.11.Cần xem thêm dự án khác để so sánh.",
+      "response": "",
+      "sheet": "KBM SG "
+    }
+  ],
+  "hiếm lắm. Khu Đông HCM đang được đầu tư công nhiều nhất cả nước. Em gửi thông tin để anh/chị dễ so sánh hơn nha. (4.11)": [
+    {
+      "intent": "4.11.Cần xem thêm dự án khác để so sánh.",
+      "response": "",
+      "sheet": "KBM SG "
+    }
+  ],
+  "Dạ em hiểu. Ngân hàng VPBANK đã liên kết": [
+    {
+      "intent": "4.12.Sợ thủ tục vay ngân hàng rắc rối.",
+      "response": "",
+      "sheet": "KBM SG "
+    }
+  ],
+  "thủ tục có bên em hỗ trợ trọn gói. Em gửi quy trình để anh/chị thấy dễ hơn nha. (4.12)": [
+    {
+      "intent": "4.12.Sợ thủ tục vay ngân hàng rắc rối.",
+      "response": "",
+      "sheet": "KBM SG "
+    }
+  ],
+  "đúng là 2-3 năm vừa qua thị trường trầm lắng. Nhưng mới vô quý 2 năm nay đã rầm rộ cực nhiều dự án và tỷ lệ hấp thụ cao. Đặc biệt ở khu Đông sài gòn được đầu tư công mạnh. Nhờ vậy vị trí The Gió đang được đông đảo nhà đầu tư quan tâm. Em gửi phân tích để anh/chị tham khảo thêm ạ. (4.13)": [
+    {
+      "intent": "4.13. Sợ thị trường đang chậm, chưa dám xuống tiền.",
+      "response": "",
+      "sheet": "KBM SG "
+    }
+  ],
+  "Dạ có gì em sẽ gửi thông tin chi tiết qua zalo cho mình tham khảo nhé ạ. Cảm ơn anh/chị! (6)": [
+    {
+      "intent": "( KH phản hồi những từ khóa không trùng với những Trường hợp mình đã phân lọc)",
+      "response": "",
+      "sheet": "KBM SG "
+    }
+  ],
+  "Em có thế kết bạn zalo để sau cuộc gọi tiện gửi thông tin": [
+    {
+      "intent": "ok, ô kê, oki, ô cây, thử, anh nghe, chị nghe, được, vâng, đồng ý, thông tin, gửi hình ảnh, nói đi, nói nghe, nói thử, đang nghe, nghe đây, tiếp đi, nói nhanh, thử xem, nói đại đi, trình bày đi, nói tiếp, tiếp tục, rồi rồi, nghe nè, nói luôn đi em, mở đầu đi, thử trình bày, nghe một chút đi, giới thiệu đi, nghe thử",
+      "response": "",
+      "sheet": "KBM SG "
+    }
+  ],
+  "chính sách về dự án cho anh/chị được không ạ? Số này của anh/chị có zalo luôn đúng không ạ? Anh chị đồng ý kết bạn với Zalo em là Hải Trân nhé ạ. (7)": [
+    {
+      "intent": "ok, ô kê, oki, ô cây, thử, anh nghe, chị nghe, được, vâng, đồng ý, thông tin, gửi hình ảnh, nói đi, nói nghe, nói thử, đang nghe, nghe đây, tiếp đi, nói nhanh, thử xem, nói đại đi, trình bày đi, nói tiếp, tiếp tục, rồi rồi, nghe nè, nói luôn đi em, mở đầu đi, thử trình bày, nghe một chút đi, giới thiệu đi, nghe thử",
+      "response": "",
+      "sheet": "KBM SG "
+    }
+  ],
+  "Hiện tại bên em đã có nhà mẫu ở Nguyễn Đình Chiểu": [
+    {
+      "intent": "8.1. muốn xem nhà, đi xem nhà, chốt",
+      "response": "",
+      "sheet": "KBM SG "
+    }
+  ],
+  "quận nhất. Không biết tuần này trong tuần hay cuối tuần anh/ chị khi mào ghé được? Tầm sáng hay chiều ạ? (8.1)": [
+    {
+      "intent": "8.1. muốn xem nhà, đi xem nhà, chốt",
+      "response": "",
+      "sheet": "KBM SG "
+    }
+  ],
+  "Dạ em cảm ơn anh/chị đã lắng nghe. Hiện tại bên em đã có nhà mẫu ngay Quận 1": [
+    {
+      "intent": "8.2. chưa chắc, để suy nghĩ, băn khoăn, từ từ, cân nhắc thêm",
+      "response": "",
+      "sheet": "KBM SG "
+    }
+  ],
+  "bàn giao đẩy đủ nội thất nên anh/chị có thể ghé xem thực tế để biết chất lượng bàn giao thế nào ạ. Bên em đang cho khách hàng giữ chỗ": [
+    {
+      "intent": "8.2. chưa chắc, để suy nghĩ, băn khoăn, từ từ, cân nhắc thêm",
+      "response": "",
+      "sheet": "KBM SG "
+    }
+  ],
+  "chọn căn đẹp": [
+    {
+      "intent": "8.2. chưa chắc, để suy nghĩ, băn khoăn, từ từ, cân nhắc thêm",
+      "response": "",
+      "sheet": "KBM SG "
+    }
+  ],
+  "giá tốt không mất tiền đồng thời khách giữ chỗ trước sẽ được tặng thêm gói điện máy nữa ạ. \nSố lượng có hạn nên mình tranh thủ lên xem sớm. Anh/chị ơi": [
+    {
+      "intent": "8.2. chưa chắc, để suy nghĩ, băn khoăn, từ từ, cân nhắc thêm",
+      "response": "",
+      "sheet": "KBM SG "
+    }
+  ],
+  "em sẽ gửi thông tin cụ thể qua zalo cho anh/chị. (8.2)": [
+    {
+      "intent": "8.2. chưa chắc, để suy nghĩ, băn khoăn, từ từ, cân nhắc thêm",
+      "response": "",
+      "sheet": "KBM SG "
+    }
+  ]
+}

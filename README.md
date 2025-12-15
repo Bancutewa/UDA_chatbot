@@ -2,7 +2,7 @@
 
 Mô hình Chatbot AI tư vấn bất động sản chuyên nghiệp được xây dựng trên nền tảng **LangChain** và **LangGraph**, với khả năng đa phương thức (Văn bản, Hình ảnh, Âm thanh).
 
-## � Project Objective
+## 🎯 Project Objective
 
 Dự án này nhằm mục đích xây dựng một trợ lý ảo bất động sản chuyên nghiệp, giải quyết các bài toán thực tế trong việc tư vấn và tìm kiếm nhà đất:
 
@@ -14,7 +14,7 @@ Dự án này nhằm mục đích xây dựng một trợ lý ảo bất động
 
 Quy trình xử lý của Agent được thiết kế theo luồng dữ liệu sau:
 
-<img src="./public/mermaid.png" alt="Agent Workflow" width="600">
+<img src="public/mermaid.png" alt="Agent Workflow" />
 
 1. **User Input**: Người dùng gửi yêu cầu (tìm nhà, hỏi thông tin, vẽ ảnh...).
 2. **Intent Analysis**: Agent phân tích ý định và trích xuất thực thể (Entities).
@@ -41,7 +41,7 @@ chatbot/
 │   │   ├── rag_tools.py      # Project Info RAG
 │   │   ├── booking_tools.py  # Appointment booking
 │   │   ├── audio_tools.py    # ElevenLabs Text-to-Speech
-│   │   └── image_tools.py    # Pollinations AI Image Gen
+│   │   └── image_tools.py    # Google Gemini Image Gen
 │   │
 │   ├── services/             # 🔧 Infrastructure Services
 │   │   ├── chat_service.py   # Chat session management
@@ -72,7 +72,7 @@ Tại sao lại chọn **Single Graph Agent** và **ReAct Pattern**?
 ### 2. 🛠️ Hệ thống Tools Đa Phương Tiện
 
 - **Quản lý Bất Động Sản**: Tìm kiếm, so sánh, xem chi tiết, gợi ý tương tự.
-- **Đa phương tiện**: Tạo ảnh mô phỏng (Pollinations AI) và đọc thông tin (ElevenLabs) để tăng trải nghiệm khách hàng.
+- **Đa phương tiện**: Tạo ảnh mô phỏng (Google Gemini) và đọc thông tin (ElevenLabs) để tăng trải nghiệm khách hàng.
 - **Tiện ích**: Đặt lịch xem nhà thực tế, tra cứu thông tin pháp lý dự án.
 
 ## 🛠️ Cài đặt và Chạy
@@ -133,7 +133,7 @@ python verify_agent_langgraph.py
 ## 🤝 Technology Stack
 
 - **Core**: Python 3.10+, LangChain, LangGraph
-- **AI Models**: Google Gemini, ElevenLabs, Pollinations
+- **AI Models**: Google Gemini, ElevenLabs
 - **Database**: Qdrant (Vector), MongoDB (NoSQL)
 - **UI**: Streamlit
 

@@ -1,0 +1,1175 @@
+{
+  "version": "1.0",
+  "description": "Extracted from telesales scripts",
+  "intents": [
+    {
+      "intent": "KH hỏi Giá",
+      "keywords": [
+        "bao tiền",
+        "nhiêu tiền",
+        "xin giá",
+        "giá nhiêu",
+        "bao nhiêu",
+        "mắc không",
+        "đắt không",
+        "rẻ không",
+        "tiền nhiều không",
+        "giá combo",
+        "giá thấp nhất",
+        "giá trọn bộ",
+        "giá trọn gói",
+        "chi phí",
+        "đơn giá"
+      ],
+      "response": "Dạ, hiện nay giá hệ thống điện mặt trời chỉ tầm 7 triệu đồng/ ki lô oát , giá đã giảm 1 nửa so với trước đây ạ. Chỉ tầm khoảng 2 - 3 năm là mình có thể thu hồi vốn đầu tư, sau đó hưởng lợi hơn 25 năm rồi ạ! Em xin phép kết nối với mình qua zalo để thông tin chi tiết ạ",
+      "sheet": "KBM SG 2",
+      "row": 3
+    },
+    {
+      "intent": "Kh hỏi trả góp",
+      "keywords": [
+        "trả góp",
+        "trả chậm",
+        "trả trước",
+        "trả từ từ",
+        "trả dần",
+        "trả theo tháng",
+        "chia nhỏ",
+        "chia kỳ thanh toán",
+        "góp linh hoạt",
+        "không đủ tiền",
+        "không có tiền",
+        "hết tiền",
+        "không có khả năng",
+        "chưa có điều kiện",
+        "chưa có tiền",
+        "kẹt tiền",
+        "ưu đãi",
+        "khuyến mãi",
+        "giá cao",
+        "mắc quá",
+        "đắt quá",
+        "cần cọc",
+        "đặt cọc"
+      ],
+      "response": "Dạ, hiện tại Sô la Sài Gòn Xanh đang có chương trình hỗ trợ trả góp trong 6 hoặc 12 tháng. Mình chỉ cần trả trước 30% giá trị hệ thống là được ạ.\nEm xin phép gửi thông tin phương án trả chậm qua Zalo cho mình tham khảo nha!",
+      "sheet": "KBM SG 2",
+      "row": 4
+    },
+    {
+      "intent": "KH hỏi mình là ai?",
+      "keywords": [
+        "Là ai",
+        "ai đấy",
+        "ai đó",
+        "ai vậy",
+        "gì đấy",
+        "đơn vị nào",
+        "bên nào",
+        "công ty nào",
+        "từ đâu",
+        "ở đâu vậy",
+        "tên gì",
+        "tổ chức nào",
+        "ai gọi",
+        "từ công ty gì đó",
+        "tôi không quen",
+        "danh tính",
+        "chưa từng nghe",
+        "không biết ai"
+      ],
+      "response": "Dạ, em bên công ty Sô la Sài Gòn Xanh – đã giúp hơn 2000 khách hàng giảm được 70-90% tiền điện mỗi tháng, mình cho em xin 1-2 phút để trao đổi nhanh về giải pháp này cho mình nhé ạ",
+      "sheet": "KBM SG 2",
+      "row": 5
+    },
+    {
+      "intent": "KH hỏi lại thông tin",
+      "keywords": [
+        "cái gì",
+        "gì cơ",
+        "a lô",
+        "chưa rõ",
+        "nói to",
+        "nói lại",
+        "ồn quá",
+        "không rõ",
+        "sao đấy",
+        "chưa hiểu",
+        "không nghe thấy",
+        "nói gì",
+        "chưa nghe",
+        "nhỏ quá",
+        "gọi gì",
+        "gọi chi",
+        "sao gọi tôi",
+        "sản phẩm"
+      ],
+      "response": "Dạ, bên em chuyên cung cấp giải pháp điện mặt trời giúp giảm từ 70-90% tiền điện hàng tháng. Em thấy chỗ mình dùng điện cũng khá nhiều, nên rất phù hợp với giải pháp điện mặt trời này ạ. Mình cho em trao đổi nhanh 1-2 phút về giải pháp nhé ạ",
+      "sheet": "KBM SG 2",
+      "row": 6
+    },
+    {
+      "intent": "KH hỏi về thiết bị – hiệu suất – bảo hành – bảo trì – tuổi thọ",
+      "keywords": [
+        "thiết bị",
+        "bộ này",
+        "pin gì",
+        "tấm pin",
+        "inverter",
+        "thương hiệu",
+        "hãng nào",
+        "linh kiện",
+        "xuất xứ",
+        "sản xuất ở đâu",
+        "hàng gì",
+        "cấu tạo",
+        "tiêu chuẩn",
+        "chất lượng",
+        "hiệu suất",
+        "hiệu suất giảm",
+        "pin chai",
+        "bền không",
+        "lâu không",
+        "tuổi thọ",
+        "dùng bao lâu",
+        "có hư không",
+        "dễ hư",
+        "nhanh hư",
+        "bảo hành",
+        "bảo hành bao lâu",
+        "bảo hành tận nơi",
+        "có bảo hành không",
+        "bảo hành tại nhà",
+        "bảo trì",
+        "bảo dưỡng",
+        "định kỳ",
+        "khó bảo dưỡng",
+        "sửa chữa",
+        "hỗ trợ",
+        "kỹ thuật",
+        "ai xử lý",
+        "chăm sóc sau lắp",
+        "trách nhiệm"
+      ],
+      "response": "Dạ, hệ thống điện mặt trời bên em sử dụng thiết bị chính hãng, đạt tiêu chuẩn quốc tế từ các thương hiệu uy tín như Pin LONGi – bảo hành hiệu suất 30 năm, Inverter Afore – bảo hành từ 5 năm, tùy chọn mở rộng đến 10 năm.\n \n Em xin gửi bảng thông số kỹ thuật và chính sách bảo hành kèm hình ảnh thực tế qua Zalo để mình tham khảo rõ hơn nha ạ!",
+      "sheet": "KBM SG 2",
+      "row": 7
+    },
+    {
+      "intent": "KH hỏi về hiệu quả và công suất hệ thống",
+      "keywords": [
+        "hiệu quả",
+        "công suất",
+        "tiết kiệm",
+        "sinh lời",
+        "giảm bao nhiêu",
+        "bao lâu thu hồi",
+        "có thật không",
+        "tính ra sao",
+        "tính tiền thế nào",
+        "giảm được mấy phần trăm",
+        "có ổn định không",
+        "lúc nào tiết kiệm",
+        "mùa mưa thì sao",
+        "có bị giảm không",
+        "sản lượng điện",
+        "tỷ lệ hoàn vốn",
+        "trả lời rõ hơn",
+        "minh chứng",
+        "số liệu",
+        "báo cáo",
+        "khách cũ"
+      ],
+      "response": "Dạ, hệ thống điện mặt trời giúp tiết kiệm 70–90% tiền điện nếu sử dụng ban ngày. Công suất lắp tùy theo hóa đơn điện mỗi tháng và diện tích mái nhà ạ.",
+      "sheet": "KBM SG 2",
+      "row": 8
+    },
+    {
+      "intent": "KH hỏi có bán điện lại cho EVN được không",
+      "keywords": [
+        "bán điện",
+        "bán lại điện",
+        "có bán điện",
+        "bán lại cho EVN",
+        "EVN mua điện",
+        "EVN mua",
+        "điện dư",
+        "dư thì sao",
+        "bán dư",
+        "hòa lưới",
+        "công tơ 2 chiều",
+        "hóa đơn điện âm",
+        "hoàn tiền",
+        "có thu nhập",
+        "có lời",
+        "có tiền",
+        "sinh lời",
+        "có lợi",
+        "có tính tiền",
+        "có được thanh toán",
+        "lợi nhuận",
+        "xài ít có lời",
+        "thu tiền",
+        "hợp đồng",
+        "chính sách",
+        "thông tư",
+        "lợi ích",
+        "kiếm tiền",
+        "thanh toán",
+        "ai mua"
+      ],
+      "response": "Dạ, nếu mình lắp hệ thống hòa lưới và dùng không hết điện thì có thể bán phần dư lại cho EVN theo chính sách hiện nay là mua lại 20% ạ! Tuy nhiên, bên em sẽ tư vấn công suất phù hợp để mình dùng hết lượng điện tạo ra – giúp tiết kiệm đến 90% chi phí điện ban ngày, hóa đơn giảm ngay mỗi tháng, không cần phải chờ bán lại mới thấy hiệu quả ạ.\n Em xin gửi thông tư về bán điện và lợi nhuận cụ thể qua Zalo để mình tham khảo nhé ạ!",
+      "sheet": "KBM SG 2",
+      "row": 9
+    },
+    {
+      "intent": "KH hỏi về quy trình triển khai / lắp đặt",
+      "keywords": [
+        "quy trình",
+        "bao lâu",
+        "khảo sát",
+        "lắp mấy ngày",
+        "mất thời gian",
+        "có cần giấy tờ gì",
+        "xin phép gì",
+        "cần chuẩn bị gì",
+        "có cần nghỉ ở nhà",
+        "bao lâu có điện",
+        "ai lắp",
+        "có chuyên nghiệp",
+        "có bảo hiểm",
+        "có bị cắt điện",
+        "có tháo mái",
+        "có cam kết",
+        "bên nào bảo hành",
+        "có kiểm tra",
+        "ai chịu trách nhiệm",
+        "ký gì",
+        "bao giờ bắt đầu"
+      ],
+      "response": "Dạ, bên em có quy trình rõ ràng: khảo sát – thiết kế – lắp đặt – nghiệm thu. Tất cả chỉ từ 2 đến 4 ngày làm việc.\n Em sẽ gửi tài liệu mô tả chi tiết quy trình và hình ảnh thực tế qua Zalo để mình tham khảo nha!",
+      "sheet": "KBM SG 2",
+      "row": 10
+    },
+    {
+      "intent": "KH hỏi về diện tích mái nhà tối thiểu cần có",
+      "keywords": [
+        "cần nhiêu mét",
+        "mái nhỏ",
+        "diện tích mái",
+        "mái nhà nhỏ",
+        "không đủ chỗ",
+        "tối thiểu bao nhiêu",
+        "cần rộng",
+        "mái tôn",
+        "mái bê tông",
+        "sân thượng",
+        "có đủ chỗ không",
+        "mái nghiêng",
+        "mái bằng",
+        "hướng nắng",
+        "mái rợp cây",
+        "mét"
+      ],
+      "response": "Dạ, thông thường chỉ cần khoảng 10–20m² mái là có thể lắp hệ thống cơ bản rồi ạ. Và trung bình 4.5m² ráp được 1kW\n Em xin phép gửi hình ảnh minh họa và cách tính diện tích phù hợp qua Zalo để mình dễ hình dung hơn nha!",
+      "sheet": "KBM SG 2",
+      "row": 11
+    },
+    {
+      "intent": "KH hỏi có cần xin phép / pháp lý ra sao",
+      "keywords": [
+        "xin phép",
+        "có cần xin phép không",
+        "giấy tờ",
+        "có giấy tờ gì không",
+        "hợp pháp",
+        "hợp lệ",
+        "pháp lý",
+        "luật",
+        "quy định",
+        "nhà nước",
+        "báo chính quyền",
+        "EVN có cho không",
+        "bên điện có cho không",
+        "phải đăng ký không",
+        "có liên quan đến nhà nước không",
+        "có bị phạt không",
+        "có bị bắt không",
+        "bị kiểm tra",
+        "có bị kiểm tra không",
+        "bị cắt điện không",
+        "có an toàn không",
+        "kiểm tra",
+        "bị phạt",
+        "sợ rắc rối",
+        "có cho lắp không",
+        "thủ tục",
+        "chính quyền"
+      ],
+      "response": "Dạ, hiện tại Nhà nước đang khuyến khích mạnh mẽ việc lắp đặt sử dụng điện mặt trời, và sẽ mua lại 20% công suất lắp đặt. Khi lắp đặt bên em sẽ hướng dẫn chi tiết các thủ tục liên quan theo đúng quy định ạ. Em xin phép gửi thông tin pháp lý, quy định của EVN và mẫu thủ tục qua Zalo để mình tham khảo kỹ hơn nha!\"",
+      "sheet": "KBM SG 2",
+      "row": 12
+    },
+    {
+      "intent": "KH hỏi có cần bảo hiểm hay rủi ro cháy nổ không",
+      "keywords": [
+        "cháy nổ",
+        "rủi ro",
+        "an toàn không",
+        "sét đánh",
+        "có bị cháy không",
+        "có nổ không",
+        "rò điện",
+        "chập điện",
+        "nguy hiểm không",
+        "có bị hư không",
+        "có cần bảo hiểm không",
+        "an toàn điện",
+        "trẻ con",
+        "mái tôn nóng",
+        "trời mưa",
+        "bão",
+        "giông"
+      ],
+      "response": "Dạ, hệ thống điện mặt trời đạt tiêu chuẩn an toàn quốc tế, có bộ chống sét và cầu dao chống rò điện.\n  Em gửi tài liệu chi tiết về an toàn kỹ thuật qua Zalo để mình tham khảo nha!",
+      "sheet": "KBM SG 2",
+      "row": 13
+    },
+    {
+      "intent": "KH hỏi hệ thống có dùng ban đêm không / có lưu trữ không / mất điện/ điện yếu",
+      "keywords": [
+        "ban đêm",
+        "buổi tối",
+        "lưu điện",
+        "lưu trữ",
+        "mất điện",
+        "bình điện",
+        "dự phòng",
+        "điện yếu",
+        "cúp điện",
+        "điện không ổn định",
+        "không đủ điện",
+        "điện chập",
+        "điện kém",
+        "điện hư",
+        "lưới yếu",
+        "tải yếu"
+      ],
+      "response": "Dạ, nếu mình muốn dùng điện vào ban đêm hoặc khi cúp điện, hay điện yếu, bên em có phương án lắp thêm pin lưu trữ (battery) để mình sử dụng điện ổn định.\nTùy nhu cầu mà mình có thể chọn hệ bám tải hoặc hybrid lưu trữ. Em xin phép gửi bảng so sánh hai phương án qua Zalo để mình tham khảo nha!",
+      "sheet": "KBM SG 2",
+      "row": 14
+    },
+    {
+      "intent": "KH hỏi nếu di dời / chuyển nhà thì sao",
+      "keywords": [
+        "chuyển nhà thì sao",
+        "có gỡ ra được không",
+        "di dời được không",
+        "mang đi được không",
+        "gắn lại được không",
+        "tháo ra sao",
+        "chuyển đi nơi khác",
+        "đổi địa điểm",
+        "sau này dọn đi",
+        "có chuyển sang nhà khác được không",
+        "thuê nhà",
+        "nhà tạm"
+      ],
+      "response": "Dạ, hệ thống có thể tháo ra và di dời sang nhà mới dễ dàng nếu cần. Bên em có đội kỹ thuật hỗ trợ tháo lắp lại với chi phí hợp lý ạ.\n Em gửi hướng dẫn tháo lắp và bảo trì sau di dời qua Zalo cho mình tham khảo nha!",
+      "sheet": "KBM SG 2",
+      "row": 15
+    },
+    {
+      "intent": "KH hỏi có phù hợp với nhà trọ, nhà thuê, nhà gác lửng không",
+      "keywords": [
+        "nhà trọ",
+        "nhà thuê",
+        "nhà gác",
+        "nhà cấp 4",
+        "mái yếu",
+        "có phù hợp không",
+        "có nên làm không",
+        "nên lắp không",
+        "nhà nhỏ",
+        "nhà chật",
+        "không phải nhà mình",
+        "thuê nhà thì sao",
+        "có ràng buộc gì không",
+        "nhà sơ sài"
+      ],
+      "response": "Dạ, nếu là nhà thuê hoặc nhà trọ thì mình nên cân nhắc lắp hệ thống nhỏ để dễ tháo dỡ khi cần di chuyển.\n Bên em có giải pháp tiết kiệm chi phí, gọn nhẹ cho nhà trọ và nhà cấp 4. Em gửi hình ảnh các mẫu đã lắp thực tế cho mình xem thử nha!",
+      "sheet": "KBM SG 2",
+      "row": 16
+    },
+    {
+      "intent": "KH hỏi có ai từng làm chưa / cần minh chứng thực tế",
+      "keywords": [
+        "ai làm chưa",
+        "có ai dùng chưa",
+        "có minh chứng không",
+        "có ví dụ thực tế không",
+        "có khách cũ không",
+        "ai đã lắp rồi",
+        "có đánh giá không",
+        "có hình ảnh không",
+        "cho tôi coi thử",
+        "có ai lắp gần đây không",
+        "có case thực tế không",
+        "có video không"
+      ],
+      "response": "Dạ, bên em đã lắp đặt cho hơn 2.000 khách hàng, riêng tại tỉnh Tây Ninh đã lắp đặt hơn 300 hệ thống.\n Em gửi mình hình ảnh công trình thực tế và đánh giá của khách đã lắp để mình tham khảo ạ!",
+      "sheet": "KBM SG 2",
+      "row": 17
+    },
+    {
+      "intent": "KH hỏi sao có SĐT",
+      "keywords": [
+        "Sao biết",
+        "sao có",
+        "có số",
+        "ai cho",
+        "điện thoại",
+        "tự nhiên gọi",
+        "quen tôi",
+        "gọi nhầm",
+        "nhầm số",
+        "lấy số",
+        "lấy thông tin",
+        "cung cấp số",
+        "ai đưa số",
+        "ai cấp số",
+        "đăng ký",
+        "danh sách ở đâu",
+        "liên quan gì",
+        "thu thập từ đâu",
+        "ai chia sẻ",
+        "ai gửi thông tin"
+      ],
+      "response": "Dạ, bên em có khảo sát thị trường tại khu vực mình nên có được thông tin liên hệ ạ. Mình cho em xin trao đổi ngắn 1–2 phút về giải pháp giúp mình tiết kiệm tối đa tiền điện mỗi tháng nhé ạ!",
+      "sheet": "KBM SG 2",
+      "row": 18
+    },
+    {
+      "intent": "KH không quan tâm - Phản ứng mạnh",
+      "keywords": [
+        "đau đầu",
+        "Cút",
+        "Phiền",
+        "Biến",
+        "Không muốn nghe",
+        "Bực",
+        "Vớ vẩn",
+        "Miễn",
+        "cúp máy",
+        "dẹp đi"
+      ],
+      "response": "Dạ vâng. Em chào mình ạ!",
+      "sheet": "KBM SG 2",
+      "row": 19
+    },
+    {
+      "intent": "KH chưa biết về điện mặt trời",
+      "keywords": [
+        "là gì",
+        "là sao",
+        "dùng sao",
+        "sử dụng sao",
+        "hoạt động sao",
+        "chạy như nào",
+        "khó dùng không",
+        "dùng thế nào",
+        "không rành",
+        "lần đầu nghe",
+        "chưa tìm hiểu",
+        "chưa từng biết",
+        "chưa nghe bao giờ",
+        "chưa nghe nói",
+        "chưa hình dung",
+        "hệ thống gì",
+        "không biết",
+        "chức năng",
+        "chưa từng gặp",
+        "không quen sản phẩm",
+        "chưa từng dùng",
+        "thấy lạ",
+        "chưa được tư vấn",
+        "chưa được giới thiệu",
+        "không hiểu cơ chế",
+        "cần giải thích",
+        "nghe nói sơ sơ",
+        "mù mờ"
+      ],
+      "response": "Dạ, hệ thống điện năng lượng mặt trời là hệ thống sử dụng các tấm pin mặt trời để hấp thu ánh nắng và chuyển đổi thành điện năng để cung cấp cho gia đình mình sử dụng ạ.\n\nEm xin phép gửi thông tin chi tiết về điện mặt trời qua Zalo cho mình tham khảo nha!",
+      "sheet": "KBM SG 2",
+      "row": 20
+    },
+    {
+      "intent": "Có việc, công việc, lái xe, chạy xe, đi đường, họp, đang làm, ăn cỗ, gọi lại, không tiện nghe, lúc khác, khi khác, bận, không rảnh, đang chở khách, đi công chuyện, lát gọi, đang ăn, đang ngủ, có khách, không có nhà, để suy nghĩ, đang đi chơi, lát nói chuyện sau",
+      "keywords": [
+        "Dạ",
+        "em hiểu là mình đang rất bận ạ. Em xin gửi thông tin tóm tắt qua Zalo để mình tranh thủ xem lúc rảnh. Sau đó em sẽ liên hệ lại để hỗ trợ nếu mình cần thêm thông tin nha ạ!"
+      ],
+      "sheet": "KBM SG 2",
+      "row": 21
+    },
+    {
+      "intent": "không, hông, thôi, cảm ơn, đừng, đau đầu, xin lỗi, cám, nghèo, cảm, phiền, công nhân, nông dân, quèn, đắt, quan tâm, không cần, gọi nhiều, gọi lắm, suốt ngày gọi, mệt quá, đừng gọi nữa, gọi lắm thế, không muốn, không có nhu cầu, hông cần, chưa cần, chưa có nhu cầu, chưa quan tâm, không thích, không có ý định, chưa có ý định, chưa sẵn sàng",
+      "keywords": [
+        "Dạ",
+        "em hiểu hiện tại mình chưa thật sự quan tâm đâu ạ. Nếu tiện",
+        "mình chia sẻ giúp em một chút – không biết mình đang băn khoăn ở chỗ chi phí",
+        "hiệu quả",
+        "hay chưa thật sự cần thiết lúc này ạ? Biết đâu em có thể chia sẻ thêm góc nhìn hoặc thông tin phù hợp hơn cho mình tham khảo sau này!"
+      ],
+      "response": "KH từ chối lần 2",
+      "sheet": "KBM SG 2",
+      "row": 22
+    },
+    {
+      "intent": "( KH phản hồi những từ khóa không trùng với những Trường hợp mình đã phân lọc)",
+      "keywords": [
+        "Dạ",
+        "em nhận thông tin ạ. Em xin phép phản hồi qua Zalo cho mình nhé ạ?"
+      ],
+      "sheet": "KBM SG 2",
+      "row": 41
+    },
+    {
+      "intent": "ok, ô kê, oki, ô cây, thử, anh nghe, chị nghe, được, vâng, đồng ý, thông tin, gửi hình ảnh, nói đi, nói nghe, nói thử, đang nghe, nghe đây, tiếp đi, nói nhanh, thử xem, nói đại đi, trình bày đi, nói tiếp, tiếp tục, rồi rồi, nghe nè, nói luôn đi em, mở đầu đi, thử trình bày, nghe một chút đi, giới thiệu đi, nghe thử",
+      "keywords": [
+        "Dạ để xác định công suất hệ thống phù hợp",
+        "mình cho em hỏi tiền điện một tháng của mình khoảng bao nhiêu vậy ạ?"
+      ],
+      "sheet": "KBM SG 2",
+      "row": 42
+    },
+    {
+      "intent": "Hỏi lại",
+      "keywords": [
+        "\"Là ai",
+        "bên nào",
+        "sàn nào",
+        "công ty nào",
+        "ai đấy.\nCái gì",
+        "gì cơ",
+        "a lô",
+        "chưa rõ",
+        "nói to",
+        "nói lại",
+        "ồn quá",
+        "không rõ",
+        "sao đấy",
+        "chưa hiểu",
+        "ai",
+        "không nghe thấy",
+        "không hiểu",
+        "nói gì.\""
+      ],
+      "response": "Dạ, em là chuyên viên tư vấn dự án The Gió chủ đầu tư An Gia vị trí ngay trạm Metro với nhiều chính sách thanh toán cực kỳ tốt dành cho Khách hàng trong đợt mở bán mới này. Em có thế kết bạn zalo để gửi thông tin, chính sách cho anh chị được không ạ? (2.1)",
+      "sheet": "KBM SG ",
+      "row": 3
+    },
+    {
+      "intent": "Vị Trí",
+      "keywords": [
+        "Ở đâu",
+        "thành phố",
+        "khu nào",
+        "chỗ nào",
+        "dự án nào",
+        "tỉnh nào",
+        "có muốn",
+        "khu phố",
+        "khu vực",
+        "chỗ nào",
+        "khu nào",
+        "địa chỉ",
+        "địa điểm",
+        "nằm",
+        "thuộc."
+      ],
+      "response": "\"Dạ dự án nằm ngay trục xa lộ hà nội, hiện là thuộc phường Đông Hòa, hcm, đối diện là Trạm ga Metro S2.1, cách nút giao Tân Vạn - vanh đai 3 đang thi công là 500 ấy ạ.\" thông tin chi tiết em gửi qua zalo cho mình nhé (2.2')",
+      "sheet": "KBM SG ",
+      "row": 4
+    },
+    {
+      "intent": "Chủ đầu tư",
+      "keywords": [
+        "Chủ đầu tư",
+        "đầu tư",
+        "Chủ đầu tư là ai",
+        "chủ đầu tư nào",
+        "chủ đầu tư",
+        "ecopark phải không",
+        "e cô bắc"
+      ],
+      "response": "\"Dạ An Gia là CĐT.  The Gió là dự án thứ 10, tất cả các dự án trước đó đều đã và đang ra sổ. Có gì em sẽ gửi thông tin chi tiết qua zalo cho mình tham khảo nhé ạ.\" (2.3)",
+      "sheet": "KBM SG ",
+      "row": 5
+    },
+    {
+      "intent": "Tiến độ",
+      "keywords": [
+        "Tiến độ",
+        "bàn giao",
+        "xây chưa",
+        "xây tới đâu",
+        "hoàn thiện chưa",
+        "khi nào"
+      ],
+      "response": "Dạ hiện dự án đã thi công xong 3 tầng hầm và dự kiến bàn giao vào quý I/2028 ạ. thông tin chi tiết em gửi qua zalo cho mình nhé ạ (2.4')",
+      "sheet": "KBM SG ",
+      "row": 6
+    },
+    {
+      "intent": "Giá",
+      "keywords": [
+        "Giá",
+        "bao nhiêu",
+        "tỷ",
+        "nhiêu",
+        "căn",
+        "mét",
+        "vốn",
+        "vay",
+        "hỗ trợ",
+        "ngân hàng",
+        "bao tiền",
+        "mét vuông",
+        "đơn giá",
+        "chi phí",
+        "bao nhiêu",
+        "đóng",
+        "tiền"
+      ],
+      "response": "\"Dạ giá từ 48 triệu/m2, căn 2pn trả có 500 triệu là ký HĐMB chỉ dành duy nhất cho khách hàng mua đợt này ạ. thông tin chi tiết em gửi qua zalo cho mình nhé ạ.\" (2.5')",
+      "sheet": "KBM SG ",
+      "row": 7
+    },
+    {
+      "intent": "Diện tích",
+      "keywords": [
+        "Diện tích",
+        "bao nhiêu mét",
+        "mấy mét",
+        "rộng bao nhiêu",
+        "rộng không"
+      ],
+      "response": "\"Dạ đợt này căn hộ The Gió sở hữu những sản phẩm có diện tích dao động từ studio 41m2 , 2pn 65m2 đến 2pn+ 75m2 . thông tin chi tiết em gửi qua zalo cho mình nhé ạ (2.6')",
+      "sheet": "KBM SG ",
+      "row": 8
+    },
+    {
+      "intent": "PTTT",
+      "keywords": [
+        "Thế bên em có phương thức thanh toán gì?",
+        "Phương thức thanh toán như thế nào?"
+      ],
+      "response": "Về thanh toán thì trong 3 năm mình chỉ thanh toán có 600tr là nhận nhà ạ. Đang có chính sách miễn lãi 3 năm và ân hạn gốc 5 năm lận ấy anh/ chị. mọi thông tin chi tiết em gửi qua zalo cho mình nhé ạ (2.8')",
+      "sheet": "KBM SG ",
+      "row": 10
+    },
+    {
+      "intent": "View/Tiện tích",
+      "keywords": [
+        "tiện ích",
+        "có tiện ích gì",
+        "view",
+        "view như thế nào"
+      ],
+      "response": "Bên em có 68 tiện ích trải dài trên 4 tầng của toà tháp, phục vụ nhu cầu sinh hoạt, vui chơi, giải trí, ăn uống..không gian thể thao trong nhà và ngoài trời. Dự án với tầm view 3 mặt giáp sông vô cùng thoáng mát. Em sẽ gửi hình ảnh tiện ích qua Zalo cho mình nhé.  (2.9)",
+      "sheet": "KBM SG ",
+      "row": 11
+    },
+    {
+      "intent": "Có việc, công việc, lái xe, chạy xe, đi đường, họp, đang làm, ăn cỗ, gọi lại, không tiện nghe, lúc khác, khi khác, bận, không rảnh, đang chở khách, đi công chuyện, lát gọi, đang ăn, đang ngủ, có khách, không có nhà, để suy nghĩ, đang đi chơi, lát nói chuyện sau, thời gian, không có thời gian, đang kẹt, kẹt, làm việc, mất làm,",
+      "keywords": [
+        "Dạ vâng",
+        "em xin phép sẽ gọi lại sau. Em có thể gọi vào khung giờ nào để tiện nhất ạ? (3)"
+      ],
+      "sheet": "KBM SG ",
+      "row": 23
+    },
+    {
+      "intent": "4.1 Không có nhu cầu mua nhà, không có nhu cầu, không nhu cầu",
+      "keywords": [
+        "Dạ em hiểu. Nhiều khách cũng nghĩ vậy",
+        "nhưng khi biết chính sách miễn lãi 3 năm",
+        "ân hạn gốc 5 năm thì thấy rất nhẹ. Em gửi thông tin qua Zalo để anh/chị tham khảo thêm ạ. (4.1)"
+      ],
+      "response": "KH từ chối lần 2",
+      "sheet": "KBM SG ",
+      "row": 24
+    },
+    {
+      "intent": "4.2. Chưa quan tâm tới dự án này.",
+      "keywords": [
+        "Dạ",
+        "em hiểu. Dự án ngay trục xuyên tâm XLHN \nvà Vành Đai 3",
+        "đối diện ga Metro nên đang rất \nnhiều anh/ chị quan tâm mua vì tiềm năng cực \nkỳ cao. Em gửi anh/chị thông tin qua Zalo xem \nthử nha. (4.2)"
+      ],
+      "sheet": "KBM SG ",
+      "row": 25
+    },
+    {
+      "intent": "4.3. Đang ở nhà rồi, không cần thêm.",
+      "keywords": [
+        "Dạ em hiểu. Nhưng nhiều khách vẫn chọn thêm để đầu tư vì view sông và ngay nhà ga Metro hiếm lắm. Em gửi thông tin để anh/chị tham khảo nhé. (4.3)"
+      ],
+      "sheet": "KBM SG ",
+      "row": 26
+    },
+    {
+      "intent": "4.4. Đang đầu tư chỗ khác",
+      "keywords": [
+        "Dạ",
+        "em hiểu. Mình đang đầu tư thì chắc chắn quan tâm lợi nhuận. Dự án này ngay khu Đông HCM đang được nhà nước đầu tư công nhiều nhất cả nước. Em gửi chi tiết để anh/chị so sánh thêm nha. (4.4)"
+      ],
+      "sheet": "KBM SG ",
+      "row": 27
+    },
+    {
+      "intent": "4.5.Giá cao quá, không đủ khả năng.",
+      "keywords": [
+        "Dạ",
+        "em hiểu. Nhưng hiện có chính sách miễn lãi 3 năm",
+        "ân hạn gốc 5 năm",
+        "booking chỉ 50 triệu hoàn lại. Em gửi bảng giá để anh/chị xem thử nhé. (4.5')"
+      ],
+      "sheet": "KBM SG ",
+      "row": 28
+    },
+    {
+      "intent": "4.6.Chưa xoay kịp tài chính",
+      "keywords": [
+        "Dạ em hiểu. Với chính sách trả 15% ký hdmb rồi miễn lãi 36 tháng",
+        "mình nhẹ vốn ban đầu lắm. Em gửi phương án thanh toán để anh/chị tham khảo ạ. (4.6)"
+      ],
+      "sheet": "KBM SG ",
+      "row": 29
+    },
+    {
+      "intent": "4.7.Để hỏi thêm gia đình, vợ/chồng.",
+      "keywords": [
+        "Dạ đúng rồi",
+        "việc lớn nên cứ bàn bạc thêm. Em gửi thông tin qua Zalo để anh/chị cùng gia đình xem trước nhé. (4.7)"
+      ],
+      "sheet": "KBM SG ",
+      "row": 30
+    },
+    {
+      "intent": "4.8.Bận, không đi xem dự án được.",
+      "keywords": [
+        "Dạ em hiểu. Em gửi trước video và hình ảnh thực tế",
+        "khi nào rảnh mình ghé tham quan nhanh cũng được ạ. nhà mẫu thì ngay quận 1 ấy anh/ chị (4.8)"
+      ],
+      "sheet": "KBM SG ",
+      "row": 31
+    },
+    {
+      "intent": "4.9.Khi nào rảnh sẽ gọi lại.",
+      "keywords": [
+        "Dạ",
+        "để tiện hơn em gửi thông tin qua Zalo trước",
+        "khi nào anh/chị rảnh mình trao đổi thêm ạ. (4.9)"
+      ],
+      "sheet": "KBM SG ",
+      "row": 32
+    },
+    {
+      "intent": "4.10. Chưa có kế hoạch mua trong năm nay.",
+      "keywords": [
+        "Dạ em hiểu. Nhiều khách vẫn giữ chỗ 50 triệu để chọn căn đẹp",
+        "không mua thì hoàn lại. Em gửi chi tiết cho anh/chị xem trước nha. (4.10)"
+      ],
+      "sheet": "KBM SG ",
+      "row": 33
+    },
+    {
+      "intent": "4.11.Cần xem thêm dự án khác để so sánh.",
+      "keywords": [
+        "Dạ",
+        "em hiểu. The Gió nằm ngay Metro và Vành Đai 3",
+        "hiếm lắm. Khu Đông HCM đang được đầu tư công nhiều nhất cả nước. Em gửi thông tin để anh/chị dễ so sánh hơn nha. (4.11)"
+      ],
+      "sheet": "KBM SG ",
+      "row": 34
+    },
+    {
+      "intent": "4.12.Sợ thủ tục vay ngân hàng rắc rối.",
+      "keywords": [
+        "Dạ em hiểu. Ngân hàng VPBANK đã liên kết",
+        "thủ tục có bên em hỗ trợ trọn gói. Em gửi quy trình để anh/chị thấy dễ hơn nha. (4.12)"
+      ],
+      "sheet": "KBM SG ",
+      "row": 35
+    },
+    {
+      "intent": "4.13. Sợ thị trường đang chậm, chưa dám xuống tiền.",
+      "keywords": [
+        "Dạ",
+        "đúng là 2-3 năm vừa qua thị trường trầm lắng. Nhưng mới vô quý 2 năm nay đã rầm rộ cực nhiều dự án và tỷ lệ hấp thụ cao. Đặc biệt ở khu Đông sài gòn được đầu tư công mạnh. Nhờ vậy vị trí The Gió đang được đông đảo nhà đầu tư quan tâm. Em gửi phân tích để anh/chị tham khảo thêm ạ. (4.13)"
+      ],
+      "sheet": "KBM SG ",
+      "row": 36
+    },
+    {
+      "intent": "( KH phản hồi những từ khóa không trùng với những Trường hợp mình đã phân lọc)",
+      "keywords": [
+        "Dạ có gì em sẽ gửi thông tin chi tiết qua zalo cho mình tham khảo nhé ạ. Cảm ơn anh/chị! (6)"
+      ],
+      "sheet": "KBM SG ",
+      "row": 43
+    },
+    {
+      "intent": "ok, ô kê, oki, ô cây, thử, anh nghe, chị nghe, được, vâng, đồng ý, thông tin, gửi hình ảnh, nói đi, nói nghe, nói thử, đang nghe, nghe đây, tiếp đi, nói nhanh, thử xem, nói đại đi, trình bày đi, nói tiếp, tiếp tục, rồi rồi, nghe nè, nói luôn đi em, mở đầu đi, thử trình bày, nghe một chút đi, giới thiệu đi, nghe thử",
+      "keywords": [
+        "Dạ",
+        "Em có thế kết bạn zalo để sau cuộc gọi tiện gửi thông tin",
+        "chính sách về dự án cho anh/chị được không ạ? Số này của anh/chị có zalo luôn đúng không ạ? Anh chị đồng ý kết bạn với Zalo em là Hải Trân nhé ạ. (7)"
+      ],
+      "sheet": "KBM SG ",
+      "row": 44
+    },
+    {
+      "intent": "8.1. muốn xem nhà, đi xem nhà, chốt",
+      "keywords": [
+        "Dạ",
+        "Hiện tại bên em đã có nhà mẫu ở Nguyễn Đình Chiểu",
+        "quận nhất. Không biết tuần này trong tuần hay cuối tuần anh/ chị khi mào ghé được? Tầm sáng hay chiều ạ? (8.1)"
+      ],
+      "sheet": "KBM SG ",
+      "row": 45
+    },
+    {
+      "intent": "8.2. chưa chắc, để suy nghĩ, băn khoăn, từ từ, cân nhắc thêm",
+      "keywords": [
+        "Dạ em cảm ơn anh/chị đã lắng nghe. Hiện tại bên em đã có nhà mẫu ngay Quận 1",
+        "bàn giao đẩy đủ nội thất nên anh/chị có thể ghé xem thực tế để biết chất lượng bàn giao thế nào ạ. Bên em đang cho khách hàng giữ chỗ",
+        "chọn căn đẹp",
+        "giá tốt không mất tiền đồng thời khách giữ chỗ trước sẽ được tặng thêm gói điện máy nữa ạ. \nSố lượng có hạn nên mình tranh thủ lên xem sớm. Anh/chị ơi",
+        "em sẽ gửi thông tin cụ thể qua zalo cho anh/chị. (8.2)"
+      ],
+      "sheet": "KBM SG ",
+      "row": 46
+    }
+  ],
+  "conversation_flows": [
+    {
+      "scenario": "Chào KH",
+      "steps": [
+        {
+          "response": "Dạ, em gọi từ đơn vị tư vấn và lắp đặt điện mặt trời đã giúp nhiều khách hàng giảm từ 70-90% tiền điện hàng tháng. Em thấy chỗ mình xài điện cũng nhiều, nên rất phù hợp với giải pháp này ạ. Mình cho e",
+          "row": 2
+        }
+      ],
+      "sheet": "KBM SG 2"
+    },
+    {
+      "scenario": "Hỏi thông tin(KH hỏi bot)",
+      "steps": [
+        {
+          "response": "Dạ, hiện nay giá hệ thống điện mặt trời chỉ tầm 7 triệu đồng/ ki lô oát , giá đã giảm 1 nửa so với trước đây ạ. Chỉ tầm khoảng 2 - 3 năm là mình có thể thu hồi vốn đầu tư, sau đó hưởng lợi hơn 25 năm ",
+          "row": 3,
+          "intent": "KH hỏi Giá"
+        },
+        {
+          "response": "Dạ, hiện tại Sô la Sài Gòn Xanh đang có chương trình hỗ trợ trả góp trong 6 hoặc 12 tháng. Mình chỉ cần trả trước 30% giá trị hệ thống là được ạ.\nEm xin phép gửi thông tin phương án trả chậm qua Zalo ",
+          "row": 4,
+          "intent": "Kh hỏi trả góp"
+        },
+        {
+          "response": "Dạ, em bên công ty Sô la Sài Gòn Xanh – đã giúp hơn 2000 khách hàng giảm được 70-90% tiền điện mỗi tháng, mình cho em xin 1-2 phút để trao đổi nhanh về giải pháp này cho mình nhé ạ",
+          "row": 5,
+          "intent": "KH hỏi mình là ai?"
+        },
+        {
+          "response": "Dạ, bên em chuyên cung cấp giải pháp điện mặt trời giúp giảm từ 70-90% tiền điện hàng tháng. Em thấy chỗ mình dùng điện cũng khá nhiều, nên rất phù hợp với giải pháp điện mặt trời này ạ. Mình cho em t",
+          "row": 6,
+          "intent": "KH hỏi lại thông tin"
+        },
+        {
+          "response": "Dạ, hệ thống điện mặt trời bên em sử dụng thiết bị chính hãng, đạt tiêu chuẩn quốc tế từ các thương hiệu uy tín như Pin LONGi – bảo hành hiệu suất 30 năm, Inverter Afore – bảo hành từ 5 năm, tùy chọn ",
+          "row": 7,
+          "intent": "KH hỏi về thiết bị – hiệu suất – bảo hành – bảo trì – tuổi thọ"
+        },
+        {
+          "response": "Dạ, hệ thống điện mặt trời giúp tiết kiệm 70–90% tiền điện nếu sử dụng ban ngày. Công suất lắp tùy theo hóa đơn điện mỗi tháng và diện tích mái nhà ạ.",
+          "row": 8,
+          "intent": "KH hỏi về hiệu quả và công suất hệ thống"
+        },
+        {
+          "response": "Dạ, nếu mình lắp hệ thống hòa lưới và dùng không hết điện thì có thể bán phần dư lại cho EVN theo chính sách hiện nay là mua lại 20% ạ! Tuy nhiên, bên em sẽ tư vấn công suất phù hợp để mình dùng hết l",
+          "row": 9,
+          "intent": "KH hỏi có bán điện lại cho EVN được không"
+        },
+        {
+          "response": "Dạ, bên em có quy trình rõ ràng: khảo sát – thiết kế – lắp đặt – nghiệm thu. Tất cả chỉ từ 2 đến 4 ngày làm việc.\n Em sẽ gửi tài liệu mô tả chi tiết quy trình và hình ảnh thực tế qua Zalo để mình tham",
+          "row": 10,
+          "intent": "KH hỏi về quy trình triển khai / lắp đặt"
+        },
+        {
+          "response": "Dạ, thông thường chỉ cần khoảng 10–20m² mái là có thể lắp hệ thống cơ bản rồi ạ. Và trung bình 4.5m² ráp được 1kW\n Em xin phép gửi hình ảnh minh họa và cách tính diện tích phù hợp qua Zalo để mình dễ ",
+          "row": 11,
+          "intent": "KH hỏi về diện tích mái nhà tối thiểu cần có"
+        },
+        {
+          "response": "Dạ, hiện tại Nhà nước đang khuyến khích mạnh mẽ việc lắp đặt sử dụng điện mặt trời, và sẽ mua lại 20% công suất lắp đặt. Khi lắp đặt bên em sẽ hướng dẫn chi tiết các thủ tục liên quan theo đúng quy đị",
+          "row": 12,
+          "intent": "KH hỏi có cần xin phép / pháp lý ra sao"
+        },
+        {
+          "response": "Dạ, hệ thống điện mặt trời đạt tiêu chuẩn an toàn quốc tế, có bộ chống sét và cầu dao chống rò điện.\n  Em gửi tài liệu chi tiết về an toàn kỹ thuật qua Zalo để mình tham khảo nha!",
+          "row": 13,
+          "intent": "KH hỏi có cần bảo hiểm hay rủi ro cháy nổ không"
+        },
+        {
+          "response": "Dạ, nếu mình muốn dùng điện vào ban đêm hoặc khi cúp điện, hay điện yếu, bên em có phương án lắp thêm pin lưu trữ (battery) để mình sử dụng điện ổn định.\nTùy nhu cầu mà mình có thể chọn hệ bám tải hoặ",
+          "row": 14,
+          "intent": "KH hỏi hệ thống có dùng ban đêm không / có lưu trữ không / mất điện/ điện yếu"
+        },
+        {
+          "response": "Dạ, hệ thống có thể tháo ra và di dời sang nhà mới dễ dàng nếu cần. Bên em có đội kỹ thuật hỗ trợ tháo lắp lại với chi phí hợp lý ạ.\n Em gửi hướng dẫn tháo lắp và bảo trì sau di dời qua Zalo cho mình ",
+          "row": 15,
+          "intent": "KH hỏi nếu di dời / chuyển nhà thì sao"
+        },
+        {
+          "response": "Dạ, nếu là nhà thuê hoặc nhà trọ thì mình nên cân nhắc lắp hệ thống nhỏ để dễ tháo dỡ khi cần di chuyển.\n Bên em có giải pháp tiết kiệm chi phí, gọn nhẹ cho nhà trọ và nhà cấp 4. Em gửi hình ảnh các m",
+          "row": 16,
+          "intent": "KH hỏi có phù hợp với nhà trọ, nhà thuê, nhà gác lửng không"
+        },
+        {
+          "response": "Dạ, bên em đã lắp đặt cho hơn 2.000 khách hàng, riêng tại tỉnh Tây Ninh đã lắp đặt hơn 300 hệ thống.\n Em gửi mình hình ảnh công trình thực tế và đánh giá của khách đã lắp để mình tham khảo ạ!",
+          "row": 17,
+          "intent": "KH hỏi có ai từng làm chưa / cần minh chứng thực tế"
+        },
+        {
+          "response": "Dạ, bên em có khảo sát thị trường tại khu vực mình nên có được thông tin liên hệ ạ. Mình cho em xin trao đổi ngắn 1–2 phút về giải pháp giúp mình tiết kiệm tối đa tiền điện mỗi tháng nhé ạ!",
+          "row": 18,
+          "intent": "KH hỏi sao có SĐT"
+        },
+        {
+          "response": "Dạ vâng. Em chào mình ạ!",
+          "row": 19,
+          "intent": "KH không quan tâm - Phản ứng mạnh"
+        },
+        {
+          "response": "Dạ, hệ thống điện năng lượng mặt trời là hệ thống sử dụng các tấm pin mặt trời để hấp thu ánh nắng và chuyển đổi thành điện năng để cung cấp cho gia đình mình sử dụng ạ.\n\nEm xin phép gửi thông tin chi",
+          "row": 20,
+          "intent": "KH chưa biết về điện mặt trời"
+        }
+      ],
+      "sheet": "KBM SG 2"
+    },
+    {
+      "scenario": "KH Bận",
+      "steps": [],
+      "sheet": "KBM SG 2"
+    },
+    {
+      "scenario": "KH Không quan tâm( từ chối chung)",
+      "steps": [
+        {
+          "response": "KH từ chối lần 2",
+          "row": 22,
+          "intent": "không, hông, thôi, cảm ơn, đừng, đau đầu, xin lỗi, cám, nghèo, cảm, phiền, công nhân, nông dân, quèn, đắt, quan tâm, không cần, gọi nhiều, gọi lắm, suốt ngày gọi, mệt quá, đừng gọi nữa, gọi lắm thế, không muốn, không có nhu cầu, hông cần, chưa cần, chưa có nhu cầu, chưa quan tâm, không thích, không có ý định, chưa có ý định, chưa sẵn sàng"
+        },
+        {
+          "response": "KH từng được tư vấn nhưng chưa lắp",
+          "row": 23
+        },
+        {
+          "response": "KH đang xây nhà",
+          "row": 24
+        },
+        {
+          "response": "KH chưa hiểu rõ",
+          "row": 25
+        },
+        {
+          "response": "KH không phải người quyết định",
+          "row": 26
+        },
+        {
+          "response": "KH nghi ngờ ,mất niềm tin",
+          "row": 27
+        },
+        {
+          "response": "KH chỉ nghe cho biết",
+          "row": 28
+        },
+        {
+          "response": "KH đã từng bị tư vấn sai / thất vọng",
+          "row": 29
+        },
+        {
+          "response": "KH đang gặp khó khăn tài chính",
+          "row": 30
+        },
+        {
+          "response": "KH cho rằng không cần vì ít xài điện",
+          "row": 31
+        },
+        {
+          "response": "KH nghĩ đây là chiêu trò bán hàng",
+          "row": 32
+        },
+        {
+          "response": "KH cho rằng không đủ diện tích mái / mái không phù hợp",
+          "row": 33
+        },
+        {
+          "response": "KH e ngại về chất lượng thiết bị, độ bền và dịch vụ hậu mãi sau lắp",
+          "row": 34
+        },
+        {
+          "response": "KH sợ thủ tục rườm rà, phức tạp",
+          "row": 35
+        },
+        {
+          "response": "KH lo ngại bị phá mái / ảnh hưởng nhà ở khi lắp/ mái yếu/ mái cũ",
+          "row": 36
+        },
+        {
+          "response": "KH nói đang thuê mái cho đơn vị khác hoặc đang hợp tác bên khác",
+          "row": 37
+        },
+        {
+          "response": "KH đã từng lắp nhưng gặp lỗi / hỏng / mất niềm tin",
+          "row": 38
+        },
+        {
+          "response": "KH từng bị bạn bè/người quen cảnh báo",
+          "row": 39
+        }
+      ],
+      "sheet": "KBM SG 2"
+    },
+    {
+      "scenario": "Kh Im lặng",
+      "steps": [],
+      "sheet": "KBM SG 2"
+    },
+    {
+      "scenario": "Khác- Không trùng (TH mặc định)",
+      "steps": [],
+      "sheet": "KBM SG 2"
+    },
+    {
+      "scenario": "Đồng ý",
+      "steps": [],
+      "sheet": "KBM SG 2"
+    },
+    {
+      "scenario": "Kết thúc cuộc gọi",
+      "steps": [],
+      "sheet": "KBM SG 2"
+    },
+    {
+      "scenario": "Chào KH",
+      "steps": [
+        {
+          "response": "Dạ alo. Em chào anh/chị ! Em là Trân - Gọi từ CĐT An Gia, hiện đang mở bán tháp đẹp nhất dự án The Gió ngay trục Xa Lộ Hà Nội, đối diện là nhà ga metro S2.1, 3 năm thanh toán có 600 triệu. Anh/ chị có",
+          "row": 2
+        }
+      ],
+      "sheet": "KBM SG "
+    },
+    {
+      "scenario": "Hỏi thông tin(KH hỏi bot)",
+      "steps": [
+        {
+          "response": "Dạ, em là chuyên viên tư vấn dự án The Gió chủ đầu tư An Gia vị trí ngay trạm Metro với nhiều chính sách thanh toán cực kỳ tốt dành cho Khách hàng trong đợt mở bán mới này. Em có thế kết bạn zalo để g",
+          "row": 3,
+          "intent": "Hỏi lại"
+        },
+        {
+          "response": "\"Dạ dự án nằm ngay trục xa lộ hà nội, hiện là thuộc phường Đông Hòa, hcm, đối diện là Trạm ga Metro S2.1, cách nút giao Tân Vạn - vanh đai 3 đang thi công là 500 ấy ạ.\" thông tin chi tiết em gửi qua z",
+          "row": 4,
+          "intent": "Vị Trí"
+        },
+        {
+          "response": "\"Dạ An Gia là CĐT.  The Gió là dự án thứ 10, tất cả các dự án trước đó đều đã và đang ra sổ. Có gì em sẽ gửi thông tin chi tiết qua zalo cho mình tham khảo nhé ạ.\" (2.3)",
+          "row": 5,
+          "intent": "Chủ đầu tư"
+        },
+        {
+          "response": "Dạ hiện dự án đã thi công xong 3 tầng hầm và dự kiến bàn giao vào quý I/2028 ạ. thông tin chi tiết em gửi qua zalo cho mình nhé ạ (2.4')",
+          "row": 6,
+          "intent": "Tiến độ"
+        },
+        {
+          "response": "\"Dạ giá từ 48 triệu/m2, căn 2pn trả có 500 triệu là ký HĐMB chỉ dành duy nhất cho khách hàng mua đợt này ạ. thông tin chi tiết em gửi qua zalo cho mình nhé ạ.\" (2.5')",
+          "row": 7,
+          "intent": "Giá"
+        },
+        {
+          "response": "\"Dạ đợt này căn hộ The Gió sở hữu những sản phẩm có diện tích dao động từ studio 41m2 , 2pn 65m2 đến 2pn+ 75m2 . thông tin chi tiết em gửi qua zalo cho mình nhé ạ (2.6')",
+          "row": 8,
+          "intent": "Diện tích"
+        },
+        {
+          "response": "Dạ, bên em thuộc chủ đầu tư An Gia có nhận thông tin mình đang có nhu cầu đầu tư căn hộ nên liên hệ lại với mình. Em gửi thông tin chi tiết qua zalo cho mình nhé ạ (2.7')",
+          "row": 9
+        },
+        {
+          "response": "Về thanh toán thì trong 3 năm mình chỉ thanh toán có 600tr là nhận nhà ạ. Đang có chính sách miễn lãi 3 năm và ân hạn gốc 5 năm lận ấy anh/ chị. mọi thông tin chi tiết em gửi qua zalo cho mình nhé ạ (",
+          "row": 10,
+          "intent": "PTTT"
+        },
+        {
+          "response": "Bên em có 68 tiện ích trải dài trên 4 tầng của toà tháp, phục vụ nhu cầu sinh hoạt, vui chơi, giải trí, ăn uống..không gian thể thao trong nhà và ngoài trời. Dự án với tầm view 3 mặt giáp sông vô cùng",
+          "row": 11,
+          "intent": "View/Tiện tích"
+        }
+      ],
+      "sheet": "KBM SG "
+    },
+    {
+      "scenario": "KH Bận",
+      "steps": [],
+      "sheet": "KBM SG "
+    },
+    {
+      "scenario": "KH Không quan tâm( từ chối chung)",
+      "steps": [
+        {
+          "response": "KH từ chối lần 2",
+          "row": 24,
+          "intent": "4.1 Không có nhu cầu mua nhà, không có nhu cầu, không nhu cầu"
+        }
+      ],
+      "sheet": "KBM SG "
+    },
+    {
+      "scenario": "Kh Im lặng",
+      "steps": [],
+      "sheet": "KBM SG "
+    },
+    {
+      "scenario": "Khác- Không trùng (TH mặc định)",
+      "steps": [],
+      "sheet": "KBM SG "
+    },
+    {
+      "scenario": "Đồng ý",
+      "steps": [],
+      "sheet": "KBM SG "
+    },
+    {
+      "scenario": "Chốt xem nhà mẫu",
+      "steps": [],
+      "sheet": "KBM SG "
+    },
+    {
+      "scenario": "Kết thúc cuộc gọi",
+      "steps": [],
+      "sheet": "KBM SG "
+    }
+  ],
+  "statistics": {
+    "total_intents": 48,
+    "total_flows": 17,
+    "total_keywords": 487
+  }
+}
