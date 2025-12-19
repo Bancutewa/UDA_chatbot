@@ -5,7 +5,8 @@ import streamlit as st
 from typing import Optional
 
 from ..services.auth_service import auth_service
-from ..schemas.user import LoginRequest, UserCreate, UserRole, UserSession
+from ..services.auth_service import auth_service
+from ..schemas.user import LoginRequest, UserCreate, UserRole, UserSession, UserStatus
 from ..core.logger import logger
 
 
@@ -39,7 +40,7 @@ class AuthInterface:
                             user_id=token_response.user.id,
                             username=token_response.user.username,
                             role=token_response.user.role,
-                            is_active=token_response.user.is_active
+                            status=token_response.user.status
                         )
 
                         # Store in session state
@@ -65,6 +66,84 @@ class AuthInterface:
                 st.session_state.show_register = True
                 st.rerun()
 
+        return None
+
+    def show_verification_form(self) -> Optional[UserSession]:
+        """Display verification form"""
+        st.title("✉️ Xác thực Email")
+        
+        pending_username = st.session_state.get("pending_username")
+        if not pending_username:
+            st.error("Không tìm thấy thông tin đăng ký. Vui lòng đăng ký lại.")
+            if st.button("Quay lại đăng ký"):
+                st.session_state.show_verification = False
+                st.session_state.show_register = True
+                del st.session_state.pending_username
+                st.rerun()
+            return None
+
+        st.info(f"Mã xác thực đã được gửi đến email đăng ký của tài khoản **{pending_username}**.")
+        st.caption("Vui lòng kiểm tra hộp thư (bao gồm cả thư rác). Mã có hiệu lực trong 15 phút.")
+
+        with st.form("verification_form"):
+            otp = st.text_input("Mã xác thực (6 số)", max_chars=6)
+            col1, col2 = st.columns(2)
+            
+            with col1:
+                submit_button = st.form_submit_button("Xác Thực", use_container_width=True)
+            
+            with col2:
+                # We can't put a button inside a form that doesn't submit
+                # So we just use submit button
+                pass
+
+        if submit_button:
+            if not otp or len(otp) != 6:
+                st.error("Vui lòng nhập mã xác thực hợp lệ!")
+                return None
+
+            try:
+                with st.spinner("Đang xác thực..."):
+                    if self.auth_service.verify_email(pending_username, otp):
+                        st.success("✅ Xác thực thành công!")
+                        
+                        # Auto login logic requires password, which we don't have here unless we stored it in session (unsafe)
+                        # Or we can just prompt to login
+                        
+                        st.info("Vui lòng đăng nhập để tiếp tục.")
+                        
+                        # Cleanup session
+                        del st.session_state.pending_username
+                        st.session_state.show_verification = False
+                        st.session_state.show_register = False
+                        
+                        if st.button("Đi tới Đăng Nhập"):
+                            st.rerun()
+                        
+                        # Auto redirect to login after short delay? 
+                        # Streamlit doesn't support easy delay redirects without sleep
+                        
+                        return None
+            except Exception as e:
+                st.error(f"Xác thực thất bại: {str(e)}")
+
+        st.divider()
+        if st.button("Gửi lại mã xác thực"):
+             try:
+                 if self.auth_service.resend_verification_email(pending_username):
+                     st.success("Đã gửi lại mã xác thực!")
+                 else:
+                     st.error("Không thể gửi lại mã.")
+             except Exception as e:
+                 st.error(f"Lỗi: {str(e)}")
+
+        if st.button("Quay lại Đăng Nhập"):
+            st.session_state.show_verification = False
+            st.session_state.show_register = False
+            if "pending_username" in st.session_state:
+                del st.session_state.pending_username
+            st.rerun()
+             
         return None
 
     def show_register_form(self) -> Optional[UserSession]:
@@ -113,24 +192,14 @@ class AuthInterface:
                         user_response = self.auth_service.register_user(user_data)
 
                         st.success(f"🎉 Tài khoản {user_response.username} đã được tạo thành công!")
-
-                        # Auto login after registration
-                        st.info("Đang đăng nhập tự động...")
-                        login_data = LoginRequest(username=username, password=password)
-                        token_response = self.auth_service.authenticate_user(login_data)
-
-                        user_session = UserSession(
-                            user_id=token_response.user.id,
-                            username=token_response.user.username,
-                            role=token_response.user.role,
-                            is_active=token_response.user.is_active
-                        )
-
-                        st.session_state.user_session = user_session
-                        st.session_state.auth_token = token_response.access_token
-
+                        
+                        # Store pending username and switch to verification
+                        st.session_state.pending_username = username
+                        st.session_state.show_verification = True
+                        st.session_state.show_register = False
                         st.rerun()
-                        return user_session
+                        
+                        return None
 
                 except Exception as e:
                     st.error(f"Đăng ký thất bại: {str(e)}")
@@ -199,8 +268,12 @@ class AuthInterface:
                         role_color = "🟢" if user.role == UserRole.ADMIN else "🔵"
                         st.write(f"{role_color} {user.role.value}")
                     with col4:
-                        status_color = "✅" if user.is_active else "❌"
-                        st.write(f"{status_color} {'Active' if user.is_active else 'Inactive'}")
+                        if user.status == UserStatus.ACTIVE:
+                            st.write("✅ Hoạt động")
+                        elif user.status == UserStatus.PENDING:
+                            st.write("⏳ Chờ xác thực")
+                        else:
+                            st.write("❌ Vô hiệu hóa")
                     with col5:
                         if user.id != current_user.user_id:
                             if st.button("✏️", key=f"edit_{user.id}", help="Edit user"):
@@ -223,7 +296,11 @@ class AuthInterface:
                             [UserRole.USER.value, UserRole.ADMIN.value],
                             index=0 if edit_user.role == UserRole.USER else 1
                         )
-                        is_active = st.checkbox("Kích hoạt", value=edit_user.is_active)
+                        new_status = st.selectbox(
+                            "Trạng thái",
+                            [s.value for s in UserStatus],
+                            index=[s.value for s in UserStatus].index(edit_user.status.value)
+                        )
 
                         col1, col2 = st.columns(2)
                         with col1:
@@ -232,7 +309,7 @@ class AuthInterface:
                                     from ..schemas.user import UserUpdate
                                     update_data = UserUpdate(
                                         role=UserRole(new_role),
-                                        is_active=is_active
+                                        status=UserStatus(new_status)
                                     )
                                     updated_user = self.auth_service.update_user(
                                         edit_user_id, update_data, current_user
@@ -283,8 +360,10 @@ class AuthInterface:
             del st.session_state.show_user_management
         if "show_schedule_management" in st.session_state:
             del st.session_state.show_schedule_management
-        if "edit_user_id" in st.session_state:
-            del st.session_state.edit_user_id
+        if "show_verification" in st.session_state:
+            del st.session_state.show_verification
+        if "pending_username" in st.session_state:
+            del st.session_state.pending_username
 
         st.rerun()
 
@@ -303,7 +382,9 @@ class AuthInterface:
                 return user_session
         else:
             # User not logged in - show auth forms
-            if st.session_state.get("show_register", False):
+            if st.session_state.get("show_verification", False):
+                self.show_verification_form()
+            elif st.session_state.get("show_register", False):
                 self.show_register_form()
             else:
                 self.show_login_form()

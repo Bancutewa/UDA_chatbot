@@ -1,0 +1,2 @@
+Timestamp,Test Name,Status,Duration (s),Error Message,Screenshot
+2025-12-19 18:18:24,tests/selenium/test_chat_flow.py::test_basic_chat_flow,passed,8.03,,

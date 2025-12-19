@@ -24,6 +24,12 @@ class Config:
     ELEVEN_LABS_API_KEY: str = os.getenv("ELEVEN_LABS_API_KEY", "").strip()
     FIRECRAWL_API_KEY: str = os.getenv("FIRECRAWL_API_KEY", "").strip()
 
+    # Email Configuration
+    EMAIL_SENDER: str = os.getenv("EMAIL_SENDER", "").strip()
+    EMAIL_PASSWORD: str = os.getenv("EMAIL_PASSWORD", "").strip()
+    SMTP_SERVER: str = os.getenv("SMTP_SERVER", "smtp.gmail.com")
+    SMTP_PORT: int = int(os.getenv("SMTP_PORT", "587"))
+
     # JWT Configuration
     JWT_SECRET_KEY: str = os.getenv("JWT_SECRET_KEY", "your-secret-key-change-in-production")
 

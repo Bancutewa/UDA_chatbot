@@ -9,7 +9,7 @@ from pymongo.errors import DuplicateKeyError
 from ..core.config import config
 from ..core.logger import logger
 from ..core.exceptions import DatabaseConnectionError, ValidationError
-from ..schemas.user import UserCreate, UserUpdate, UserInDB, UserResponse
+from ..schemas.user import UserCreate, UserUpdate, UserInDB, UserResponse, UserStatus
 
 
 class UserRepository:
@@ -36,7 +36,7 @@ class UserRepository:
         except Exception as e:
             logger.warning(f"Failed to create indexes: {e}")
 
-    def create_user(self, user_data: UserCreate, hashed_password: str) -> UserInDB:
+    def create_user(self, user_data: UserCreate, hashed_password: str, verification_code: Optional[str] = None, verification_expires_at: Optional[datetime] = None) -> UserInDB:
         """Create a new user"""
         try:
             now = datetime.utcnow()
@@ -46,10 +46,15 @@ class UserRepository:
                 "full_name": user_data.full_name,
                 "hashed_password": hashed_password,
                 "role": user_data.role.value,
-                "is_active": True,
+                "status": UserStatus.PENDING.value,
                 "created_at": now,
                 "updated_at": now
             }
+            
+            if verification_code:
+                user_doc["verification_code"] = verification_code
+            if verification_expires_at:
+                user_doc["verification_expires_at"] = verification_expires_at
 
             result = self.collection.insert_one(user_doc)
             user_doc["id"] = str(result.inserted_id)
@@ -114,6 +119,23 @@ class UserRepository:
         except Exception as e:
             logger.error(f"Failed to update user: {e}")
             raise DatabaseConnectionError(f"Failed to update user: {e}")
+
+    def update_verification_info(self, user_id: str, verification_code: str, expires_at: datetime) -> bool:
+        """Update user verification info"""
+        try:
+            from bson import ObjectId
+            result = self.collection.update_one(
+                {"_id": ObjectId(user_id)},
+                {"$set": {
+                    "verification_code": verification_code,
+                    "verification_expires_at": expires_at,
+                    "updated_at": datetime.utcnow()
+                }}
+            )
+            return result.modified_count > 0
+        except Exception as e:
+            logger.error(f"Failed to update verification info: {e}")
+            raise DatabaseConnectionError(f"Failed to update verification info: {e}")
 
     def delete_user(self, user_id: str) -> bool:
         """Delete user"""
