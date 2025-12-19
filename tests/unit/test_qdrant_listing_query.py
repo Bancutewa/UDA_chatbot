@@ -3,8 +3,8 @@ from unittest.mock import MagicMock, patch, ANY
 import sys
 import os
 
-# Add src to path if needed (though usually handled by test runner)
-sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
+# Add src to path if needed (2 levels up: tests/unit -> project root)
+sys.path.append(os.path.join(os.path.dirname(__file__), '..', '..'))
 
 from src.services.qdrant_service import QdrantService
 from qdrant_client.models import Filter, FieldCondition, MatchValue, PointStruct

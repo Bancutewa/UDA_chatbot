@@ -11,8 +11,8 @@ import logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
 
-# Add src to path
-sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
+# Add src to path (2 levels up: tests/unit -> project root)
+sys.path.append(os.path.join(os.path.dirname(__file__), '..', '..'))
 
 from src.services.preprocessing_service import preprocessing_service
 

@@ -2,8 +2,8 @@
 import os
 import sys
 
-# Add src to path
-sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
+# Add src to path (2 levels up: tests/integration -> project root)
+sys.path.append(os.path.join(os.path.dirname(__file__), '..', '..'))
 
 from src.tools.image_tools import generate_image_tool
 from src.core.config import config
