@@ -158,6 +158,34 @@ class UserRepository:
 
             for user_doc in cursor:
                 user_doc["id"] = str(user_doc["_id"])
+                
+                # Handle missing fields for backward compatibility
+                # Ensure status field exists (default to ACTIVE if missing)
+                if "status" not in user_doc or not user_doc["status"]:
+                    user_doc["status"] = UserStatus.ACTIVE.value
+                elif isinstance(user_doc["status"], str):
+                    # Already a string, keep it
+                    pass
+                else:
+                    # Convert enum to string if needed
+                    user_doc["status"] = user_doc["status"].value if hasattr(user_doc["status"], "value") else str(user_doc["status"])
+                
+                # Ensure role field exists (default to USER if missing)
+                if "role" not in user_doc or not user_doc["role"]:
+                    user_doc["role"] = "user"
+                elif isinstance(user_doc["role"], str):
+                    # Already a string, keep it
+                    pass
+                else:
+                    # Convert enum to string if needed
+                    user_doc["role"] = user_doc["role"].value if hasattr(user_doc["role"], "value") else str(user_doc["role"])
+                
+                # Ensure created_at and updated_at exist
+                if "created_at" not in user_doc:
+                    user_doc["created_at"] = datetime.utcnow()
+                if "updated_at" not in user_doc:
+                    user_doc["updated_at"] = datetime.utcnow()
+                
                 users.append(UserResponse(**user_doc))
 
             return users

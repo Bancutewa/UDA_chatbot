@@ -10,12 +10,21 @@ from datetime import datetime
 from ..services.data_service import data_service
 from ..services.qdrant_service import qdrant_service
 from ..core.logger import logger
+from ..schemas.user import UserSession, UserRole
 
 class DataInterface:
     """Admin interface for data management"""
 
-    def render(self):
-        """Render the data management interface"""
+    def render(self, current_user: UserSession = None):
+        """Render the data management interface (Admin only)"""
+        # Check permission
+        if not current_user or current_user.role != UserRole.ADMIN:
+            st.error("❌ Chỉ quản trị viên mới có quyền truy cập quản lý dữ liệu.")
+            if st.button("⬅️ Quay lại chat", use_container_width=True):
+                st.session_state.show_data_management = False
+                st.rerun()
+            return
+        
         st.title("🗄️ Quản Lý Dữ Liệu Bất Động Sản")
         
         tab1, tab2 = st.tabs(["📤 Upload Dữ Liệu", "📊 Thống Kê"])

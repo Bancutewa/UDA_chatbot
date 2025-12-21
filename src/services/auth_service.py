@@ -218,6 +218,21 @@ class AuthService:
         if current_user.user_id != user_id and current_user.role != UserRole.ADMIN:
             raise AuthenticationError("Not authorized to update this user")
 
+        # Only Admin can change role and status of other users
+        if current_user.user_id != user_id:
+            if current_user.role != UserRole.ADMIN:
+                raise AuthenticationError("Only admin can update other users")
+            
+            # If trying to change role or status, verify admin permission
+            if update_data.role is not None or update_data.status is not None:
+                if current_user.role != UserRole.ADMIN:
+                    raise AuthenticationError("Only admin can change user role or status")
+        
+        # Sale and User cannot change their own role
+        if current_user.user_id == user_id:
+            if update_data.role is not None and update_data.role != current_user.role:
+                raise AuthenticationError("You cannot change your own role")
+
         try:
             user = self.user_repo.update_user(user_id, update_data)
             if user:
@@ -253,9 +268,10 @@ class AuthService:
             raise ValidationError(f"Delete failed: {str(e)}")
 
     def get_all_users(self, current_user: UserSession, skip: int = 0, limit: int = 100) -> list[UserResponse]:
-        """Get all users (admin only)"""
-        if current_user.role != UserRole.ADMIN:
-            raise AuthenticationError("Admin access required")
+        """Get all users (admin and sale can view)"""
+        # Admin and Sale can view user list
+        if current_user.role not in [UserRole.ADMIN, UserRole.SALE]:
+            raise AuthenticationError("Admin or Sale access required")
 
         try:
             return self.user_repo.get_all_users(skip, limit)

@@ -10,6 +10,7 @@ from pydantic import BaseModel, Field, EmailStr
 class UserRole(str, Enum):
     """User role enumeration"""
     ADMIN = "admin"
+    SALE = "sale"
     USER = "user"
 
 

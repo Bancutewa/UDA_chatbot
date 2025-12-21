@@ -16,8 +16,8 @@ import unicodedata
 from ..core.config import config
 from ..core.logger import logger
 from ..repositories.schedule_repository import schedule_repository
-from ..schemas.user import UserSession
-from ..core.exceptions import ValidationError, DatabaseConnectionError
+from ..schemas.user import UserSession, UserRole
+from ..core.exceptions import ValidationError, DatabaseConnectionError, AuthenticationError
 
 
 class ScheduleService:
@@ -474,7 +474,12 @@ class ScheduleService:
             self._sync_admin_calendar()
         return updated
 
-    def delete(self, schedule_id: str) -> bool:
+    def delete(self, schedule_id: str, current_user: Optional[UserSession] = None) -> bool:
+        """Delete schedule (Admin only)"""
+        # Permission check: Only Admin can delete schedules
+        if current_user and current_user.role != UserRole.ADMIN:
+            raise AuthenticationError("Chỉ quản trị viên mới có quyền xóa lịch hẹn")
+        
         result = self.repo.delete(schedule_id)
         if result:
             self._sync_admin_calendar()

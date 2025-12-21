@@ -224,37 +224,149 @@ class AuthInterface:
             st.write(f"**Tên:** {user_session.username}")
             st.write(f"**Vai trò:** {user_session.role.value.upper()}")
 
-            # Admin panel
-            if user_session.role == UserRole.ADMIN:
-                st.divider()
-                st.subheader("⚙️ Quản Trị Viên")
-
-                if st.button("👥 Quản Lý Người Dùng", key="sidebar_user_management_button", use_container_width=True):
-                    st.session_state.show_user_management = True
-                    st.rerun()
-
-                if st.button("📅 Lịch Xem Nhà", key="sidebar_schedule_button", use_container_width=True):
-                    st.session_state.show_schedule_management = True
-                    st.rerun()
-
-            # Logout
+            # Actions - New Chat and Schedule management
             st.divider()
+            
+            # New Chat button
+            from ..services.chat_service import chat_service
+            if st.button("➕ Cuộc Trò Chuyện Mới", key="sidebar_new_chat_button", use_container_width=True):
+                # Clear admin page flags to return to chat
+                st.session_state.show_user_management = False
+                st.session_state.show_schedule_management = False
+                st.session_state.show_data_management = False
+                
+                # Create new session
+                current_user_id = user_session.user_id
+                new_session = chat_service.create_session(current_user_id)
+                st.session_state.current_session_id = new_session["id"]
+                st.rerun()
+            
+            if st.button("📅 Quản Lý Lịch Hẹn", key="sidebar_schedule_button", use_container_width=True):
+                # Clear other page flags
+                st.session_state.show_user_management = False
+                st.session_state.show_data_management = False
+                st.session_state.show_schedule_management = True
+                st.rerun()
+            
             if st.button("🚪 Đăng Xuất", key="logout_button", use_container_width=True):
                 self.logout()
 
+            # Admin and Sale panel
+            if user_session.role in [UserRole.ADMIN, UserRole.SALE]:
+                st.divider()
+                if user_session.role == UserRole.ADMIN:
+                    st.subheader("⚙️ Quản Trị Viên")
+                else:
+                    st.subheader("💼 Nhân Viên Bán Hàng")
+
+                # User management (Admin and Sale can view, but only Admin can edit)
+                if st.button("👥 Quản Lý Người Dùng", key="sidebar_user_management_button", use_container_width=True):
+                    # Clear other page flags
+                    st.session_state.show_schedule_management = False
+                    st.session_state.show_data_management = False
+                    st.session_state.show_user_management = True
+                    st.rerun()
+            
+            # Admin only: Data management
+            if user_session.role == UserRole.ADMIN:
+                if st.button("🗄️ Quản Lý Dữ Liệu", key="sidebar_data_button", use_container_width=True):
+                    # Clear other page flags
+                    st.session_state.show_user_management = False
+                    st.session_state.show_schedule_management = False
+                    st.session_state.show_data_management = True
+                    st.rerun()
+
     def show_user_management(self, current_user: UserSession):
-        """Show user management interface for admins"""
+        """Show user management interface for admins and sales"""
         st.title("👥 Quản Lý Người Dùng")
+        
+        # Show read-only notice for Sale
+        if current_user.role == UserRole.SALE:
+            st.info("ℹ️ Bạn đang xem ở chế độ chỉ đọc. Chỉ quản trị viên mới có thể chỉnh sửa.")
 
         try:
-            users = self.auth_service.get_all_users(current_user)
+            all_users = self.auth_service.get_all_users(current_user)
 
-            if not users:
+            if not all_users:
                 st.info("Chưa có người dùng nào.")
                 return
 
+            # Filter section
+            st.subheader("🔍 Lọc & Tìm kiếm")
+            filter_col1, filter_col2, filter_col3 = st.columns(3)
+            
+            with filter_col1:
+                search_query = st.text_input(
+                    "🔎 Tìm kiếm (username/email)",
+                    value=st.session_state.get("user_search_query", ""),
+                    key="user_search_input",
+                    placeholder="Nhập username hoặc email..."
+                )
+                st.session_state.user_search_query = search_query
+            
+            with filter_col2:
+                role_options = ["Tất cả", "Admin", "Sale", "User"]
+                saved_role = st.session_state.get("user_role_filter", "Tất cả")
+                role_index = role_options.index(saved_role) if saved_role in role_options else 0
+                role_filter = st.selectbox(
+                    "👤 Lọc theo vai trò",
+                    options=role_options,
+                    index=role_index,
+                    key="user_role_filter_select"
+                )
+                st.session_state.user_role_filter = role_filter
+            
+            with filter_col3:
+                status_options = ["Tất cả", "Hoạt động", "Chờ xác thực", "Vô hiệu hóa"]
+                saved_status = st.session_state.get("user_status_filter", "Tất cả")
+                status_index = status_options.index(saved_status) if saved_status in status_options else 0
+                status_filter = st.selectbox(
+                    "📊 Lọc theo trạng thái",
+                    options=status_options,
+                    index=status_index,
+                    key="user_status_filter_select"
+                )
+                st.session_state.user_status_filter = status_filter
+            
+            # Apply filters
+            users = all_users.copy()
+            
+            # Filter by search query
+            if search_query:
+                search_lower = search_query.lower()
+                users = [
+                    u for u in users
+                    if search_lower in u.username.lower() or search_lower in u.email.lower()
+                ]
+            
+            # Filter by role
+            if role_filter != "Tất cả":
+                role_mapping = {
+                    "Admin": UserRole.ADMIN,
+                    "Sale": UserRole.SALE,
+                    "User": UserRole.USER
+                }
+                if role_filter in role_mapping:
+                    users = [u for u in users if u.role == role_mapping[role_filter]]
+            
+            # Filter by status
+            if status_filter != "Tất cả":
+                status_mapping = {
+                    "Hoạt động": UserStatus.ACTIVE,
+                    "Chờ xác thực": UserStatus.PENDING,
+                    "Vô hiệu hóa": UserStatus.INACTIVE
+                }
+                if status_filter in status_mapping:
+                    users = [u for u in users if u.status == status_mapping[status_filter]]
+            
+            st.divider()
+            
             # Users table
-            st.subheader(f"Tổng cộng {len(users)} người dùng")
+            if len(users) == 0:
+                st.warning(f"⚠️ Không tìm thấy người dùng nào phù hợp với bộ lọc.")
+                st.info("💡 Thử thay đổi bộ lọc để xem thêm kết quả.")
+            else:
+                st.subheader(f"📊 Kết quả: {len(users)} / {len(all_users)} người dùng")
 
             for user in users:
                 with st.container():
@@ -265,7 +377,13 @@ class AuthInterface:
                     with col2:
                         st.write(user.email)
                     with col3:
-                        role_color = "🟢" if user.role == UserRole.ADMIN else "🔵"
+                        # Role color: Admin=🟢, Sale=🟡, User=🔵
+                        if user.role == UserRole.ADMIN:
+                            role_color = "🟢"
+                        elif user.role == UserRole.SALE:
+                            role_color = "🟡"
+                        else:
+                            role_color = "🔵"
                         st.write(f"{role_color} {user.role.value}")
                     with col4:
                         if user.status == UserStatus.ACTIVE:
@@ -275,15 +393,16 @@ class AuthInterface:
                         else:
                             st.write("❌ Vô hiệu hóa")
                     with col5:
-                        if user.id != current_user.user_id:
+                        # Only Admin can edit users
+                        if current_user.role == UserRole.ADMIN and user.id != current_user.user_id:
                             if st.button("✏️", key=f"edit_{user.id}", help="Edit user"):
                                 st.session_state.edit_user_id = user.id
                                 st.rerun()
 
                 st.divider()
 
-            # Edit user form
-            if "edit_user_id" in st.session_state:
+            # Edit user form (Admin only)
+            if current_user.role == UserRole.ADMIN and "edit_user_id" in st.session_state:
                 edit_user_id = st.session_state.edit_user_id
                 edit_user = next((u for u in users if u.id == edit_user_id), None)
 
@@ -291,10 +410,13 @@ class AuthInterface:
                     st.subheader(f"Chỉnh sửa: {edit_user.username}")
 
                     with st.form(f"edit_user_{edit_user_id}"):
+                        # Role selector includes all three roles
+                        role_options = [UserRole.ADMIN.value, UserRole.SALE.value, UserRole.USER.value]
+                        current_role_index = role_options.index(edit_user.role.value) if edit_user.role.value in role_options else 0
                         new_role = st.selectbox(
                             "Vai trò",
-                            [UserRole.USER.value, UserRole.ADMIN.value],
-                            index=0 if edit_user.role == UserRole.USER else 1
+                            role_options,
+                            index=current_role_index
                         )
                         new_status = st.selectbox(
                             "Trạng thái",
@@ -374,12 +496,10 @@ class AuthInterface:
 
         if user_session:
             # User is logged in
-            if st.session_state.get("show_user_management"):
-                self.show_user_management(user_session)
-            else:
-                # Show profile in sidebar and return control to main app
-                self.show_user_profile(user_session)
-                return user_session
+            # Don't render show_user_management here - let chat_interface handle it with sidebar
+            # Just show profile in sidebar and return control to main app
+            self.show_user_profile(user_session)
+            return user_session
         else:
             # User not logged in - show auth forms
             if st.session_state.get("show_verification", False):

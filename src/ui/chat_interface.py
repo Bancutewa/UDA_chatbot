@@ -21,22 +21,6 @@ class ChatInterface:
     def render_sidebar(self, user_session=None):
         """Render the sidebar with chat sessions"""
         with st.sidebar:
-            st.header("💬 Chat Sessions")
-
-            # API Status
-            api_status = "✅ Connected" if config.GEMINI_API_KEY else "❌ Missing"
-            st.caption(f"🔑 API: {api_status}")
-
-            # New Chat button
-            if st.button("➕ New Chat", key="new_chat_button", use_container_width=True):
-                # Get current user ID from session
-                current_user_id = user_session.user_id if user_session else None
-
-                new_session = self.chat_service.create_session(current_user_id)
-                st.session_state.current_session_id = new_session["id"]
-                st.rerun()
-
-            st.divider()
 
             # Sessions list - get user-specific sessions if logged in
             if user_session:
@@ -141,26 +125,7 @@ class ChatInterface:
                             del st.session_state[f"renaming_{session_id}"]
                             st.rerun()
 
-            if user_session:
-                schedule_container = st.container()
-                schedule_interface.render_user_summary(user_session, schedule_container)
-
-            # Admin panel - only for admin users
-            if user_session and user_session.role == "admin":
-                st.divider()
-                st.subheader("⚙️ Quản Trị Viên")
-
-                if st.button("👥 Quản Lý Người Dùng", key="admin_user_management_button", use_container_width=True):
-                    st.session_state.show_user_management = True
-                    st.rerun()
-
-                if st.button("📅 Lịch Xem Nhà", key="admin_schedule_button", use_container_width=True):
-                    st.session_state.show_schedule_management = True
-                    st.rerun()
-
-                if st.button("🗄️ Quản Lý Dữ Liệu", key="admin_data_button", use_container_width=True):
-                    st.session_state.show_data_management = True
-                    st.rerun()
+            # Removed schedule summary from sidebar - users can access full schedule page instead
 
     def render_main_chat(self, session_id: Optional[str], user_session=None):
         """Render the main chat interface"""
@@ -262,6 +227,9 @@ class ChatInterface:
 
         current_session_id = st.session_state.current_session_id
 
+        # Render sidebar first (always visible)
+        self.render_sidebar(user_session)
+        
         # Render components
         if st.session_state.get("show_user_management"):
             # Show admin user management panel
@@ -270,10 +238,9 @@ class ChatInterface:
         elif st.session_state.get("show_schedule_management"):
             schedule_interface.render_admin_calendar(user_session)
         elif st.session_state.get("show_data_management"):
-            data_interface.render()
+            data_interface.render(user_session)
         else:
             # Show normal chat interface
-            self.render_sidebar(user_session)
             self.render_main_chat(current_session_id, user_session)
 
 
