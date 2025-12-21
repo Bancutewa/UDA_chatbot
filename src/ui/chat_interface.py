@@ -157,9 +157,36 @@ class ChatInterface:
         else:
             st.info("👋 Bắt đầu cuộc trò chuyện mới!")
 
-        # Chat input
+        # Chat input area
         if config.GEMINI_API_KEY:
-            if user_input := st.chat_input("Hỏi tôi...", disabled=not config.GEMINI_API_KEY):
+            # 1. Audio Input
+            audio_value = st.audio_input("Ghi âm giọng nói")
+            
+            user_input = None
+            
+            # Handle Audio Input
+            if audio_value:
+                # Check if this audio has already been processed to avoid loops
+                # Streamlit reruns on interaction. We can use session state to track processed audio.
+                audio_key = f"audio_{hash(audio_value)}"
+                if audio_key not in st.session_state:
+                     with st.spinner("🎙️ Đang nghe..."):
+                         from ..services.audio_service import audio_service
+                         transcribed_text = audio_service.transcribe(audio_value)
+                         
+                         if transcribed_text:
+                             user_input = transcribed_text
+                             st.session_state[audio_key] = True # Mark as processed
+                         else:
+                             st.warning("Không nghe rõ, vui lòng thử lại.")
+            
+            # 2. Text Input (takes precedence if user types whilst a recording exists, though unlikely)
+            text_input = st.chat_input("Hỏi tôi...", disabled=not config.GEMINI_API_KEY)
+            if text_input:
+                user_input = text_input
+
+            # Process User Input (from either source)
+            if user_input:
                 # Add user message
                 self.chat_service.add_message(session_id, "user", user_input)
 
