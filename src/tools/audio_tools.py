@@ -43,7 +43,7 @@ def generate_audio_tool(text: str, voice_id: Optional[str] = None) -> str:
     
     data = {
         "text": text,
-        "model_id": "eleven_multilingual_v2",
+        "model_id": config.AUDIO_MODEL,
         "voice_settings": {
             "stability": 0.5,
             "similarity_boost": 0.5
