@@ -79,9 +79,13 @@ class ScheduleRepository:
         formatted = dict(event)
         if "_id" in formatted:
             formatted["id"] = str(formatted.pop("_id"))
-        requested_time = formatted.get("requested_time")
-        if isinstance(requested_time, datetime):
-            formatted["requested_time"] = requested_time.isoformat()
+        
+        # Convert all datetime fields to ISO format strings
+        datetime_fields = ["requested_time", "created_at", "updated_at", "assigned_at", "sale_response_at"]
+        for field in datetime_fields:
+            if field in formatted and isinstance(formatted[field], datetime):
+                formatted[field] = formatted[field].isoformat()
+        
         return formatted
 
     # ---------------- CRUD operations ---------------- #
@@ -112,10 +116,15 @@ class ScheduleRepository:
         if self.use_mongodb and self.collection is not None:
             query = {"user_id": user_id} if user_id else {}
             try:
+                logger.debug(f"MongoDB list query: {query}")
                 cursor = self.collection.find(query).sort("requested_time", 1)
-                return [self._format_event(doc) for doc in cursor]
+                events = [self._format_event(doc) for doc in cursor]
+                logger.info(f"MongoDB list returned {len(events)} events (user_id={user_id})")
+                if events:
+                    logger.debug(f"Sample event IDs from MongoDB: {[e.get('id') for e in events[:3]]}")
+                return events
             except Exception as exc:
-                logger.error(f"MongoDB fetch schedules failed: {exc}")
+                logger.error(f"MongoDB fetch schedules failed: {exc}", exc_info=True)
                 return []
 
         events = self._load_events()
@@ -165,6 +174,34 @@ class ScheduleRepository:
         events[schedule_id]["updated_at"] = datetime.utcnow().isoformat()
         if admin_note is not None:
             events[schedule_id]["admin_note"] = admin_note
+        self._save_events(events)
+        return events[schedule_id]
+
+    def update_assignment(self, schedule_id: str, assignment_data: Dict) -> Optional[Dict]:
+        """Update assignment-related fields"""
+        if self.use_mongodb and self.collection is not None:
+            try:
+                update_fields = {
+                    **assignment_data,
+                    "updated_at": datetime.utcnow(),
+                }
+                
+                return_document = ReturnDocument.AFTER if ReturnDocument else True
+                result = self.collection.find_one_and_update(
+                    {"_id": schedule_id},
+                    {"$set": update_fields},
+                    return_document=return_document,
+                )
+                return self._format_event(result)
+            except Exception as exc:
+                logger.error(f"MongoDB update assignment failed: {exc}")
+                raise DatabaseConnectionError(f"Update assignment failed: {exc}")
+
+        events = self._load_events()
+        if schedule_id not in events:
+            return None
+        events[schedule_id].update(assignment_data)
+        events[schedule_id]["updated_at"] = datetime.utcnow().isoformat()
         self._save_events(events)
         return events[schedule_id]
 

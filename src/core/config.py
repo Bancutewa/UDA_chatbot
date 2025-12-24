@@ -43,6 +43,9 @@ class Config:
     QDRANT_URL: str = os.getenv("QDRANT_URL", "http://localhost:6333")
     QDRANT_API_KEY: Optional[str] = os.getenv("QDRANT_API_KEY")
     QDRANT_COLLECTION: str = os.getenv("QDRANT_COLLECTION", "real_estate_listings")
+    
+    # Application Base URL (for email links)
+    BASE_URL: str = os.getenv("BASE_URL", "http://localhost:8501")
 
     # Audio Configuration
     AUDIO_VOICE_ID: str = "Nguyễn Ngân (Female, Vietnamese)"

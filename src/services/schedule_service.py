@@ -18,6 +18,9 @@ from ..core.logger import logger
 from ..repositories.schedule_repository import schedule_repository
 from ..schemas.user import UserSession, UserRole
 from ..core.exceptions import ValidationError, DatabaseConnectionError, AuthenticationError
+from ..services.qdrant_service import qdrant_service
+from ..utils.listing_utils import extract_district_from_listing
+from qdrant_client.http import models
 
 
 class ScheduleService:
@@ -298,10 +301,21 @@ class ScheduleService:
     def _sync_admin_calendar(self):
         try:
             events = self.repo.list()
+            # Ensure all datetime fields are serialized to strings
+            serializable_events = []
+            for event in events:
+                serializable_event = {}
+                for key, value in event.items():
+                    if isinstance(value, datetime):
+                        serializable_event[key] = value.isoformat()
+                    else:
+                        serializable_event[key] = value
+                serializable_events.append(serializable_event)
+            
             with open(config.ADMIN_CALENDAR_FILE, "w", encoding="utf-8") as fh:
-                json.dump(events, fh, ensure_ascii=False, indent=2)
+                json.dump(serializable_events, fh, ensure_ascii=False, indent=2)
         except Exception as exc:
-            logger.warning(f"Không thể đồng bộ calendar admin: {exc}")
+            logger.warning(f"Không thể đồng bộ calendar admin: {exc}", exc_info=True)
 
     @staticmethod
     def _extract_user_messages_from_context(context: str) -> str:
@@ -333,6 +347,37 @@ class ScheduleService:
         match = pattern.search(normalized)
         if match:
             return f"Quận {match.group(1)}"
+        return None
+    
+    @staticmethod
+    def _get_district_from_listing(listing_id: str) -> Optional[str]:
+        """Get district from listing data in Qdrant by listing_id."""
+        if not listing_id:
+            return None
+        
+        try:
+            must_filters = [
+                models.FieldCondition(
+                    key="ma_can",
+                    match=models.MatchValue(value=listing_id)
+                )
+            ]
+            
+            results = qdrant_service.client.scroll(
+                collection_name=qdrant_service.collection_name,
+                scroll_filter=models.Filter(must=must_filters),
+                limit=1
+            )
+            
+            points, _ = results
+            if points and points[0].payload:
+                listing_details = points[0].payload
+                # Use centralized utility to extract district
+                district = extract_district_from_listing(listing_details)
+                return district
+        except Exception as e:
+            logger.warning(f"Error fetching district from listing_id '{listing_id}': {e}")
+        
         return None
 
     def _validate_booking_info(self, payload: Dict, raw_message: str, context: Optional[str] = None) -> Tuple[Optional[datetime], Optional[str], Optional[str], List[str]]:
@@ -369,7 +414,18 @@ class ScheduleService:
             if user_context:
                 district = self._extract_district_from_text(user_context)
         
-        if not district:
+        # Nếu vẫn chưa có district nhưng có listing_id, tự động lấy từ listing data
+        if not district and payload.get("listing_id"):
+            listing_id = payload.get("listing_id")
+            try:
+                district = self._get_district_from_listing(listing_id)
+                if district:
+                    logger.info(f"Auto-extracted district '{district}' from listing_id '{listing_id}'")
+            except Exception as e:
+                logger.warning(f"Could not extract district from listing_id '{listing_id}': {e}")
+        
+        # Chỉ yêu cầu district nếu không có listing_id hoặc không thể lấy được từ listing
+        if not district and not payload.get("listing_id"):
             missing_fields.append("khu vực")
         
         return visit_datetime, district, source_time, missing_fields
@@ -384,6 +440,40 @@ class ScheduleService:
         session_id: Optional[str] = None,
         context: Optional[str] = None,
     ) -> Dict:
+        # Try to get real user_id from chat session if available AND user_session is still guest
+        # If user_session already has a real user_id (from booking_tools), don't override it
+        if session_id and user_session and user_session.user_id.startswith("guest_"):
+            try:
+                from ..services.chat_service import chat_service
+                chat_session = chat_service.get_session(session_id)
+                logger.debug(f"Chat session for booking: session_id={session_id}, user_id={chat_session.get('user_id') if chat_session else None}")
+                if chat_session and chat_session.get("user_id"):
+                    real_user_id = chat_session.get("user_id")
+                    # If we found a real user_id (not guest), create proper user_session
+                    if real_user_id and not real_user_id.startswith("guest_"):
+                        from ..repositories.user_repository import UserRepository
+                        user_repo = UserRepository()
+                        user = user_repo.get_user_by_id(real_user_id)
+                        if user:
+                            # Create proper user_session with real user data
+                            from ..schemas.user import UserRole, UserStatus
+                            user_session = UserSession(
+                                user_id=user.id,
+                                username=user.full_name or user.username,
+                                role=user.role,
+                                status=user.status
+                            )
+                            logger.info(f"Using real user session for booking (from chat session): user_id={user.id}, email={user.email}")
+                        else:
+                            logger.warning(f"Chat session has user_id={real_user_id} but user not found in database")
+                    else:
+                        logger.debug(f"Chat session user_id is guest or invalid: {real_user_id}")
+                else:
+                    logger.debug(f"Chat session has no user_id: session_id={session_id}")
+            except Exception as e:
+                logger.warning(f"Could not get user_id from chat session: {e}", exc_info=True)
+        elif user_session and not user_session.user_id.startswith("guest_"):
+            logger.info(f"User session already has real user_id: {user_session.user_id}, skipping chat session lookup")
         visit_datetime, district, source_time, missing_fields = self._validate_booking_info(payload, raw_message, context)
         
         # Nếu thiếu thông tin, raise ValidationError với message hỏi lại
@@ -408,13 +498,35 @@ class ScheduleService:
                 )
 
         user_info = self._default_user(user_session)
-        full_name = user_session.full_name if user_session and hasattr(user_session, "full_name") else user_info["user_name"]
+        # Use username from user_session (which is set to customer_name in booking tool)
+        user_name = user_info["user_name"]
+        final_user_id = user_info["user_id"]
+        
+        # Log final user_id to debug
+        logger.info(f"Final user_id for booking: {final_user_id}, is_guest={final_user_id and final_user_id.startswith('guest_') if final_user_id else True}")
+        
+        # Get email: from payload (guest) or from user record (logged in user)
+        user_email = payload.get("user_email")
+        if not user_email and user_session and not user_session.user_id.startswith("guest_"):
+            # User is logged in, get email from user record
+            try:
+                from ..repositories.user_repository import UserRepository
+                user_repo = UserRepository()
+                user = user_repo.get_user_by_id(user_session.user_id)
+                if user:
+                    user_email = user.email
+                    logger.info(f"Retrieved email from user record: {user_email}")
+            except Exception as e:
+                logger.warning(f"Could not get email from user record: {e}")
+        
         base_event = {
             "id": str(uuid.uuid4()),
-            "user_id": user_info["user_id"],
-            "user_name": full_name,
+            "user_id": final_user_id,
+            "user_name": user_name,
+            "user_email": user_email,  # Email from user record (if logged in) or from payload (if guest)
             "district": district,
             "property_type": payload.get("property_type") or "bất động sản",
+            "listing_id": payload.get("listing_id"),  # Add listing_id if provided
             "notes": payload.get("notes") or payload.get("requirements") or "",
             "status": "pending",
             "requested_time": visit_datetime.isoformat(),
@@ -426,14 +538,31 @@ class ScheduleService:
         }
 
         try:
+            logger.info(f"Creating schedule event: user_id={base_event.get('user_id')}, listing_id={base_event.get('listing_id')}, district={base_event.get('district')}")
             event = self.repo.create(base_event)
+            
+            # Verify event was created successfully
+            if not event:
+                logger.error("Repository returned None/empty event")
+                raise DatabaseConnectionError("Không thể tạo lịch hẹn. Repository trả về kết quả rỗng.")
+            
+            if not event.get("id"):
+                logger.error(f"Repository returned event without id: {event}")
+                raise DatabaseConnectionError("Không thể tạo lịch hẹn. Event không có ID.")
+            
+            # Verify event was actually saved by trying to retrieve it
+            retrieved_event = self.repo.get(event["id"])
+            if not retrieved_event:
+                logger.error(f"Event {event['id']} was created but cannot be retrieved from database")
+                raise DatabaseConnectionError("Lịch hẹn đã được tạo nhưng không thể truy vấn lại. Vui lòng kiểm tra database.")
+            
             self._sync_admin_calendar()
-            logger.info(f"Tạo lịch xem nhà thành công: {event['id']}")
+            logger.info(f"Tạo lịch xem nhà thành công: event_id={event['id']}, user_id={event.get('user_id')}, listing_id={event.get('listing_id')}")
             return event
         except DatabaseConnectionError:
             raise
         except Exception as exc:
-            logger.error(f"Create schedule failed: {exc}")
+            logger.error(f"Create schedule failed: {exc}", exc_info=True)
             raise DatabaseConnectionError("Không thể lưu lịch hẹn, vui lòng thử lại sau.")
 
     def format_confirmation(self, event: Dict) -> str:
@@ -463,7 +592,11 @@ class ScheduleService:
         return self.repo.list(user_id=user_id)
 
     def list_all(self) -> List[Dict]:
-        return self.repo.list()
+        events = self.repo.list()
+        logger.info(f"Loaded {len(events)} events from database for list_all()")
+        if events:
+            logger.debug(f"Sample event IDs: {[e.get('id') for e in events[:3]]}")
+        return events
 
     def get(self, schedule_id: str) -> Optional[Dict]:
         return self.repo.get(schedule_id)

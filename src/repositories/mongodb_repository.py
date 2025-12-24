@@ -164,12 +164,12 @@ class MongoDBRepository:
             logger.error(f"Failed to delete session: {e}")
             raise DatabaseConnectionError(f"Delete session failed: {e}")
 
-    def get_all_sessions(self, user_id: str = "default") -> List[Dict]:
-        """Get all sessions for a user, sorted by updated_at"""
+    def get_all_sessions(self, user_id: str = None) -> List[Dict]:
+        """Get all sessions, optionally filtered by user_id, sorted by updated_at"""
         try:
-            sessions = list(self.collection.find(
-                {"user_id": user_id}
-            ).sort("updated_at", -1))
+            # If user_id is provided, filter by it; otherwise get all sessions
+            query = {"user_id": user_id} if user_id is not None else {}
+            sessions = list(self.collection.find(query).sort("updated_at", -1))
 
             return [self._format_session(session) for session in sessions]
         except Exception as e:
