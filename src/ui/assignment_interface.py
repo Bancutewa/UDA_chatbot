@@ -2,7 +2,7 @@
 Assignment Interface - Handle assignment confirmation/rejection from email links
 """
 import streamlit as st
-from typing import Optional, Tuple
+from typing import Optional, Tuple, Dict
 
 from ..services.assignment_service import assignment_service
 from ..core.logger import logger

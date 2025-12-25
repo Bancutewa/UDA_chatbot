@@ -519,15 +519,19 @@ class ScheduleService:
             except Exception as e:
                 logger.warning(f"Could not get email from user record: {e}")
         
+        # Get phone from payload (stored separately, not in notes)
+        user_phone = payload.get("phone", "")
+        
         base_event = {
             "id": str(uuid.uuid4()),
             "user_id": final_user_id,
             "user_name": user_name,
             "user_email": user_email,  # Email from user record (if logged in) or from payload (if guest)
+            "user_phone": user_phone,  # Phone stored separately for easy access
             "district": district,
             "property_type": payload.get("property_type") or "bất động sản",
             "listing_id": payload.get("listing_id"),  # Add listing_id if provided
-            "notes": payload.get("notes") or payload.get("requirements") or "",
+            "notes": payload.get("notes") or payload.get("requirements") or "",  # Notes only for customer notes/requirements
             "status": "pending",
             "requested_time": visit_datetime.isoformat(),
             "created_at": datetime.utcnow().isoformat(),
