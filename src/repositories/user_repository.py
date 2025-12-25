@@ -88,6 +88,13 @@ class UserRepository:
         """Get user by ID"""
         try:
             from bson import ObjectId
+            # Support both real MongoDB ObjectId and non-persistent/guest IDs
+            # Guest / temporary users (e.g. "guest_0123456789") are not stored in MongoDB,
+            # so ObjectId(...) would raise an error. In that case we simply return None.
+            if not ObjectId.is_valid(user_id):
+                logger.warning(f"get_user_by_id called with non-ObjectId value: {user_id}")
+                return None
+
             user_doc = self.collection.find_one({"_id": ObjectId(user_id)})
             if user_doc:
                 user_doc["id"] = str(user_doc["_id"])
@@ -200,6 +207,45 @@ class UserRepository:
         except Exception as e:
             logger.error(f"Failed to count users: {e}")
             return 0
+
+    def get_users_by_role(self, role: str) -> List[UserResponse]:
+        """Get users by role (e.g., get all Sale users)"""
+        try:
+            users = []
+            cursor = self.collection.find(
+                {"role": role},
+                {"hashed_password": 0}  # Exclude password from response
+            ).sort("created_at", -1)
+
+            for user_doc in cursor:
+                user_doc["id"] = str(user_doc["_id"])
+                
+                # Handle missing fields for backward compatibility
+                if "status" not in user_doc or not user_doc["status"]:
+                    user_doc["status"] = UserStatus.ACTIVE.value
+                elif isinstance(user_doc["status"], str):
+                    pass
+                else:
+                    user_doc["status"] = user_doc["status"].value if hasattr(user_doc["status"], "value") else str(user_doc["status"])
+                
+                if "role" not in user_doc or not user_doc["role"]:
+                    user_doc["role"] = "user"
+                elif isinstance(user_doc["role"], str):
+                    pass
+                else:
+                    user_doc["role"] = user_doc["role"].value if hasattr(user_doc["role"], "value") else str(user_doc["role"])
+                
+                if "created_at" not in user_doc:
+                    user_doc["created_at"] = datetime.utcnow()
+                if "updated_at" not in user_doc:
+                    user_doc["updated_at"] = datetime.utcnow()
+                
+                users.append(UserResponse(**user_doc))
+
+            return users
+        except Exception as e:
+            logger.error(f"Failed to get users by role: {e}")
+            raise DatabaseConnectionError(f"Failed to get users by role: {e}")
 
     def is_available(self) -> bool:
         """Check if repository is available"""

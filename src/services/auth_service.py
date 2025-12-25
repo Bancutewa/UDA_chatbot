@@ -268,10 +268,10 @@ class AuthService:
             raise ValidationError(f"Delete failed: {str(e)}")
 
     def get_all_users(self, current_user: UserSession, skip: int = 0, limit: int = 100) -> list[UserResponse]:
-        """Get all users (admin and sale can view)"""
-        # Admin and Sale can view user list
-        if current_user.role not in [UserRole.ADMIN, UserRole.SALE]:
-            raise AuthenticationError("Admin or Sale access required")
+        """Get all users (admin only)"""
+        # Only Admin can view user list
+        if current_user.role != UserRole.ADMIN:
+            raise AuthenticationError("Admin access required")
 
         try:
             return self.user_repo.get_all_users(skip, limit)

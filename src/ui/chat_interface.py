@@ -3,6 +3,7 @@ Chat Interface - Streamlit UI for the chatbot
 """
 import streamlit as st
 from typing import Optional
+from datetime import datetime
 
 from ..services.chat_service import chat_service
 from ..core.config import config
@@ -236,26 +237,50 @@ class ChatInterface:
         if "current_session_id" not in st.session_state:
             # Get current user ID for session creation
             current_user_id = user_session.user_id if user_session else None
-            sessions = self.chat_service.get_all_sessions()
+            
+            # Get sessions filtered by user_id if logged in
+            if user_session:
+                sessions = self.chat_service.get_all_sessions(user_session.user_id)
+            else:
+                sessions = self.chat_service.get_all_sessions()
 
-            # Filter sessions by user_id if user is logged in
-            if user_session and sessions:
-                user_sessions = [s for s in sessions if s.get("user_id") == user_session.user_id]
-                if user_sessions:
-                    st.session_state.current_session_id = user_sessions[0]["id"]
-                else:
-                    new_session = self.chat_service.create_session(current_user_id)
-                    st.session_state.current_session_id = new_session["id"]
-            elif sessions:
+            # Use first session if available, otherwise create new
+            if sessions:
                 st.session_state.current_session_id = sessions[0]["id"]
             else:
                 new_session = self.chat_service.create_session(current_user_id)
                 st.session_state.current_session_id = new_session["id"]
 
         current_session_id = st.session_state.current_session_id
+        
+        # IMPORTANT: If user is logged in, ensure current session has correct user_id
+        # This fixes the issue where session was created before login
+        if user_session and current_session_id:
+            try:
+                session = self.chat_service.get_session(current_session_id)
+                if session and (not session.get("user_id") or session.get("user_id") != user_session.user_id):
+                    # Update session with correct user_id
+                    from ..repositories.chat_history_repo import ChatHistoryRepository
+                    repo = ChatHistoryRepository()
+                    if hasattr(repo, 'mongo_repo') and repo.mongo_repo:
+                        # MongoDB: update user_id
+                        repo.mongo_repo.collection.update_one(
+                            {"_id": current_session_id},
+                            {"$set": {"user_id": user_session.user_id, "updated_at": datetime.utcnow()}}
+                        )
+                        logger.info(f"Updated session {current_session_id} with user_id={user_session.user_id}")
+            except Exception as e:
+                logger.warning(f"Could not update session user_id: {e}")
 
         # Render sidebar first (always visible)
         self.render_sidebar(user_session)
+        
+        # Check for assignment pages (from email links)
+        query_params = st.query_params
+        if "token" in query_params and ("assignment" in query_params.get("page", "") or "confirm" in query_params.get("action", "").lower() or "reject" in query_params.get("action", "").lower()):
+            from ..ui.assignment_interface import assignment_interface
+            assignment_interface.render()
+            return
         
         # Render components
         if st.session_state.get("show_user_management"):

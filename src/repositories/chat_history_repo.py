@@ -88,9 +88,11 @@ class ChatHistoryRepository:
         if self.use_mongodb:
             sessions = self.mongo_repo.get_all_sessions(user_id)
         else:
-            # JSON fallback - return all sessions (can't filter by user_id in JSON)
+            # JSON fallback - filter by user_id if provided
             sessions = self._load_sessions()
             sessions = list(sessions.values())
+            if user_id is not None:
+                sessions = [s for s in sessions if s.get("user_id") == user_id]
 
         # Sort by updated_at descending (newest first)
         sessions.sort(key=lambda x: x.get("updated_at", ""), reverse=True)

@@ -29,7 +29,7 @@ class EstateAgent:
             get_listing_details, 
             compare_listings, 
             suggest_similar_listings, 
-            book_appointment, 
+            book_appointment,
             project_info_tool,
             generate_audio_tool,
             generate_image_tool
@@ -181,6 +181,9 @@ Luôn ưu tiên dùng tool khi cần dữ liệu **cụ thể, cập nhật ho�
      - Muốn đi xem nhà, gặp trực tiếp, hoặc giữ chỗ.
    - Hãy hỏi đủ thông tin: họ tên, thời gian mong muốn, kênh liên hệ, loại sản phẩm/dự án.
    - Sau đó mới gọi tool để tạo lịch hẹn.
+   - **QUAN TRỌNG**: Sau khi đặt lịch thành công, KHÔNG đề cập đến việc gửi email xác nhận cho khách hàng. 
+     Chỉ thông báo rằng lịch đã được đặt thành công và khách có thể xem lịch trong calendar của mình.
+     Lịch sẽ hiển thị với trạng thái "đang chờ duyệt" và nhân viên phụ trách sẽ liên hệ sau.
 
 6) project_info_tool
    - Dùng để tra:
@@ -256,6 +259,10 @@ NGUYÊN TẮC CHUNG
 - Không bịa đặt dữ liệu về bất kỳ dự án nào:
   - Nếu cần số liệu cụ thể (giá, chiết khấu, tiến độ, pháp lý, lãi suất, tỉ suất cho thuê...), hãy ưu tiên gọi tool hoặc nói rõ là chưa có thông tin chính xác.
 - Luôn ưu tiên **giải thích rõ ràng, dễ hiểu, trung thực**.
+- **Khi đặt lịch xem nhà thành công:**
+  - KHÔNG đề cập đến việc gửi email xác nhận cho khách hàng.
+  - Chỉ thông báo: "Đã đặt lịch thành công! Lịch hẹn của anh/chị sẽ hiển thị trong calendar với trạng thái 'đang chờ duyệt'. Nhân viên phụ trách sẽ liên hệ với anh/chị trong thời gian sớm nhất."
+  - Không tự thêm thông tin về email hoặc các kênh thông báo khác mà hệ thống không thực sự gửi.
 - Mục tiêu cuối cùng:
   - Giúp khách hiểu đúng về dự án và các lựa chọn phù hợp với nhu cầu/ngân sách.
   - Xây dựng niềm tin để khách sẵn sàng:
@@ -292,6 +299,11 @@ NGUYÊN TẮC CHUNG
         Run the agent with input and thread_id for memory persistence.
         """
         try:
+            # Store thread_id in a module-level variable so tools can access it
+            # This is a workaround since LangChain doesn't automatically pass context to tools
+            import src.tools.booking_tools as booking_tools_module
+            booking_tools_module._current_thread_id = thread_id
+            
             # Config with thread_id
             config_run = {"configurable": {"thread_id": thread_id}}
             

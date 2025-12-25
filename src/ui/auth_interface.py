@@ -20,6 +20,9 @@ class AuthInterface:
         """Display login form and return user session if successful"""
         st.title("🔐 Đăng Nhập")
 
+        # Error container - always visible at top, outside form
+        error_container = st.container()
+        
         with st.form("login_form"):
             username = st.text_input("Tên đăng nhập", key="login_username")
             password = st.text_input("Mật khẩu", type="password", key="login_password")
@@ -27,7 +30,7 @@ class AuthInterface:
 
             if submit_button:
                 if not username or not password:
-                    st.error("Vui lòng nhập đầy đủ thông tin!")
+                    error_container.error("Vui lòng nhập đầy đủ thông tin!")
                     return None
 
                 try:
@@ -55,10 +58,10 @@ class AuthInterface:
                         return user_session
 
                 except Exception as e:
-                    st.error(f"Đăng nhập thất bại: {str(e)}")
+                    error_container.error(f"Đăng nhập thất bại: {str(e)}")
                     return None
 
-        # Link to register
+        # Link to register - always visible at bottom, outside form
         st.divider()
         col1, col2, col3 = st.columns([1, 2, 1])
         with col2:
@@ -150,6 +153,9 @@ class AuthInterface:
         """Display registration form"""
         st.title("📝 Đăng Ký Tài Khoản Mới")
 
+        # Error container - always visible
+        error_container = st.container()
+
         with st.form("register_form"):
             col1, col2 = st.columns(2)
 
@@ -168,15 +174,15 @@ class AuthInterface:
             if submit_button:
                 # Validation
                 if not all([username, password, confirm_password, full_name, email]):
-                    st.error("Vui lòng điền đầy đủ thông tin có dấu *!")
+                    error_container.error("Vui lòng điền đầy đủ thông tin có dấu *!")
                     return None
 
                 if password != confirm_password:
-                    st.error("Mật khẩu xác nhận không khớp!")
+                    error_container.error("Mật khẩu xác nhận không khớp!")
                     return None
 
                 if len(password) < 6:
-                    st.error("Mật khẩu phải có ít nhất 6 ký tự!")
+                    error_container.error("Mật khẩu phải có ít nhất 6 ký tự!")
                     return None
 
                 try:
@@ -202,10 +208,10 @@ class AuthInterface:
                         return None
 
                 except Exception as e:
-                    st.error(f"Đăng ký thất bại: {str(e)}")
+                    error_container.error(f"Đăng ký thất bại: {str(e)}")
                     return None
 
-        # Back to login
+        # Back to login - always visible at bottom
         st.divider()
         col1, col2, col3 = st.columns([1, 2, 1])
         with col2:
@@ -251,24 +257,20 @@ class AuthInterface:
             if st.button("🚪 Đăng Xuất", key="logout_button", use_container_width=True):
                 self.logout()
 
-            # Admin and Sale panel
-            if user_session.role in [UserRole.ADMIN, UserRole.SALE]:
+            # Admin panel only
+            if user_session.role == UserRole.ADMIN:
                 st.divider()
-                if user_session.role == UserRole.ADMIN:
-                    st.subheader("⚙️ Quản Trị Viên")
-                else:
-                    st.subheader("💼 Nhân Viên Bán Hàng")
+                st.subheader("⚙️ Quản Trị Viên")
 
-                # User management (Admin and Sale can view, but only Admin can edit)
+                # User management (Admin only)
                 if st.button("👥 Quản Lý Người Dùng", key="sidebar_user_management_button", use_container_width=True):
                     # Clear other page flags
                     st.session_state.show_schedule_management = False
                     st.session_state.show_data_management = False
                     st.session_state.show_user_management = True
                     st.rerun()
-            
-            # Admin only: Data management
-            if user_session.role == UserRole.ADMIN:
+                
+                # Data management (Admin only)
                 if st.button("🗄️ Quản Lý Dữ Liệu", key="sidebar_data_button", use_container_width=True):
                     # Clear other page flags
                     st.session_state.show_user_management = False
@@ -277,12 +279,16 @@ class AuthInterface:
                     st.rerun()
 
     def show_user_management(self, current_user: UserSession):
-        """Show user management interface for admins and sales"""
-        st.title("👥 Quản Lý Người Dùng")
+        """Show user management interface for admins only"""
+        # Only Admin can access
+        if current_user.role != UserRole.ADMIN:
+            st.error("❌ Chỉ quản trị viên mới có quyền truy cập quản lý người dùng.")
+            if st.button("⬅️ Quay lại chat", use_container_width=True):
+                st.session_state.show_user_management = False
+                st.rerun()
+            return
         
-        # Show read-only notice for Sale
-        if current_user.role == UserRole.SALE:
-            st.info("ℹ️ Bạn đang xem ở chế độ chỉ đọc. Chỉ quản trị viên mới có thể chỉnh sửa.")
+        st.title("👥 Quản Lý Người Dùng")
 
         try:
             all_users = self.auth_service.get_all_users(current_user)
