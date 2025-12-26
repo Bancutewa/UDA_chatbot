@@ -54,6 +54,10 @@ class UserInDB(UserBase):
     verification_code: Optional[str] = None
     verification_expires_at: Optional[datetime] = None
 
+    # Reset Password fields
+    reset_token: Optional[str] = None
+    reset_token_expires_at: Optional[datetime] = None
+
     class Config:
         from_attributes = True
 

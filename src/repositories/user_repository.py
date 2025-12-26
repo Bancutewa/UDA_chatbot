@@ -144,6 +144,84 @@ class UserRepository:
             logger.error(f"Failed to update verification info: {e}")
             raise DatabaseConnectionError(f"Failed to update verification info: {e}")
 
+    def update_password(self, user_id: str, hashed_password: str) -> bool:
+        """Update user password"""
+        try:
+            from bson import ObjectId
+            result = self.collection.update_one(
+                {"_id": ObjectId(user_id)},
+                {"$set": {
+                    "hashed_password": hashed_password,
+                    "updated_at": datetime.utcnow()
+                }}
+            )
+            return result.modified_count > 0
+        except Exception as e:
+            logger.error(f"Failed to update password: {e}")
+            raise DatabaseConnectionError(f"Failed to update password: {e}")
+
+    def get_user_by_email(self, email: str) -> Optional[UserInDB]:
+        """Get user by email"""
+        try:
+            user_doc = self.collection.find_one({"email": email})
+            if user_doc:
+                user_doc["id"] = str(user_doc["_id"])
+                return UserInDB(**user_doc)
+            return None
+        except Exception as e:
+            logger.error(f"Failed to get user by email: {e}")
+            raise DatabaseConnectionError(f"Failed to get user by email: {e}")
+
+    def save_reset_token(self, user_id: str, token: str, expires_at: datetime) -> bool:
+        """Save password reset token"""
+        try:
+            from bson import ObjectId
+            result = self.collection.update_one(
+                {"_id": ObjectId(user_id)},
+                {"$set": {
+                    "reset_token": token,
+                    "reset_token_expires_at": expires_at,
+                    "updated_at": datetime.utcnow()
+                }}
+            )
+            return result.modified_count > 0
+        except Exception as e:
+            logger.error(f"Failed to save reset token: {e}")
+            raise DatabaseConnectionError(f"Failed to save reset token: {e}")
+
+    def get_user_by_reset_token(self, token: str) -> Optional[UserInDB]:
+        """Get user by reset token"""
+        try:
+            user_doc = self.collection.find_one({
+                "reset_token": token,
+                "reset_token_expires_at": {"$gt": datetime.utcnow()}
+            })
+            if user_doc:
+                user_doc["id"] = str(user_doc["_id"])
+                return UserInDB(**user_doc)
+            return None
+        except Exception as e:
+            logger.error(f"Failed to get user by reset token: {e}")
+            raise DatabaseConnectionError(f"Failed to get user by reset token: {e}")
+
+    def clear_reset_token(self, user_id: str) -> bool:
+        """Clear reset token"""
+        try:
+            from bson import ObjectId
+            result = self.collection.update_one(
+                {"_id": ObjectId(user_id)},
+                {"$unset": {
+                    "reset_token": "",
+                    "reset_token_expires_at": ""
+                }, "$set": {
+                    "updated_at": datetime.utcnow()
+                }}
+            )
+            return result.modified_count > 0 or result.matched_count > 0
+        except Exception as e:
+            logger.error(f"Failed to clear reset token: {e}")
+            raise DatabaseConnectionError(f"Failed to clear reset token: {e}")
+
     def delete_user(self, user_id: str) -> bool:
         """Delete user"""
         try:

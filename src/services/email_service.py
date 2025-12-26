@@ -357,5 +357,33 @@ class EmailService:
         return self.send_email(admin_email, subject, html_content)
 
 
+    def send_password_reset_email(self, to_email: str, otp: str) -> bool:
+        """Send password reset email with OTP"""
+        subject = "🔐 Khôi phục mật khẩu Chatbot Bất Động Sản"
+        
+        html_content = f"""
+        <html>
+            <body style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
+                <div style="max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #ddd; border-radius: 5px;">
+                    <h2 style="color: #2c3e50; text-align: center;">Khôi Phục Mật Khẩu</h2>
+                    <p>Xin chào,</p>
+                    <p>Chúng tôi nhận được yêu cầu khôi phục mật khẩu tài khoản của bạn.</p>
+                    <p>Mã xác thực (OTP) của bạn là:</p>
+                    <div style="background-color: #f8f9fa; padding: 15px; text-align: center; border-radius: 5px; margin: 20px 0;">
+                        <h1 style="color: #dc3545; margin: 0; letter-spacing: 5px;">{otp}</h1>
+                    </div>
+                    <p>Mã này sẽ hết hạn trong vòng 15 phút.</p>
+                    <p>Nếu bạn không yêu cầu thay đổi mật khẩu, vui lòng bỏ qua email này.</p>
+                    <br>
+                    <p>Trân trọng,</p>
+                    <p>Đội ngũ hỗ trợ</p>
+                </div>
+            </body>
+        </html>
+        """
+        
+        return self.send_email(to_email, subject, html_content)
+
+
 # Global instance
 email_service = EmailService()

@@ -300,10 +300,11 @@ class AuthService:
             hashed_new_password = self._hash_password(new_password)
 
             # Update password
-            update_data = UserUpdate()
-            # Note: We'll need to add password update to repository
-            # For now, return success
-            return True
+            if self.user_repo.update_password(user.id, hashed_new_password):
+                logger.info(f"Password changed/updated for user {user.username}")
+                return True
+            else:
+                raise ValidationError("Failed to update password in database")
 
         except Exception as e:
             logger.error(f"Failed to change password: {e}")
@@ -379,6 +380,70 @@ class AuthService:
         except Exception as e:
             logger.error(f"Failed to resend email: {e}")
             return False
+
+    def request_password_reset(self, email: str) -> bool:
+        """Request password reset via email"""
+        try:
+            # Get user by email
+            user = self.user_repo.get_user_by_email(email)
+            if not user:
+                # Security: Don't reveal if email exists, just return True or log warning
+                logger.info(f"Password reset requested for non-existent email: {email}")
+                return True # Return True to prevent email enumeration? Or false? 
+                # UX: Usually better to tell user if email not found if it's internal app. 
+                # Let's return False or raise error for better UX in this context.
+                raise ValidationError("Email not found")
+
+            # Generate OTP
+            otp = "".join(random.choices(string.digits, k=6))
+            expires_at = datetime.utcnow() + timedelta(minutes=15)
+
+            # Save token
+            self.user_repo.save_reset_token(user.id, otp, expires_at)
+
+            # Send email
+            return email_service.send_password_reset_email(user.email, otp)
+
+        except ValidationError:
+            raise
+        except Exception as e:
+            logger.error(f"Failed to request password reset: {e}")
+            raise ValidationError(f"Failed to process request: {str(e)}")
+
+    def reset_password(self, email: str, otp: str, new_password: str) -> bool:
+        """Reset password with OTP"""
+        try:
+            # Get user by email
+            user = self.user_repo.get_user_by_email(email)
+            if not user:
+                raise ValidationError("User not found")
+
+            # Verify OTP
+            # Note: We can use `get_user_by_reset_token` but that checks token only.
+            # Here we double check with email to be sure.
+            
+            if not user.reset_token or user.reset_token != otp:
+                raise ValidationError("Invalid reset code")
+            
+            if not user.reset_token_expires_at or user.reset_token_expires_at < datetime.utcnow():
+                raise ValidationError("Reset code expired")
+
+            # Hash new password
+            hashed_password = self._hash_password(new_password)
+
+            # Update password
+            if self.user_repo.update_password(user.id, hashed_password):
+                # Clear token
+                self.user_repo.clear_reset_token(user.id)
+                return True
+            
+            return False
+
+        except ValidationError:
+            raise
+        except Exception as e:
+            logger.error(f"Failed to reset password: {e}")
+            raise ValidationError(f"Password reset failed: {str(e)}")
 
 
 # Global instance

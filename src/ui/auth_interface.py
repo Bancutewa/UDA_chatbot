@@ -59,6 +59,11 @@ class AuthInterface:
                     except Exception as e:
                         error_container.error(f"Đăng nhập thất bại: {str(e)}")
 
+        # Forgot password link
+        if st.button("Quên mật khẩu?", key="forgot_password_link", type="tertiary"):
+            st.session_state.show_forgot_password = True
+            st.rerun()
+
         # Link to register - always visible at bottom, outside form
         st.divider()
         col1, col2, col3 = st.columns([1, 2, 1])
@@ -146,6 +151,102 @@ class AuthInterface:
             st.rerun()
              
         return None
+
+    def show_forgot_password_form(self):
+        """Display forgot password form (Enter Email)"""
+        st.title("🔑 Quên Mật Khẩu")
+        st.write("Vui lòng nhập email đã đăng ký để nhận mã xác thực khôi phục mật khẩu.")
+
+        with st.form("forgot_password_form"):
+            email = st.text_input("Email", key="forgot_email")
+            
+            col1, col2 = st.columns(2)
+            with col1:
+                submit_button = st.form_submit_button("Gửi Mã Xác Thực", use_container_width=True)
+            
+            with col2:
+                # Cancel button logic handled outside form for better UX or below
+                pass
+
+        if submit_button:
+            if not email:
+                st.error("Vui lòng nhập email!")
+            else:
+                try:
+                    with st.spinner("Đang gửi yêu cầu..."):
+                        if self.auth_service.request_password_reset(email):
+                            st.success("Mã xác thực đã được gửi đến email của bạn (nếu tồn tại)!")
+                            st.session_state.reset_email = email
+                            st.session_state.show_reset_password = True
+                            st.session_state.show_forgot_password = False
+                            st.rerun()
+                        else:
+                            st.error("Gửi yêu cầu thất bại. Vui lòng thử lại.")
+                except Exception as e:
+                    st.error(f"Lỗi: {str(e)}")
+
+        st.divider()
+        if st.button("Quay lại Đăng Nhập", key="back_to_login_from_forgot"):
+            st.session_state.show_forgot_password = False
+            if "reset_email" in st.session_state:
+                del st.session_state.reset_email
+            st.rerun()
+
+    def show_reset_password_form(self):
+        """Display reset password form (Enter OTP + New Password)"""
+        st.title("🔐 Đặt Lại Mật Khẩu")
+        
+        email = st.session_state.get("reset_email")
+        if not email:
+            st.error("Không tìm thấy thông tin email. Vui lòng thử lại.")
+            if st.button("Quay lại"):
+                st.session_state.show_reset_password = False
+                st.session_state.show_forgot_password = True
+                st.rerun()
+            return
+
+        st.info(f"Đang đặt lại mật khẩu cho email: **{email}**")
+
+        with st.form("reset_password_form"):
+            otp = st.text_input("Mã xác thực (OTP)", max_chars=6)
+            new_password = st.text_input("Mật khẩu mới", type="password")
+            confirm_password = st.text_input("Xác nhận mật khẩu mới", type="password")
+            
+            submit_button = st.form_submit_button("Đặt Lại Mật Khẩu", use_container_width=True)
+
+        if submit_button:
+            if not all([otp, new_password, confirm_password]):
+                st.error("Vui lòng điền đầy đủ thông tin!")
+            elif new_password != confirm_password:
+                st.error("Mật khẩu xác nhận không khớp!")
+            elif len(new_password) < 6:
+                st.error("Mật khẩu phải có ít nhất 6 ký tự!")
+            else:
+                try:
+                    with st.spinner("Đang xử lý..."):
+                        if self.auth_service.reset_password(email, otp, new_password):
+                            st.success("✅ Đặt lại mật khẩu thành công! Vui lòng đăng nhập với mật khẩu mới.")
+                            # Cleanup
+                            st.session_state.show_reset_password = False
+                            if "reset_email" in st.session_state:
+                                del st.session_state.reset_email
+                            
+                            if st.button("Đi tới Đăng Nhập"):
+                                st.rerun()
+                            # Streamlit rerun directly acts like redirect if we are lucky with clear state, 
+                            # but better let user see success message.
+                        else:
+                            st.error("Đặt lại mật khẩu thất bại. Mã xác thực có thể không đúng hoặc đã hết hạn.")
+                except Exception as e:
+                    st.error(f"Lỗi: {str(e)}")
+
+        st.divider()
+        if st.button("Quay lại Đăng Nhập", key="back_to_login_from_reset"):
+            st.session_state.show_reset_password = False
+            if "reset_email" in st.session_state:
+                del st.session_state.reset_email
+            st.rerun()
+
 
     def show_register_form(self) -> Optional[UserSession]:
         """Display registration form"""
@@ -254,6 +355,16 @@ class AuthInterface:
             
             if st.button("🚪 Đăng Xuất", key="logout_button", use_container_width=True):
                 self.logout()
+            
+            # Change Password
+            if st.button("🔐 Đổi Mật Khẩu", key="sidebar_change_password_button", use_container_width=True):
+                 # Clear other views
+                st.session_state.show_user_management = False
+                st.session_state.show_schedule_management = False
+                st.session_state.show_data_management = False
+                
+                st.session_state.show_change_password = True
+                st.rerun()
 
             # Admin panel only
             if user_session.role == UserRole.ADMIN:
@@ -474,6 +585,47 @@ class AuthInterface:
             st.session_state.show_user_management = False
             st.rerun()
 
+    def show_change_password_form(self, user_session: UserSession):
+        """Display change password form"""
+        st.title("🔐 Đổi Mật Khẩu")
+
+        with st.form("change_password_form"):
+            old_password = st.text_input("Mật khẩu hiện tại", type="password")
+            new_password = st.text_input("Mật khẩu mới", type="password")
+            confirm_password = st.text_input("Xác nhận mật khẩu mới", type="password")
+
+            col1, col2 = st.columns(2)
+            with col1:
+                submit_button = st.form_submit_button("Lưu Thay Đổi")
+            
+        if submit_button:
+            if not all([old_password, new_password, confirm_password]):
+                st.error("Vui lòng điền đầy đủ thông tin!")
+            elif new_password != confirm_password:
+                st.error("Mật khẩu xác nhận không khớp!")
+            elif len(new_password) < 6:
+                st.error("Mật khẩu phải có ít nhất 6 ký tự!")
+            else:
+                try:
+                    with st.spinner("Đang cập nhật..."):
+                        if self.auth_service.change_password(
+                            user_session.user_id, old_password, new_password, user_session
+                        ):
+                            st.success("Đổi mật khẩu thành công! Vui lòng đăng nhập lại.")
+                            
+                            # Logout to force re-login
+                            if st.button("Đăng nhập lại"):
+                                self.logout()
+                        else:
+                            st.error("Đổi mật khẩu thất bại.")
+                except Exception as e:
+                    st.error(f"Lỗi: {str(e)}")
+
+        st.divider()
+        if st.button("❌ Hủy", key="cancel_change_password"):
+            st.session_state.show_change_password = False
+            st.rerun()
+
     def logout(self):
         """Logout user"""
         if "user_session" in st.session_state:
@@ -486,10 +638,18 @@ class AuthInterface:
             del st.session_state.show_user_management
         if "show_schedule_management" in st.session_state:
             del st.session_state.show_schedule_management
+        if "show_change_password" in st.session_state:
+            del st.session_state.show_change_password
         if "show_verification" in st.session_state:
             del st.session_state.show_verification
         if "pending_username" in st.session_state:
             del st.session_state.pending_username
+        if "show_forgot_password" in st.session_state:
+            del st.session_state.show_forgot_password
+        if "show_reset_password" in st.session_state:
+            del st.session_state.show_reset_password
+        if "reset_email" in st.session_state:
+            del st.session_state.reset_email
 
         st.rerun()
 
@@ -500,9 +660,12 @@ class AuthInterface:
 
         if user_session:
             # User is logged in
-            # Don't render show_user_management here - let chat_interface handle it with sidebar
-            # Just show profile in sidebar and return control to main app
-            self.show_user_profile(user_session)
+            self.show_user_profile(user_session) # Sidebar always visible
+            
+            if st.session_state.get("show_change_password", False):
+                self.show_change_password_form(user_session)
+                return None # Don't show chat interface
+
             return user_session
         else:
             # User not logged in - show auth forms
@@ -510,6 +673,10 @@ class AuthInterface:
                 self.show_verification_form()
             elif st.session_state.get("show_register", False):
                 self.show_register_form()
+            elif st.session_state.get("show_forgot_password", False):
+                self.show_forgot_password_form()
+            elif st.session_state.get("show_reset_password", False):
+                self.show_reset_password_form()
             else:
                 self.show_login_form()
 
