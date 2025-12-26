@@ -344,7 +344,7 @@ class DataService:
             'gia_thue': ['giá thuê', 'gia thue', 'rental', 'rent'],
             'ghi_chu': ['ghi chú', 'ghi chu', 'note', 'remark', 'pass', 'comment', 'lưu ý', 'luu y'],
             'du_an': ['dự án', 'du an', 'project'],
-            'phan_khu': ['phân khu', 'phan khu', 'phase', 'khu'],
+            'phan_khu': ['phân khu', 'phan khu', 'phase', 'khu', 'địa chỉ', 'dia chi'],
             'chi_ranh': ['chi ranh', 'zone', 'vùng'],
             'ngay_bat_dau': ['ngày bắt đầu', 'ngay bat dau', 'start date'],
             'ngay_ket_thuc': ['ngày kết thúc', 'ngay ket thuc', 'end date'],

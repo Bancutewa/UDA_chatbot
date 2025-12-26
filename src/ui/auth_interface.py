@@ -31,35 +31,33 @@ class AuthInterface:
             if submit_button:
                 if not username or not password:
                     error_container.error("Vui lòng nhập đầy đủ thông tin!")
-                    return None
+                else:
+                    try:
+                        with st.spinner("Đang đăng nhập..."):
+                            login_data = LoginRequest(username=username, password=password)
+                            token_response = self.auth_service.authenticate_user(login_data)
 
-                try:
-                    with st.spinner("Đang đăng nhập..."):
-                        login_data = LoginRequest(username=username, password=password)
-                        token_response = self.auth_service.authenticate_user(login_data)
+                            # Store session
+                            user_session = UserSession(
+                                user_id=token_response.user.id,
+                                username=token_response.user.username,
+                                role=token_response.user.role,
+                                status=token_response.user.status
+                            )
 
-                        # Store session
-                        user_session = UserSession(
-                            user_id=token_response.user.id,
-                            username=token_response.user.username,
-                            role=token_response.user.role,
-                            status=token_response.user.status
-                        )
+                            # Store in session state
+                            st.session_state.user_session = user_session
+                            st.session_state.auth_token = token_response.access_token
 
-                        # Store in session state
-                        st.session_state.user_session = user_session
-                        st.session_state.auth_token = token_response.access_token
+                            st.success(f"Chào mừng {token_response.user.full_name}!")
 
-                        st.success(f"Chào mừng {token_response.user.full_name}!")
+                            # Rerun to show main app
+                            st.rerun()
 
-                        # Rerun to show main app
-                        st.rerun()
+                            return user_session
 
-                        return user_session
-
-                except Exception as e:
-                    error_container.error(f"Đăng nhập thất bại: {str(e)}")
-                    return None
+                    except Exception as e:
+                        error_container.error(f"Đăng nhập thất bại: {str(e)}")
 
         # Link to register - always visible at bottom, outside form
         st.divider()

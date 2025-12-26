@@ -128,6 +128,7 @@ class QdrantService:
             
             # Create indexes for important fields
             important_fields = [
+                ('ma_can', models.PayloadSchemaType.KEYWORD),
                 ('toa', models.PayloadSchemaType.KEYWORD),
                 ('tang', models.PayloadSchemaType.INTEGER),
                 ('so_phong_ngu', models.PayloadSchemaType.INTEGER),
