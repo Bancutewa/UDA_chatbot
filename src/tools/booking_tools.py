@@ -26,13 +26,19 @@ def book_appointment(
     """
     Đặt lịch xem bất động sản cho khách hàng.
 
+    **THÔNG TIN TỰ ĐỘNG TỪ HỆ THỐNG:**
+    - Nếu khách hàng đã đăng nhập, hệ thống sẽ TỰ ĐỘNG lấy:
+      + Tên khách hàng (full_name hoặc username) từ tài khoản
+      + Email khách hàng từ tài khoản
+    - Chỉ cần cung cấp thông tin CÒN THIẾU (số điện thoại nếu chưa có trong hệ thống)
+
     Các tham số:
-    - listing_id: Mã căn muốn xem.
-    - time: Thời gian hẹn (chuẩn ISO hoặc mô tả tự nhiên như '9h sáng mai').
-    - phone: Số điện thoại của khách hàng.
-    - customer_name: Tên khách hàng (không bắt buộc).
-    - email: Email của khách hàng (chỉ cần cho guest, user đã đăng nhập sẽ tự động lấy từ tài khoản).
-    - session_id: ID của chat session/thread_id (QUAN TRỌNG: Nếu user đã đăng nhập, phải truyền thread_id vào đây để hệ thống lấy đúng user_id).
+    - listing_id: Mã căn muốn xem (BẮT BUỘC).
+    - time: Thời gian hẹn (BẮT BUỘC - chuẩn ISO hoặc mô tả tự nhiên như '9h sáng mai').
+    - phone: Số điện thoại của khách hàng (BẮT BUỘC - cần để liên hệ).
+    - customer_name: Tên khách hàng (CHỈ CẦN nếu khách chưa đăng nhập/guest).
+    - email: Email của khách hàng (CHỈ CẦN nếu khách chưa đăng nhập/guest).
+    - session_id: ID của chat session/thread_id (Tự động lấy từ context, không cần truyền thủ công).
 
     Return:
     - dict xác nhận lịch hẹn (thời gian, mã căn, nhân viên phụ trách...).
@@ -70,13 +76,16 @@ def book_appointment(
             logger.warning(f"Could not fetch listing details for {listing_id}: {e}")
         
         # Construct payload with extracted information
+        # Notes should only contain customer notes/requirements, not duplicate contact info
+        # Contact info (name, phone, email, listing_id) is already stored in separate fields
         payload = {
             "time_text": time,
             "district": district or "",  # Will be extracted from raw_message if empty
             "property_type": property_type,
             "listing_id": listing_id,  # Add listing_id to payload
             "user_email": email,  # Store email for sending confirmation later
-            "notes": f"Phone: {phone}, Name: {customer_name}, Listing: {listing_id}" + (f", Email: {email}" if email else "")
+            "phone": phone,  # Store phone separately for easy access
+            "notes": ""  # Notes field is for customer notes/requirements only, not contact info
         }
         
         # Build comprehensive raw_message with all available info

@@ -41,6 +41,14 @@ class AssignmentService:
             raise ValidationError("Token đã hết hạn. Vui lòng liên hệ Admin.")
         except jwt.JWTError:
             raise ValidationError("Token không hợp lệ.")
+    
+    def decode_assignment_token(self, token: str) -> Dict:
+        """
+        Decode assignment token without raising exceptions.
+        Returns token payload if valid, raises ValidationError if invalid.
+        This is a public method for UI to check token info before processing.
+        """
+        return self._verify_assignment_token(token)
 
     def assign_schedule_to_sale(
         self, 

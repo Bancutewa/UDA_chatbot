@@ -334,13 +334,10 @@ class ScheduleInterface:
                 user_email = selected_event.get('user_email')
                 if user_email:
                     st.markdown(f"**Email:** {user_email}")
-                # Extract phone from notes if available
-                notes = selected_event.get('notes', '')
-                if notes:
-                    import re
-                    phone_match = re.search(r'Phone:\s*(\d+)', notes)
-                    if phone_match:
-                        st.markdown(f"**Số điện thoại:** {phone_match.group(1)}")
+                # Get phone from separate field (not from notes)
+                user_phone = selected_event.get('user_phone')
+                if user_phone:
+                    st.markdown(f"**Số điện thoại:** {user_phone}")
                 st.markdown(f"**Khu vực:** {selected_event.get('district', 'Quận 7')} • **Loại:** {selected_event.get('property_type', 'bất động sản')}")
                 if selected_event.get('listing_id'):
                     st.markdown(f"**Mã căn:** {selected_event.get('listing_id')}")
